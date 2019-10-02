@@ -238,8 +238,8 @@ print(movies[0]['genres'])
 
 #%%
 genres = set()
-for mov in movies:
-    genres.add(mov['genres'])  # Won't work - you cannot have a set of lists
+# for mov in movies:
+#    genres.add(mov['genres'])  # Won't work - you cannot have a set of lists
         
 print(genres)
 
@@ -249,8 +249,8 @@ print(genres)
 
 #%%
 genres = set()
-for mov in movies:
-    genres.add(tuple(mov['genres']))  # Won't work - you cannot have a set of lists
+# for mov in movies:
+#    genres.add(tuple(mov['genres']))  # Won't work - you cannot have a set of lists
         
 print(genres)
 
@@ -307,11 +307,11 @@ list_of_sets
 
 
 #%%
-set_of_dicts = set(({'a':1},{'b':2}))
+#set_of_dicts = set(({'a':1},{'b':2}))
 
 
 #%%
-set_of_lists = set(([1, 2, 4],[1,2,3]))
+#set_of_lists = set(([1, 2, 4],[1,2,3]))
 
 
 #%%
