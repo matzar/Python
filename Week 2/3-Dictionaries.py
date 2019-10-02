@@ -196,11 +196,16 @@ print(string_from_dictionary_python_object, type(string_from_dictionary_python_o
 # - 3
 
 #%%
-mod_str=json.dumps(modules, indent=2)
+mod_str=json.dumps(modules, indent=4)
 print(mod_str)
 
 print(values['string'][0])
 print(values['integer'])
+
+print('\n\n')
+
+mod_values = json.dumps(values, indent = 2)
+print(mod_values)
 
 #%% [markdown]
 # ### To do the same with files, not strings, drop the `s`, so `dump` or `load`
