@@ -320,6 +320,3 @@ set_of_tuples
 
 
 #%%
-
-
-
