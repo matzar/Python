@@ -258,7 +258,7 @@ display(movies[0]) # display each movie and all its categories: 'title', 'year',
 # ## Pick out a single field
 
 #%%
-print(movies[0]['genres'])
+print(movies[0]['genres']) # Display the movie[0] genre
 
 #%% [markdown]
 # ## Now pull out all the genres with a similar pattern of code:
