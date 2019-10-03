@@ -215,27 +215,38 @@ print(mod_values)
 # with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as f:
 #     movies = json.load(f)
 
-
 # print(movies)
 
 with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as m:
-    movie = json.load(m) # put json list array 'movie' variable
+    movies = json.load(m) # put json list array 'movie' variable
 
-print(movie) # print movie array
+print(movies) # print movie array
+
 
 #%% [markdown]
 # ## Here we have loaded an array of json objects about movies
 # - Let's find all the top level keys
 
 #%%
-keyset = set()
+# Test - Get dictionary keys
+dictionary_keys = set(values) # Dictionary can also be created using set, but only keys remain after conversion, values are lost
+print(dictionary_keys)
+
+
+keyset = set()           # create empty set
 for mov in movies:
     for k in mov:
         keyset.add(k)
-        
+
+
 # print(keyset)
-print(set())
-keyset = set()
+
+keyset = set()           # create empty set
+for mov in movies:
+    for 
+
+
+
 #%%
 display(movies[0])
 
@@ -331,4 +342,23 @@ set_of_tuples = set(((1, 2, 4),(1,2,3)))
 set_of_tuples
 
 
+#%% md
+## Python 3 code to demonstrate the 
+## working of set() on list and tuple
+
 #%%
+
+# initializing list
+lis1 = [ 3, 4, 1, 4, 5 ]
+# initializing tuple
+tup1 = ( 3, 4, 1, 4, 5)
+
+# Printing iterables before conversion
+print("The list before conversion is: " + str(lis1))
+print("The tuple before conversion is: " + str(tup1))
+
+# Iterables after conversion are
+# notice distinct and sorted elements
+print("The list after conversion is: " + str(set(lis1)))
+print("The tuple after conversion is: " + str(set(tup1)))
+
