@@ -227,23 +227,20 @@ print(movies) # print movie array
 # ## Here we have loaded an array of json objects about movies
 # - Let's find all the top level keys
 
-#%%
-# Test - Get dictionary keys
-dictionary_keys = set(values) # Dictionary can also be created using set, but only keys remain after conversion, values are lost
-print(dictionary_keys)
-
-
 keyset = set()           # create empty set
 for mov in movies:
     for k in mov:
         keyset.add(k)
 
 
-# print(keyset)
+print(keyset)
 
-keyset = set()           # create empty set
+key_set = set()           # create empty set
 for mov in movies:
-    for 
+    for m in mov:
+        key_set.add(m)
+
+print(key_set)
 
 
 
@@ -362,3 +359,7 @@ print("The tuple before conversion is: " + str(tup1))
 print("The list after conversion is: " + str(set(lis1)))
 print("The tuple after conversion is: " + str(set(tup1)))
 
+#%%
+# Get dictionary keys
+dictionary_keys = set(values) # Dictionary can also be created using set, but only keys remain after conversion, values are lost
+print(dictionary_keys)
