@@ -201,6 +201,7 @@ print(mod_str)
 
 print(values['string'][0])
 print(values['integer'])
+print(set(values))
 
 print('\n\n')
 
@@ -211,10 +212,15 @@ print(mod_values)
 # ### To do the same with files, not strings, drop the `s`, so `dump` or `load`
 
 #%%
-with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as f:
-    movies = json.load(f)
+# with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as f:
+#     movies = json.load(f)
 
-print(movies)
+# print(movies)
+
+with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as m:
+    movie = json.load(m) # put json list array 'movie' variable
+
+print(movie) # print movie array
 
 #%% [markdown]
 # ## Here we have loaded an array of json objects about movies
@@ -226,9 +232,9 @@ for mov in movies:
     for k in mov:
         keyset.add(k)
         
-print(keyset)
-
-
+# print(keyset)
+print(set())
+keyset = set()
 #%%
 display(movies[0])
 
