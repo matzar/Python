@@ -252,7 +252,7 @@ for mov in movies:
 print("\n\nkeys: ",key_set)
 
 #%%
-display(movies[0]) # display each movie and all its categories: 'title', 'year', 'rated', 'runtime', etc.
+print(movies[0]) # display each movie and all its categories: 'title', 'year', 'rated', 'runtime', etc.
 
 #%% [markdown]
 # ## Pick out a single field
@@ -286,12 +286,19 @@ print(genres)
 # - Try again for a list of genres
 
 #%%
-genres = set()
-for mov in movies:
-    for genre in mov['genres']:
-        genres.add(genre)
+# genres = set()
+# for mov in movies:
+#     for genre in mov['genres']:
+#         genres.add(genre)
         
-print(genres)
+# print(genres)
+
+genres = set()
+for mov in movies:            # grab each movie in the json movies list
+    for g in mov['genres']:   # each movie in the json movie list has a list of genres - grab each one of these genres
+        genres.add(g)         # and add them to the set. Using a set will ensure that we don't have any duplicates and will sort our set as well.
+
+print(genres)   # print all the possible genres found in the json movies list
 
 #%% [markdown]
 # ## That is more like it.
