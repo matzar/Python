@@ -252,7 +252,7 @@ for mov in movies:
 print("\n\nkeys: ",key_set)
 
 #%%
-display(movies[0])
+display(movies[0]) # display each movie and all its categories: 'title', 'year', 'rated', 'runtime', etc.
 
 #%% [markdown]
 # ## Pick out a single field
