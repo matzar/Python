@@ -306,21 +306,33 @@ print(genres)   # print all the possible genres found in the json movies list
 # - This time we will build a list of dicts of the form `{genrename: {'num':number of examples, 'rating': av rating}}` 
 
 #%%
-genres = {}
-for mov in movies:
-    #print(mov['imdb'])
-    for genre in mov['genres']:
-        if mov['imdb']['rating'] is not None:    # Delete this first to see the problem it is fixing!
-            if genre not in genres:
-                genres[genre] = {'num':1, 'rating':int(mov['imdb']['rating'])}
+genres = {} # create empty list that will later be populated with dictionaries
+for m in movies:
+    # print(mov['imdb'])
+    for g in m['genres']:
+        if m['imdb']['rating'] is not None:    # Delete this first to see the problem it is fixing!
+            if g not in genres:
+                genres[g] = {'num':1, 'rating':int(m['imdb']['rating'])}
+                print(genres)
             else:
-                genres[genre]['num'] += 1
-                genres[genre]['rating'] += int(mov['imdb']['rating'])
+                genres[g]['num'] += 1
+                genres[g]['rating'] += int(m['imdb']['rating'])
+                print(genres)
+    print("")
         
-print(genres)
-for genre in genres:
-    genres[genre]['rating'] = genres[genre]['rating']/genres[genre]['num']
-print(genres)
+#display(genres)
+
+# calculate mean ratings for all found genres
+for g in genres:
+    genres[g]['rating'] = genres[g]['rating']/genres[g]['num']
+
+# display mean rating for all found genres
+for k in genres:
+    print(k,genres[k]['rating'])
+
+# for genre in genres:
+#     genres[genre]['rating'] = genres[genre]['rating']/genres[genre]['num']
+# print(genres)
 
 #%% [markdown]
 # # Sets, lists and dicts Summary
