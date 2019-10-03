@@ -354,20 +354,22 @@ print(list_of_dictionaries)
 
 
 #%%
-list_of_sets = [set((1,2,3)),set((3,3,4))]
-list_of_sets
+list_of_sets = [set((1, 2, 3)), set((1, 2, 3))]
+print(list_of_sets)
+
+#%%
+"""ERROR: TypeError: unhashable type: 'dict'"""
+# set_of_dicts = set(({'a':1},{'b':2}))
 
 
 #%%
-#set_of_dicts = set(({'a':1},{'b':2}))
+"""ERROR: TypeError: unhashable type 'list"""
+# set_of_lists = set(([1, 2, 4],[1,2,3]))
 
 
 #%%
-#set_of_lists = set(([1, 2, 4],[1,2,3]))
-
-
-#%%
-set_of_tuples = set(((1, 2, 4),(1,2,3)))
+"""OK: tuples are hashable"""
+set_of_tuples = set(((1, 2, 4),(1,2,3))) 
 set_of_tuples
 
 
