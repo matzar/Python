@@ -303,10 +303,10 @@ print(genres)   # print all the possible genres found in the json movies list
 #%% [markdown]
 # ## That is more like it.
 # - Something more challenging now - find the average rating by genre
-# - This time we will build a list of dicts of the form `{genrename: {'num':number of examples, 'rating': av rating}}` 
+# - This time we will build a dictionary of dicts of the form `{genrename: {'num':number of examples, 'rating': av rating}}` 
 
 #%%
-genres = {} # create empty list that will later be populated with dictionaries
+genres = dict() # create empty dictionary that will later be populated with dictionaries
 for m in movies:
     # print(mov['imdb'])
     for g in m['genres']:
@@ -344,7 +344,13 @@ for k in genres:
 
 #%%
 list_of_dicts = [{'a':1},{'b':2}]
-list_of_dicts
+print(list_of_dicts)
+
+list_of_dictionaries = list() 
+# or
+list_of_dictionaries = []
+list_of_dictionaries = [{'x' : '0'}, {'y' : '0'}]
+print(list_of_dictionaries)
 
 
 #%%
