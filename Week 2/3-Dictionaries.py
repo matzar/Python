@@ -22,7 +22,7 @@ values = {"string" : '\"This is an example of a string\"',
         'float' : '1.0', # we can use either '' or "" for both keys and values
          "integer" : "1"}
 
-display(values)
+print(values)
 
 #%% [markdown]
 # ## Access a single entry by its key
@@ -91,7 +91,7 @@ print(modules['ITNPBD6'][0])
 
 values['string'] = ['we\'re', 'adding', 'a', 'list', 'to', 'values', 'dictionary', 'at', 'key', 'equal', 'string']
 
-display(values)
+print(values)
 
 print("\n", values['string'][0],end = ' ')
 print(values['string'][1], end = ' ')
@@ -217,32 +217,39 @@ print(mod_values)
 
 # print(movies)
 
-with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as m:
-    movies = json.load(m) # put json list array 'movie' variable
+# with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as m:
+#     movies = json.load(m) # put json list array 'movie' variable
 
-print(movies) # print movie array
+# print(movies) # print movie array
 
 
 #%% [markdown]
 # ## Here we have loaded an array of json objects about movies
 # - Let's find all the top level keys
 
-keyset = set()           # create empty set
+# keyset = set()           # create empty set
+# for mov in movies:
+#     for k in mov:
+#         keyset.add(k)
+
+# print(keyset)
+
+with open('/Users/mateuszzaremba/dev/Python/MovieData.json') as m:
+    movies = json.load(m) # put json list into array 'movie' variable
+
+# print(movies) # print movie array
+
+key_list = list() # create empty list (To show what's going to be passed into the empty set)
 for mov in movies:
-    for k in mov:
-        keyset.add(k)
+    for key in mov:
+        key_list.append(key)
+print(key_list)   # this will print all the kets without getting rid of duplicates
 
-
-print(keyset)
-
-key_set = set()           # create empty set
-for mov in movies:
-    for m in mov:
-        key_set.add(m)
-
-print(key_set)
-
-
+key_set = set()   # create empty set (We use set to get rid of duplicates)
+for mov in movies:        
+    for key in mov:
+        key_set.add(key)
+print("\n\nkeys: ",key_set)
 
 #%%
 display(movies[0])
