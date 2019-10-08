@@ -192,6 +192,21 @@ def ret_rand_tuple():
 
 print(ret_rand_tuple())
 
+r = lambda a, b : a + b
+print(r(random.randrange(0, 10), random.randrange(0, 10)))
+
+def print_random_between(begin, end):
+    print(random.randrange(begin, end))
+
+lambda_print_random_between = lambda begin, end : print_random_between(begin, end)
+
+print_random_between(0, 10000)
+lambda_print_random_between(0, 10000)
+
+lambda_return_tuple = lambda a, b : (random.randrange(a, b), random.randrange(a, b)) # declare lambda which returns a tuple
+temp = lambda_return_tuple(0, 10000) # save lambdas return value in temp value
+print(temp) # print tuple from lambda
+
 #%% [markdown]
 # ## Generator Functions and `Yield`
 # - A generator is iterable, but does not store the values in memory
