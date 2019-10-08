@@ -219,19 +219,38 @@ print(temp) # print tuple from lambda
 l = [x*x for x in range(0, 5)]
 print(l)    # l  is a list
 
+l_is_a_list = [ z * z for z in range(0, 2)]
+print(l_is_a_list)
 
 #%%
 # Iterable into a generator
 g = (x*x for x in range(0, 5))
-print(g)    # l  is an object!
+print(g)    # g  is an object!
 
+print("iterable into a generator: ", end='')
+for i in g:
+    print(i, " ", end='')
 
-#%%
-for x in g:
-    print(x)
+print('\n')
+
+a = 0
+b = 3
+g_is_an_object = (i * i for i in range(a, b))
+print(g_is_an_object)
+
+print(f"iterable into a generator in range ({a}, {b}): ", end='')
+for i in g_is_an_object:   # you can iterate over a generator only once
+    print(i, " ", end='')  # usefull for large structures
+
+for i in g_is_an_object:   # this line will not be executed because
+    print(i, " ", end='')  # we can iterate over a generator only once
 
 #%% [markdown]
 # ## Write a generator function
+generator_function = (x * 10 for x in range(0, 10))
+
+for i in generator_function:
+    print(i)
 
 #%%
 def square_gen(s, f):
