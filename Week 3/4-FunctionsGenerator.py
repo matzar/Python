@@ -115,12 +115,21 @@ key_words_arguments(x = 0, y = 1, z = 2)
 def add_three(a, b, c):
     return a + b + c
 
-print(add_three(1, 2, 3))
-numlist=[1, 2, 3]
+print(add_three(1, 2, 4))
+numlist=[1, 2, 4]
 print(add_three(*numlist))
 
-kwlist={'a':1, 'b':2, 'c':3}
+kwlist={'a':1, 'b':2, 'c':4}
 print(add_three(**kwlist))
+
+def add_three_values(x, y, z):
+    return x + y + z
+
+print("")
+
+print(add_three_values(0, 1, 2))
+print(add_three_values(*[0, 1, 2]))
+print(add_three_values(**{'x' : 0, 'y' : 1, "z" : 2}))
 
 #%% [markdown]
 # ### Which to use depends on how the function is defined:
