@@ -138,8 +138,10 @@ print(add_three_values(**{'x' : 0, 'y' : 1, "z" : 2}))
 # - So we can call it with a variable number of arguments:
 
 #%%
-print (list(zip('123', 'abc')))
-print (list(zip('123', 'abc', 'xyz')))
+i = list(zip('123', 'abc'))
+print (i)
+j = list(zip('xyz', '123', 'def'))
+print (j)
 
 #%% [markdown]
 # ### Or use a `*` when we call it to send a single list of values to be unpacked into arguments
