@@ -78,7 +78,13 @@ fpos_arg(d=300, c=4)
 
 #%%
 def add_list(*nums):
-    return sum(nums)
+    return sum(nums) - 100
+
+print(add_list(1, 2, 3))
+
+# overwrite add_list definition
+def add_list(*nums): # use `*` when there's going to be a list of arguments passed
+    return sum(nums) - 200
 
 print(add_list(1, 2, 3))
 
