@@ -27,13 +27,25 @@ def mark_to_grade(mark):
         grade = "Distinction"
     return grade
 
+# define a function
+def m_g(m):
+    if m < 50:
+        g = "Fail"
+    elif m < 60:
+        g = "Pass"
+    elif m < 70:
+        g = "Merit"
+    else:
+        g = "Distinction"
+    return g
 #%% [markdown]
 # ## Call a function and store its result
 
 #%%
-grade = mark_to_grade(65)
+grade = mark_to_grade(50)
 print(grade)
 
+print(m_g(70))
 #%% [markdown]
 # ## Positional Arguments
 # - Names of arguments are matched to their position
@@ -43,12 +55,20 @@ def pos_arg(a, b):
     print(f"a is {a}, b is {b}")
 pos_arg(1, 2)
 
+def fpos_arg(c, d):
+    print(f"c is {c} and d is {d}")
+
+fpos_arg(213, 12421)
+
 #%% [markdown]
-# ## Keyword Arguments
+# ## `#` Keyword Arguments
 # - Name of arguments are matched by name
 
 #%%
 pos_arg(b=3, a=1)
+
+fpos_arg(c=300, d=4)
+fpos_arg(d=300, c=4)
 
 #%% [markdown]
 # ## Variable Length Argument Lists
