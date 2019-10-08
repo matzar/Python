@@ -100,6 +100,12 @@ def kwargs_example(**kwargs):
 
 kwargs_example(a=1, b=2, c=3)
 
+def key_words_arguments(**kwargs):
+    for k, v in kwargs.items():
+        print(f"{k} = {v}")
+
+key_words_arguments(x = 0, y = 1, z = 2)
+
 #%% [markdown]
 # ## Unpack an array into arguments
 # - When you have an array that represents the arguments to a function
