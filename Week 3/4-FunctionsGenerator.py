@@ -265,6 +265,25 @@ for i in sq:         # This actually calls the function!
 sq=square_gen(0,5)   # Define it again - iterables are one use only, remember!
 print(list(sq))
 
+import math as mt
+import matplotlib.pyplot as plt
+
+def square_root_of_sine_gen_in_range(a, b):
+    for i in range(a, b):
+        yield mt.sin(i) * mt.sin(i)
+
+sqrt = square_root_of_sine_gen_in_range(0, 5)
+print(sqrt)
+for i in sqrt:
+    print(i)
+
+sqrt = square_root_of_sine_gen_in_range(0, 5)
+print(list(sqrt))
+
+sqrt = square_root_of_sine_gen_in_range(0, 5)
+plt.figure(10)
+plt.plot(mt.sqrt(0.5))
+
 #%% [markdown]
 # ## Recursion
 #  - A function that calls itself
