@@ -152,6 +152,15 @@ x,y = zip(*xy)
 print(x)
 print(y)
 
+ab = [  ('a', 1), ('b', 2), ('c', 3), ('d', 4), ('e', 5), 
+        ('f', 6), ('g', 7), ('h', 8), ('i', 9), ('j', 10), 
+     ]
+
+a, b = zip(*ab) # unpack a list of tupels into values
+print("a:", a)
+print("b:", b)
+print("sum(b):", sum(b))
+
 #%% [markdown]
 # ## Default Arguments Values
 # - Define a function with some arguments given default values
