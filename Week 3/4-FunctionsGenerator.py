@@ -174,6 +174,9 @@ def add_two_or_three(a, b ,c=0):
 print(add_two_or_three(1, 2))
 print(add_two_or_three(1, 2, 3))
 
+x = lambda x, y, z = 0 : x + y + z
+print(x(0, 1))
+
 #%% [markdown]
 # ## Return Values
 # - `return` statement both ends the running of the function and tells it what to send back to the calling environment
