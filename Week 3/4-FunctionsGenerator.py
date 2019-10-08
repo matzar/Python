@@ -247,7 +247,7 @@ for i in g_is_an_object:   # this line will not be executed because
 
 #%% [markdown]
 # ## Write a generator function
-generator_function = (x * 10 for x in range(0, 10))
+generator_function = (x * 10 for x in range(1, 11))
 
 for i in generator_function:
     print(i)
