@@ -492,6 +492,12 @@ candidates=range(1,101)
 squares=filter(is_square, candidates)
 print(list(squares))
 
+def is_perfect_square(x):
+    return math.sqrt(x) == int(math.sqrt(x))
+
+candidates_for_perfect_squares = range(1, 10000)
+list_of_perfect_squares = list(filter(is_perfect_square, candidates_for_perfect_squares))
+print(list_of_perfect_squares)
 
 #%%
 # Or with a lambda function
