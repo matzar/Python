@@ -398,14 +398,26 @@ print(wrapper_func(lambda x = 0 : x )) # wrapper takes a lambda function; lambda
 # - Apply a function to every item in an iterable
 # - Produce an interable as a result
 
+
 #%%
 itr_res = map(sq,[1, 2, 3, 4, 5])
-print(itr_res)
-
-
-#%%
+# print(itr_res)
+print("iter_res:", end='')
 for r in itr_res:
-    print(r)
+    print(r, end='')
+
+def sqrt_number(x):
+    return mt.sqrt(x)
+list_of_nums = [2, 3, 25, 2.9, 3.7]
+iter_result = map(sqrt_number, list_of_nums)
+# print(iter_result)
+print("\niter_result:")
+j = 0
+for i in iter_result:
+    print(f"sqrt({list_of_nums[j]}) =", i)
+    j += 1
+    
+#%%
 
 
 #%%
