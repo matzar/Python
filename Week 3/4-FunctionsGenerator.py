@@ -386,6 +386,12 @@ for function in list_of_functions:
 #%%
 print(apply_to_x(lambda x: x+5, 5))
 
+print(wrapper_pass_2_arguments(lambda x, y : mt.sqrt(x) + y, 2, 2 ))
+
+# wrapper function that takes only a function as an argument
+def wrapper_func(f):
+    return f()
+print(wrapper_func(lambda x = 0 : x )) # wrapper takes a lambda function; lambda needs to have default arguments defined
 #%% [markdown]
 # ## Map
 # - `map(function, iterable)`
