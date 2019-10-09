@@ -354,21 +354,29 @@ print(apply_to_x(halve, 5))
 import math as mt
 # wrapper funciton
 # pass function to function
-def wrapper(func, i, j):
+def wrapper_pass_2_arguments(func, i, j):
     return func(i, j)    # pass i to func using wrapper function
 
 def sqrt_two_numbers(x, y):
     return (mt.sqrt(x), mt.sqrt(y))
+square_root_of_two_numbers = wrapper_pass_2_arguments(sqrt_two_numbers, 2, 3)
+print("square_root_of_two_numbers: ",square_root_of_two_numbers)
 
-square_root_of_two_numbers = wrapper(sqrt_two_numbers, 2, 3)
-print(square_root_of_two_numbers)
+def mult_sine_of(r1, r2):
+    return mt.sin(r1) * mt.sin(r2)
+multiple_of_sine = wrapper_pass_2_arguments(mult_sine_of, 0.5, 0.7)
+print("\nmultiple of sine: ",multiple_of_sine)
 
-#%%
+# pass two functions as a list of functions
 funcs=[sq,halve]
+# make a list of functions
+list_of_functions = [sqrt_two_numbers, mult_sine_of] # list of functions
+
 for f in funcs:
     print(apply_to_x(f, 6))
 
-
+for function in list_of_functions:
+    print("function:", function.__name__, "- output:", wrapper_pass_2_arguments(function, 2, 3) )
 
 #%% [markdown]
 # ## Lambda functions
