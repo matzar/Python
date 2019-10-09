@@ -402,23 +402,41 @@ print(wrapper_func(lambda x = 0 : x )) # wrapper takes a lambda function; lambda
 #%%
 itr_res = map(sq,[1, 2, 3, 4, 5])
 # print(itr_res)
-print("iter_res:", end='')
-for r in itr_res:
-    print(r, end='')
+# print("iter_res:", end='')
+# for r in itr_res:
+#     print(r, end='')
 
-def sqrt_number(x):
-    return mt.sqrt(x)
-list_of_nums = [2, 3, 25, 2.9, 3.7]
-iter_result = map(sqrt_number, list_of_nums)
-# print(iter_result)
-print("\niter_result:")
+class class_iter_results:
+    def sqrt_number(x):
+        return mt.sqrt(x)
+
+    list_of_nums = [2, 3, 25, 2.9, 3.7]
+    # def __init__(self):
+    iter_result = map(sqrt_number, list_of_nums)
+
+    def get_map():
+        return iter_result
+
+c = class_iter_results()
+
+print("\niter_result using (printing using `j = 0` value):")
 j = 0
-for i in iter_result:
-    print(f"sqrt({list_of_nums[j]}) =", i)
+for i in c.iter_result:
+    print(f"sqrt({c.list_of_nums[j]}) =", i)
     j += 1
 
+iter_result = map(sqrt_number, list_of_nums)
+print("\niter_result (printing using zip):")
+for k, y in zip(list_of_nums, iter_result):
+    print(f"sqrt({k}) = {y}")
+
+iter_result = map(sqrt_number, list_of_nums)
+print("\niter_result (printing using enumerator):")
+for i, j in enumerate(iter_result):
+    print(f"sqrt({list_of_nums[i]}) = {j}")
+
 #%%
-# Build a map of functions and a list of number in range(1, 6)
+# Build a map of functions and a list of numbers in range(1, 6)
 itr_res = map(sq,range(1, 6))
 # Put the result into list
 res_list=list(itr_res)
@@ -442,10 +460,11 @@ print(r_l) # Print the list of numbers
 from functools import reduce
 
 def red_sum(acc, val):
-    print(f"val:{val}, acc:{acc}")
-    return val+acc
+    # print(f"acc:{acc}, val:{val}")
+    return acc + val
 
-print(reduce(red_sum,range(1, 6)))
+l_range = (range(1,6))
+print(reduce(red_sum, l_range))
 
 #%% [markdown]
 # ## Filter
