@@ -77,10 +77,10 @@ fpos_arg(d=300, c=4)
 # - Put a `*` infront of the argument when you define the function
 
 #%%
-def add_list(*nums):
-    return sum(nums) - 100
+# def add_list(*nums):
+#     return sum(nums) - 100
 
-print(add_list(1, 2, 3))
+# print(add_list(1, 2, 3))
 
 # overwrite add_list definition
 def add_list(*nums): # use `*` when there's going to be a list of arguments passed
