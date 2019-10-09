@@ -424,12 +424,10 @@ itr_res = map(sq,range(1, 6))
 res_list=list(itr_res)
 print(res_list)
 
-# Build a map of functions and a list of number in range(1, 6)
-i_r = map(sqrt_number, range(1, 6))
-# Put the result of inputing the numbers in range(1, 6) into sqrt_number function
-r_l = list(i_r)
-# Print the list of numbers
-print(r_l)
+# Apply a function to all the numbers in a list using a map
+i_r = map(sqrt_number, range(1, 6)) # Build a map of functions and a list of number in range(1, 6)
+r_l = list(i_r) # Put the result of inputing the numbers in range(1, 6) into sqrt_number function
+print(r_l) # Print the list of numbers
 #%% [markdown]
 # ## Reduce
 # - Condense all contents of an iterable into a single thing
