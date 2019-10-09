@@ -351,14 +351,24 @@ def halve(x):
 print(apply_to_x(sq, 5))
 print(apply_to_x(halve, 5))
 
+import math as mt
 # wrapper funciton
 # pass function to function
+def wrapper(func, i, j):
+    return func(i, j)    # pass i to func using wrapper function
 
+def sqrt_two_numbers(x, y):
+    return (mt.sqrt(x), mt.sqrt(y))
+
+square_root_of_two_numbers = wrapper(sqrt_two_numbers, 2, 3)
+print(square_root_of_two_numbers)
 
 #%%
 funcs=[sq,halve]
 for f in funcs:
     print(apply_to_x(f, 6))
+
+
 
 #%% [markdown]
 # ## Lambda functions
