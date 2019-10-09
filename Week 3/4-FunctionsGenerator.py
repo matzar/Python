@@ -351,6 +351,10 @@ def halve(x):
 print(apply_to_x(sq, 5))
 print(apply_to_x(halve, 5))
 
+# wrapper funciton
+# pass function to function
+
+
 
 #%%
 funcs=[sq,halve]
