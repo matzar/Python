@@ -418,7 +418,7 @@ class class_iter_results:
         return iter_result
 
 c = class_iter_results()
-
+# TODO why do I have to declare iter_result each time?
 print("\niter_result using (printing using `j = 0` value):")
 j = 0
 for i in c.iter_result:
@@ -457,6 +457,7 @@ print(r_l) # Print the list of numbers
 # - The first time it is called, it gets the first two items in the list, though
 
 #%%
+# TODO what is reduce?
 from functools import reduce
 
 def red_sum(acc, val):
@@ -465,6 +466,11 @@ def red_sum(acc, val):
 
 l_range = (range(1,6))
 print(reduce(red_sum, l_range))
+
+reduce_example = reduce(lambda x, y : x * y, [1, 2, 3, 4, 5])
+print(reduce_example)
+print(lambda x, y, z : x * y + z, [1, 2, 3])
+print(reduce(lambda x, y : x * y, [1, 2, 3], [2, 3, 2]))
 
 #%% [markdown]
 # ## Filter
