@@ -416,15 +416,20 @@ j = 0
 for i in iter_result:
     print(f"sqrt({list_of_nums[j]}) =", i)
     j += 1
-    
-#%%
-
 
 #%%
+# Build a map of functions and a list of number in range(1, 6)
 itr_res = map(sq,range(1, 6))
+# Put the result into list
 res_list=list(itr_res)
 print(res_list)
 
+# Build a map of functions and a list of number in range(1, 6)
+i_r = map(sqrt_number, range(1, 6))
+# Put the result of inputing the numbers in range(1, 6) into sqrt_number function
+r_l = list(i_r)
+# Print the list of numbers
+print(r_l)
 #%% [markdown]
 # ## Reduce
 # - Condense all contents of an iterable into a single thing
