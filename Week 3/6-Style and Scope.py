@@ -71,20 +71,20 @@ print(sum)
 # # Spaces
 # ## Here are some examples of the correct use of spaces:
 
-#%%
+#%% [markdown]
 # Variable assignment - a space either side of the =
-x = 1
+# `x = 1`
 # Array list - spaces after the commas
-x = [1, 2, 3]
+# `x = [1, 2, 3]`
 # Index - no spaces
-y = x[1]
+# `y = x[1]`
 # Function call - no space on either side of the brackets
-print("Hello")
+# `print("Hello")``
 # Simple expression - No space near +
-x = a+b
+# `x = a+b`
 # Expression with operator priority - space to show which is evaluated first
 # (doesn't affect calculation, just readability)
-x = a*b + c*d
+# `x = a*b + c*d`
 
 #%% [markdown]
 # # Comments
@@ -95,13 +95,13 @@ x = a*b + c*d
 
 #%%
 # This is bad ...
-x = x + 1    # Add one to x
+# x = x + 1    # Add one to x
 
 # This is better ...
-x = x + 1
+# x = x + 1
 
 # This is good if needed
-x = x + 1    # Add one to x to account for the counter starting at 1 instead of zero
+# x = x + 1    # Add one to x to account for the counter starting at 1 instead of zero
 
 #%% [markdown]
 # # Longer comments use docstring
@@ -237,14 +237,14 @@ print("After we call the function: a and b are:", a, b)
 # - See what happens if we comment out the `b = 1` statement
 
 #%%
-b = 1
+# b = 1
 
-def a_func():
-    global a
-    print("Can't print b yet because we define it below", b)
-    b = 1
+# def a_func():
+#     global a
+#     print("Can't print b yet because we define it below", b)
+#     b = 1
 
-a_func()
+# a_func()
 
 #%% [markdown]
 # # Use `id()` to get a better idea
@@ -325,10 +325,24 @@ get_ipython().run_cell_magic('timeit', '', '\nfor i in range(1000000):\n    x = 
 
 #%%
 import numpy as np
+import timeit
 
-# Million long array of randoms
-mill = np.random.random(1000000)
+code_to_test = """
+a = range(100000)
+b = []
+for i in a:
+    b.append(i*2)
+"""
+elapsed_time = timeit.timeit(code_to_test, number=100)/100
+# print(elapsed_time)
 
+%timeit mill = np.random.random(10000)
+# print(mill)
+
+x = 5
+# %timeit y=x**2
+
+# %timeit s = sum(mill)
 #%% [markdown]
 # ## A small improvement when reading:
 

@@ -218,16 +218,25 @@ while count < 10:
 # # User Input
 
 #%%
-a=''
-while a != 'quit':
-    a=input("Type a number or 'quit' to end")
-    if(a != 'quit'):
-        a=float(a)
-        print(f"{a} squared is {a*a}")
-print("Done")
+# a=''
+# while a != 'quit':
+#     a=input("Type a number or 'quit' to end")
+#     if(a != 'quit'):
+#         a=float(a)
+#         print(f"{a} squared is {a*a}")
+# print("Done")
 
 
 #%%
+import numpy
+import math
 
+c = ''
+while c != 'end':
+    c = input("Get square root of: ")
+    if (c != 'end'):
+        temp = math.sqrt(float(c))
+        print(f"sqrt({c}) = {temp}")
+print("Sayonara")
 
 
