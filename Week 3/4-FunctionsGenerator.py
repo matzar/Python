@@ -495,9 +495,16 @@ print(list(squares))
 def is_perfect_square(x):
     return math.sqrt(x) == int(math.sqrt(x))
 
-candidates_for_perfect_squares = range(1, 10000)
+begin = 0
+end = 10001
+candidates_for_perfect_squares = range(begin, end)
 list_of_perfect_squares = list(filter(is_perfect_square, candidates_for_perfect_squares))
-print(list_of_perfect_squares)
+
+# print(list_of_perfect_squares)
+print(f"list of perfect squares within range({candidates_for_perfect_squares.index(begin)},{candidates_for_perfect_squares.index(end - 1)})")
+for i in list_of_perfect_squares:
+    temp = int(math.sqrt(i))
+    print(f"sqrt({i}) = {temp}")
 
 #%%
 # Or with a lambda function
