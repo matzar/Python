@@ -525,17 +525,19 @@ print(list(filter(lambda x : x > 1075 and x <= 1077, range(1, 10001))))
 print(list(filter(lambda x : x >= 1075 and x < 1077, range(1, 10001))))
 print(list(filter(lambda x : x >= 1075 and x<= 1077, range(1, 10001))))
 
-
-#%% [markdown]
-# # List Comprehension
-# - Apply an expression to every item in a sequence and produce a list of results
-
 #%%
+## List Comprehension
+# - Apply an expression to every item in a sequence and produce a list of results
 word="Hello"
 shiftup = [chr(ord(x)+1) for x in word]
 print(shiftup)
 
+word = "Hello"
+shift_down = [chr(ord(c) - 1) for c in word]
+print(shift_down)
 
+print(list(chr(ord(c) - 1) for c in word))
+print([chr(ord(c) + 2) for c in word])
 #%%
 sentence="This sentence has five words"
 words_lens=[len(x) for x in sentence.split()]
@@ -555,8 +557,6 @@ cars = [{'Age':20, 'Car':'Ford'}, {'Age':30, 'Car':'BMW'},{'Age':50, 'Car':'Merc
 older = [car['Car'] for car in cars if car['Age']>20]
 print(older)
 
-
-#%%
-
-
+younger = [car['Car'] for car in cars if car['Age'] <= 30]
+print(younger)
 
