@@ -513,6 +513,19 @@ candidates=range(1,101)
 squares=filter(lambda x:x>75 and x<81, candidates)
 print(list(squares))
 
+# this is the same as ->
+candidates = range(1, 10001)
+print(list(filter(lambda x : x > 1075 and x < 1077, candidates)))
+print(list(filter(lambda x : x > 1075 and x <= 1077, candidates)))
+print(list(filter(lambda x : x >= 1075 and x < 1077, candidates)))
+print(list(filter(lambda x : x >= 1075 and x<= 1077, candidates)))
+# -> this
+print(list(filter(lambda x : x > 1075 and x < 1077, range(1, 10001))))
+print(list(filter(lambda x : x > 1075 and x <= 1077, range(1, 10001))))
+print(list(filter(lambda x : x >= 1075 and x < 1077, range(1, 10001))))
+print(list(filter(lambda x : x >= 1075 and x<= 1077, range(1, 10001))))
+
+
 #%% [markdown]
 # # List Comprehension
 # - Apply an expression to every item in a sequence and produce a list of results
