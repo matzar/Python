@@ -355,7 +355,6 @@ print(apply_to_x(halve, 5))
 # pass function to function
 
 
-
 #%%
 funcs=[sq,halve]
 for f in funcs:
