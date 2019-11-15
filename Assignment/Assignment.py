@@ -154,13 +154,14 @@ for word in wordLenghtGenerator:
     if word not in seen_before:
         seen_before.append(word)
 
-for i in seen_before:
-    print(i)
+for word in seen_before:
+    print(word)
 
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
 # 
 # `. - \ /`
+
 
 # %%
 # Put your answer: code and comment here
