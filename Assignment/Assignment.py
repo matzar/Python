@@ -48,7 +48,7 @@
 import random
 # Answer 1
 # read the book into a string, use 'r' to prevent reading of special characters
-data = open(r"aroundTW80Days.txt", "r+").read()
+data = open(r"aroundTW80Days.txt", "r").read()
 # 1. Number of characters in the book
 print("Number of characters in the book:", len(data))
 # Split the book into words
@@ -130,16 +130,18 @@ print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 # Answer 5
 wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
 
-print(type(wordLenghtGenerator))
 # %% [markdown]
 # ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
 # 
 # - Print all those words
 # - Extra points if each word is selected only once
-
+    
 # %%
 # Answer 6
-
+# generator expression that searches for words of lenght 9 and prints them only once
+wordLenghtGenerator = ((word, len(word)) for word in book_no_punc if len(word) == 9 and book_no_punc.count(word) == 1)
+for word in wordLenghtGenerator:
+    print(word)
 
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
