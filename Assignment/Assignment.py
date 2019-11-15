@@ -46,13 +46,25 @@
 
 # %%
 import random
+import string
+import re
+
 # Answer 1
-# read the book into a string, use 'r' to prevent reading of special characters
-data = open(r"aroundTW80Days.txt", "r").read()
-# 1. Number of characters in the book
-print("Number of characters in the book:", len(data))
+# read the book into a string, use 'r' to prevent reading of special characters in the file name
+# and replace new line ('\n') characters with a white space
+data = open(r"aroundTW80Days.txt", "r").read().replace('\n',' ')
+
+# Clean the data
 # Split the book into words
 book_words = data.split()
+
+# create new list, from book_list, with no punctuation, called book_no_punc
+book_no_punc = list()
+for word in book_words:
+    book_no_punc.append(word.strip(string.punctuation))
+
+# 1. Number of characters in the book
+print("Number of characters in the book:", len(data))
 # 2. Split the book into a sorted list
 book_list = sorted(list(book_words))
 rnd = random.randint(100, 109)
@@ -61,6 +73,8 @@ print("Random sample from the sorted book:", book_list[rnd:rnd+5])
 print("Number of words in the book:", len(book_words))
 # 4. The first 10 words of the book
 print("The first 10 words from the book:", book_words[0:10])
+
+display(book_words)
 
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
@@ -72,8 +86,6 @@ print("The first 10 words from the book:", book_words[0:10])
 # all the words in the book into a set, hence getting all the unique words
 # but first we need to get rid of all the punctuation signs so we don't 
 # count, e.g., "Francisco?" and "Francisco" as two unique words
-
-import string
 
 book_no_punc = list()
 # create new list, from book_list, with no punctuation, called book_no_punc
@@ -156,6 +168,8 @@ for word in wordLenghtGenerator:
 
 for word in seen_before:
     print(word)
+
+display(seen_before)
 
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
