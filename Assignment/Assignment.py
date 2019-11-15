@@ -49,10 +49,13 @@
 # read the book into a string, use 'r' to prevent reading of special characters
 data = open(r"aroundTW80Days.txt", "r+").read()
 # 1. Number of characters in the book
-# 2. Split the book into a list
 print(len(data))
-# 3. Number of words in the book
+# 2. Split the book into a sorted list
 words = data.split()
+book_list = list(words)
+book_list.sort()
+print(book_list)
+# 3. Number of words in the book
 print(len(words))
 # 4. The first 10 words of the book
 print(words[0:10])
