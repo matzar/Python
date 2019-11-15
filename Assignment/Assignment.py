@@ -52,9 +52,9 @@ data = open(r"aroundTW80Days.txt", "r+").read()
 # 1. Number of characters in the book
 print("Number of characters in the book:", len(data))
 # Split the book into words
-words = data.split()
+book_words = data.split()
 # 2. Split the book into a sorted list
-book_list = sorted(list(words))
+book_list = sorted(list(book_words))
 rnd = random.randint(100, 109)
 print("Random sample from the sorted book:", book_list[rnd:rnd+5])
 # 3. Number of words in the book
@@ -65,6 +65,7 @@ print("The first 10 words from the book:", words[0:10])
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
 # - Print the number of unique words it finds
+
 
 # %%
 # Put your answer: code and comment here
