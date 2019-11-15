@@ -207,13 +207,19 @@ chapter_list = [word.split('Chapter') for word in book_words]
 
 testt = book_words[:10]
 
-new_bloke_in_town = dict()
+new_bloke_in_town = [[2],[2, 3]]
+display(new_bloke_in_town[1][1])
 
-for word in testt:
-    for i in word:
-        if ()
 
-display(testt)
+
+num_of_chapter = book_words.count('Chapter')
+
+print(num_of_chapter)
+for word in book_words[:10]:
+    if "The" in word:
+        print(word)
+
+
 # %% [markdown]
 # ## 9) Remove the first entry from the chapter list [6]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
