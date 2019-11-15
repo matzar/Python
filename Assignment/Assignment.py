@@ -201,17 +201,25 @@ import numpy as np
 from matplotlib import pyplot as plt
 %matplotlib inline
 
-rows=5
-points=100
-sins = np.zeros((rows,points))
+# rows=5
+# points=100
+# sins = np.zeros((rows,points))
 
-sins.resize(100, 100)
-sins[1][99]
+# sins.resize(100, 100)
+# sins[1][99]
 
-num_of_chapter = book_words.count('Chapter')
+# num_of_chapter = book_words.count('Chapter')
+Chap = list()
+
+Chapters = [word for word in book_no_punc
+    if "Chapter" in word]
+
+for i in Chapters:
+    print(i)
 
 # Do not load the contents after the first occurence of 'Chapter' (it's just the table of contents)
 # Start the content loading from the second occurence of 'Chapter'
+
 
 
 # for i in range(rows):
