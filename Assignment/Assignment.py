@@ -105,10 +105,12 @@ print(book_dict)
 # %% [markdown]
 # ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
 # - Print the word and the number of times it appeared in the book
-print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 
 # %%
-# Put your answer: code and comment here
+# Answer 4
+# We're using the book_no_punc list because we don't want to count
+# "Francisco?" and "Francisco" twice and get two unique keys and values
+print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 
 # %% [markdown]
 # ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
