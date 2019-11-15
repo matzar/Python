@@ -78,7 +78,7 @@ import string
 book_no_punc = list()
 # create new list, from book_list, with no punctuation, called book_no_punc
 for word in book_words:
-    book_no_punc.append(word.strip(punctuation))
+    book_no_punc.append(word.strip(string.punctuation))
 
 # convert book_unique list into a set to obtain the unique values
 book_unique = set(book_no_punc)
@@ -121,7 +121,7 @@ print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 
 # %%
 # Answer 5
-wordLenghtGenerator = (word for word in book_no_punc)
+wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
 print(wordLenghtGenerator)
 # %% [markdown]
 # ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
