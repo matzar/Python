@@ -178,7 +178,12 @@ for word in seen_before:
 # put these words into a list and get rid of the words containing . - \ /
 # fourteen_plus_letter_words = list()
 
-forforfor = (word for word in book_no_punc if len(word) >= 14 for i in word if '.' or '-' or '\\' or '/' not in word)
+forforfor = (word for word in book_no_punc if len(word) >= 14
+    for i in word 
+        if '-' not in word 
+        if '.' not in word
+        if '\\' not in word
+        if '/' not in word)
 
 for i in forforfor:
     print(i)
