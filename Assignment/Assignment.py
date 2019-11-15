@@ -81,8 +81,8 @@ for word in book_words:
     book_unique.append(word.strip(punctuation))
 
 # convert book_unique list into a set to obtain the unique values
-book_unique = set(book_unique)
-print(book_unique)
+book_unique_set = set(book_unique)
+print(book_unique_set)
 # %% [markdown]
 # ## 3) Build a Dictionary of the words used in the book [3]
 # - Build a Python dictionary (`dict`) in which the keys are the unique words in the book and the values are dictionary objects with fields `length` for word length and `freq` for frequency, e.g.:
@@ -91,7 +91,13 @@ print(book_unique)
 # 
 
 # %%
-# Put your answer: code and comment here
+# Answer 3
+
+book_dict = dict()
+# create a dictionary of words with words as the key and a tuple with its
+# length and frequency
+for word in book_unique:
+
 
 # %% [markdown]
 # ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
