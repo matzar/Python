@@ -173,33 +173,18 @@ for word in seen_before:
 # 
 # `. - \ /`
 
-# generator to find words with 14 letters and more
-# wordLenghtGenerator = (word for word in book_no_punc if len(word) >= 14)
-# put these words into a list and get rid of the words containing . - \ /
-# fourteen_plus_letter_words = list()
-
-forforfor = (word for word in book_no_punc if len(word) >= 14
+# %%
+# Answer 7
+# generator to find words with 14 letters or more but without these special characaters `. - \ /` in them
+fourteeen_letter = (word for word in book_no_punc if len(word) >= 14
     for i in word 
         if '-' not in word 
         if '.' not in word
         if '\\' not in word
         if '/' not in word)
 
-for i in forforfor:
+for i in fourteeen_letter:
     print(i)
-
-# test = "asd."
-# # if not (test.find('.')):
-# if '.' not in test:
-#     print(test)
-
-# for word in wordLenghtGenerator:
-#     # signs = '.-\/'
-#     if word.find('.'):
-#         print(word)
-
-# %%
-# Put your answer: code and comment here
 
 # %% [markdown]
 # ## 8) Split the book into a list of chapters [6]
