@@ -196,9 +196,36 @@ for i in fourteeen_letter:
 
 # %%
 # Answer 8
+
+import numpy as np
+from matplotlib import pyplot as plt
+%matplotlib inline
+
+rows=5
+points=100
+sins = np.zeros((rows,points))
+
+sins.resize(100, 100)
+sins[1][99]
+
+num_of_chapter = book_words.count('Chapter')
+
+# Do not load the contents after the first occurence of 'Chapter' (it's just the table of contents)
+# Start the content loading from the second occurence of 'Chapter'
+
+
+# for i in range(rows):
+#     for j in range(points):
+#         sins[i,j]=i*np.sin(j*(i+1)/20)
+
+# for s in sins:
+#     plt.plot(s)
+# plt.show()
+
+
 # chapter_list = [i for j in data for i in re.split(r'Chapter',j)]
-sentences = [i for j in data for i in j.split('Chapter')]
-display(sentences)
+# sentences = [i for j in data for i in j.split('Chapter')]
+# display(sentences)
 
 # display(chapter_list)
 # %%
