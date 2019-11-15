@@ -208,10 +208,21 @@ sins.resize(100, 100)
 sins[1][99]
 
 # num_of_chapter = book_words.count('Chapter')
-Chap = list()
+Chapters = list()
 
-Chapters = [word for word in book_no_punc
-    if "Chapter" in word]
+# Chapters = (word for word in book_words
+#     if "Chapter" in word)
+
+for word_index in range(len(book_words)-1):
+    current_word = book_words[word_index]
+    next_word = book_words[word_index+1]
+    if "Chapter" in current_word:
+        Chapters.append(current_word + " " + next_word)
+
+# while i < len(book_words):
+#     if "Chapter" in book_words[i]
+#     Chap.append(book_words[i] + book_words[i + 1])
+
 
 for i in Chapters:
     print(i)
