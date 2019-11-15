@@ -101,7 +101,14 @@ book_dict = dict()
 for word in book_no_punc:
     book_dict.update({word: (len(word), book_no_punc.count(word))})
 
+# gen_book_dict = (book_no_punc for word in book_no_punc )
 print(book_dict)
+
+# %%
+# generator version of the same dictionary
+gen_book_dic = (book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc)
+print(gen_book_dic)
+
 # %% [markdown]
 # ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
 # - Print the word and the number of times it appeared in the book
@@ -122,19 +129,18 @@ print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 # %%
 # Answer 5
 wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
-print(wordLenghtGenerator)
+
+print(type(wordLenghtGenerator))
 # %% [markdown]
 # ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
 # 
 # - Print all those words
 # - Extra points if each word is selected only once
-for word in wordLenghtGenerator:
-    print(word)
 
 # %%
 # Answer 6
-temp = wordLenghtGenerator(book_no_punc[100])
-print(temp[1])
+
+
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
 # 
