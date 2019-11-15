@@ -173,6 +173,14 @@ for word in seen_before:
 # 
 # `. - \ /`
 
+# generator to find words with 14 letters and more
+wordLenghtGenerator = ((word, len(word)) for word in book_no_punc if len(word) >= 14)
+# put these words into a list and rid of the words containing . - \ /
+fourteen_plus_letter_words = list()
+
+for word in fourteen_plus_letter_words:
+    signs = '.-\/'
+    print(signs)
 
 # %%
 # Put your answer: code and comment here
