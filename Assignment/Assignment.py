@@ -70,10 +70,21 @@ print("The first 10 words from the book:", book_words[0:10])
 # Answer 2
 # Set stores values only once, so we're going to convert the list containing
 # all the words in the book into a set, hence getting all the unique words
-# but first we need to get rid of all the puncuation signs so we don't 
+# but first we need to get rid of all the punctuation signs so we don't 
 # count, e.g., "Francisco?" and "Francisco" as two unique words
-book_unique = set(book_words)
 
+import string
+
+book_unique = list()
+# # remove all punctuation signs from book_words
+# for word in book_words:
+#     book_unique.append(word.translate(string.punctuation))
+
+test = "asd?"
+test = test.translate(str.maketrans('', '', string.punctuation)))
+print(test)
+# convert book_unique list into a set to obtain the unique values
+book_unique = set(book_unique)
 print(book_unique)
 # %% [markdown]
 # ## 3) Build a Dictionary of the words used in the book [3]
