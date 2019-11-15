@@ -138,10 +138,24 @@ wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
     
 # %%
 # Answer 6
-# generator expression that searches for words of lenght 9 and prints them only once
-wordLenghtGenerator = ((word, len(word)) for word in book_no_punc if len(word) == 9 and book_no_punc.count(word) == 1)
-for word in wordLenghtGenerator:
-    print(word)
+# printing words of lenght 9 using a generator expression
+wordLenghtGenerator = ((word, len(word)) for word in book_no_punc if len(word) == 9)
+print(type(wordLenghtGenerator))
+# for word in wordLenghtGenerator:
+#     print(word)
+
+# printing words of lenght 9 only once using a generator expression
+to_print = list()
+to_print = wordLenghtGenerator
+# def func(word):
+#     if word not in to_print:
+#         to_print.append((word, len(word)))
+#     return to_print
+    
+
+# print(type(wordLenghtGenerator))
+# for word in wordLenghtGeneratorOnce:
+#     print(word)
 
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
