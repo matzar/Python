@@ -48,6 +48,9 @@
 import random
 import string
 import re
+import numpy as np
+from matplotlib import pyplot as plt
+%matplotlib inline
 
 # Answer 1
 # read the book into a string, use 'r' to prevent reading of special characters in the file name
@@ -197,16 +200,12 @@ for i in fourteeen_letter:
 # %%
 # Answer 8
 
-import numpy as np
-from matplotlib import pyplot as plt
-%matplotlib inline
+rows=5
+points=100
+sins = np.zeros((rows,points))
 
-# rows=5
-# points=100
-# sins = np.zeros((rows,points))
-
-# sins.resize(100, 100)
-# sins[1][99]
+sins.resize(100, 100)
+sins[1][99]
 
 # num_of_chapter = book_words.count('Chapter')
 Chap = list()
