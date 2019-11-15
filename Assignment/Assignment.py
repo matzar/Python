@@ -37,17 +37,25 @@
 # ## 1) Open the file `aroundTW80Days.txt` and read its contents into a string [3]
 # 
 # 
-# - Print the number of characters (letters, etc) in the whole book
-# - Split the book into a Python list containing all the words of the book in order. At this stage, use string splitting, not a more fancy library like `nltk`. Call this variable `book_list`
-# - Print the number of words in the book
-# - Print the first 10 words of the book. It should look like this:
+# 1. Print the number of characters (letters, etc) in the whole book
+# 2. Split the book into a Python list containing all the words of the book in order. At this stage, use string splitting, not a more fancy library like `nltk`. Call this variable `book_list`
+# 3. Print the number of words in the book
+# 4. Print the first 10 words of the book. It should look like this:
 # 
 # `['The', 'Project', 'Gutenberg', 'EBook', 'of', 'Around', 'the', 'World', 'in', '80', 'Days,']`
 
-print("Task 1 - Read contents")
-
 # %%
-# Put your answer: code and comment here
+# Answer 1
+# read the book into a string, use 'r' to prevent reading of special characters
+data = open(r"aroundTW80Days.txt", "r+").read()
+# 1. Number of characters in the book
+# 2. Split the book into a list
+print(len(data))
+# 3. Number of words in the book
+words = data.split()
+print(len(words))
+# 4. The first 10 words of the book
+print(words[0:10])
 
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
