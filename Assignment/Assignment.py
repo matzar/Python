@@ -210,6 +210,7 @@ sins[1][99]
 # num_of_chapter = book_words.count('Chapter')
 Chapters = list()
 
+# print(Chapters)
 # This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
 # but gives us a list of chapters with corresponding numbers
 for word_index in range(len(book_words) - 1):
@@ -218,9 +219,16 @@ for word_index in range(len(book_words) - 1):
     if "Chapter" in current_word:
         Chapters.append(current_word + " " + next_word)
 
-
 for i in Chapters:
     print(i)
+
+# make a 2D for Chapters and their contents
+chapters_2d = np.zeros((1, 1))
+
+
+
+
+
 
 # Do not load the contents after the first occurence of 'Chapter' (it's just the table of contents)
 # Start the content loading from the second occurence of 'Chapter'
