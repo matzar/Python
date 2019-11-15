@@ -120,17 +120,21 @@ print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 # - Call the function to create a generator but do not iterate over it at this stage
 
 # %%
-# Put your answer: code and comment here
-
+# Answer 5
+wordLenghtGenerator = (word for word in book_no_punc)
+print(wordLenghtGenerator)
 # %% [markdown]
 # ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
 # 
 # - Print all those words
 # - Extra points if each word is selected only once
+for word in wordLenghtGenerator:
+    print(word)
 
 # %%
-# Put your answer: code and comment here
-
+# Answer 6
+temp = wordLenghtGenerator(book_no_punc[100])
+print(temp[1])
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
 # 
