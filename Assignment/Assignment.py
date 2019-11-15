@@ -217,7 +217,7 @@ num_of_chapter = book_words.count('Chapter')
 print(num_of_chapter)
 for word in book_words[:10]:
     if "The" in word:
-        print(word)
+        
 
 
 # %% [markdown]
