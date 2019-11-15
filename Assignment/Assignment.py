@@ -117,7 +117,8 @@ for word in book_no_punc:
 print(book_dict)
 
 # %%
-# generator version of the same dictionary
+# generator version of the same dictionary into the memory
+# !!! WARNING !!! - long execution!
 gen_book_dic = (book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc)
 print(gen_book_dic)
 
