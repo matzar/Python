@@ -45,20 +45,22 @@
 # `['The', 'Project', 'Gutenberg', 'EBook', 'of', 'Around', 'the', 'World', 'in', '80', 'Days,']`
 
 # %%
+import random
 # Answer 1
 # read the book into a string, use 'r' to prevent reading of special characters
 data = open(r"aroundTW80Days.txt", "r+").read()
 # 1. Number of characters in the book
-print(len(data))
-# 2. Split the book into a sorted list
+print("Number of characters in the book:", len(data))
+# Split the book into words
 words = data.split()
-book_list = list(words)
-book_list.sort()
-print(book_list)
+# 2. Split the book into a sorted list
+book_list = sorted(list(words))
+rnd = random.randint(100, 109)
+print("Random sample from the sorted book:", book_list[rnd:rnd+5])
 # 3. Number of words in the book
-print(len(words))
+print("Number of words in the book:", len(words))
 # 4. The first 10 words of the book
-print(words[0:10])
+print("The first 10 words from the book:", words[0:10])
 
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
