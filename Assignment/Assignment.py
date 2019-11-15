@@ -47,10 +47,10 @@
 # %%
 import random
 import string
-import re
-import numpy as np
-from matplotlib import pyplot as plt
-%matplotlib inline
+# import re
+# import numpy as np
+# from matplotlib import pyplot as plt
+# %matplotlib inline
 
 # Answer 1
 # read the book into a string, use 'r' to prevent reading of special characters in the file name
@@ -200,33 +200,39 @@ for i in fourteeen_letter:
 # %%
 # Answer 8
 
-rows=5
-points=100
-sins = np.zeros((rows,points))
-
-sins.resize(100, 100)
-sins[1][99]
-
 # num_of_chapter = book_words.count('Chapter')
-Chapters = list()
+rows, cols = (0, 0)
+Chapters = [[0 for i in range(cols)] for j in range(rows)] 
+# print(arr[0][0])
 
 # print(Chapters)
 # This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
 # but gives us a list of chapters with corresponding numbers
+i = 0
 for word_index in range(len(book_words) - 1):
     current_word = book_words[word_index]
     next_word = book_words[word_index + 1]
     if "Chapter" in current_word:
         Chapters.append(current_word + " " + next_word)
+        i += 1
 
-for i in Chapters:
-    print(i)
+i = 0
+while i < (len(Chapters)):
+    Chapters.append("bruh")
+    #print(Chapters[i][0])
+    i += 1
 
-# make a 2D for Chapters and their contents
-chapters_2d = np.zeros((1, 1))
 
+# # make a 2D for Chapters and their contents
+# chapters_2d = np.reshape(Chapters, Chapters)
 
+# # for i in Chapters:
 
+# a = np.array([1, 2, 3])
+ 
+# newArray = np.append (a, [10, 11, 12])
+ 
+# print(newArray)
 
 
 
