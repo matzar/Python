@@ -98,13 +98,14 @@ print(book_unique)
 book_dict = dict()
 # create a dictionary of words with words as the key and a tuple with its
 # length and frequency
-for word in test:
+for word in book_no_punc:
     book_dict.update({word: (len(word), book_no_punc.count(word))})
 
 print(book_dict)
 # %% [markdown]
 # ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
 # - Print the word and the number of times it appeared in the book
+print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 
 # %%
 # Put your answer: code and comment here
