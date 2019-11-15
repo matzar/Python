@@ -128,6 +128,7 @@ print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 
 # %%
 # Answer 5
+# generator expression which yields a tuple of a word and its length
 wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
 
 # %% [markdown]
@@ -138,15 +139,25 @@ wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
     
 # %%
 # Answer 6
-# printing words of lenght 9 using a generator expression
+
+# generator expression which yields a tuple of a word of length 9 and its length, which is 9
 wordLenghtGenerator = ((word, len(word)) for word in book_no_punc if len(word) == 9)
 print(type(wordLenghtGenerator))
-# for word in wordLenghtGenerator:
-#     print(word)
 
-# printing words of lenght 9 only once using a generator expression
-to_print = list()
-to_print = wordLenghtGenerator
+# printing words of lenght 9 using the generator expression
+for word in wordLenghtGenerator:
+    print(word)
+
+# printing words of lenght 9 only once using the generator expression
+seen_before = list()
+
+for word in wordLenghtGenerator:
+    if word not in seen_before:
+        seen_before.append(word)
+
+for i in seen_before:
+    print(i)
+
 # def func(word):
 #     if word not in to_print:
 #         to_print.append((word, len(word)))
