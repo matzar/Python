@@ -96,12 +96,10 @@ print(book_unique)
 # from collections import namedtuple
 
 book_dict = dict()
-
-test = ["asdasfas", "asdas", "asdas"]
 # create a dictionary of words with words as the key and a tuple with its
 # length and frequency
 for word in test:
-    book_dict.update({word: (len(word), test.count(word))})
+    book_dict.update({word: (len(word), book_no_punc.count(word))})
 
 print(book_dict)
 # %% [markdown]
