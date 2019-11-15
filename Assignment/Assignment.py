@@ -75,14 +75,14 @@ print("The first 10 words from the book:", book_words[0:10])
 
 import string
 
-book_unique = list()
-# create new list, from book_list, with no punctuation, called book_unique
+book_no_punc = list()
+# create new list, from book_list, with no punctuation, called book_no_punc
 for word in book_words:
-    book_unique.append(word.strip(punctuation))
+    book_no_punc.append(word.strip(punctuation))
 
 # convert book_unique list into a set to obtain the unique values
-book_unique_set = set(book_unique)
-print(book_unique_set)
+book_unique = set(book_no_punc)
+print(book_unique)
 # %% [markdown]
 # ## 3) Build a Dictionary of the words used in the book [3]
 # - Build a Python dictionary (`dict`) in which the keys are the unique words in the book and the values are dictionary objects with fields `length` for word length and `freq` for frequency, e.g.:
@@ -92,13 +92,18 @@ print(book_unique_set)
 
 # %%
 # Answer 3
+# usnig namedtuple 
+# from collections import namedtuple
 
 book_dict = dict()
+
+test = ["asdasfas", "asdas", "asdas"]
 # create a dictionary of words with words as the key and a tuple with its
 # length and frequency
-for word in book_unique:
+for word in test:
+    book_dict.update({word: (len(word), test.count(word))})
 
-
+print(book_dict)
 # %% [markdown]
 # ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
 # - Print the word and the number of times it appeared in the book
