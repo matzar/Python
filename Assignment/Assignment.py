@@ -205,13 +205,13 @@ chapter_list = [word.split('Chapter') for word in book_words]
 
 # %%
 
-word = 'geeks, for, geeks'
-print(word
+word = 'Chapter aaaa.... Chapter bbb bbbb.,b---b bbb bbb bbb b Chapter cc ccccccc ccc c c c c c c c ccc c a c- . sc '
 
-)
-word = word.split(', ')
-print(type(word))
-print(word)
+# test = word.split('Chapter')
+# test = [i for j in word for i in re.split(r'Chapter',j)]
+sentences = [i for j in word for i in j.split(' ')]
+
+display(test)
 # %% [markdown]
 # ## 9) Remove the first entry from the chapter list [6]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
