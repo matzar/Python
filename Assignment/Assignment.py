@@ -177,7 +177,7 @@ for word in seen_before:
 # Answer 7
 # generator to find words with 14 letters or more but without these special characaters `. - \ /` in them
 fourteeen_letter = (word for word in book_no_punc if len(word) >= 14
-    for i in word 
+    for c in word 
         if '-' not in word 
         if '.' not in word
         if '\\' not in word
