@@ -58,13 +58,15 @@ book_list = sorted(list(book_words))
 rnd = random.randint(100, 109)
 print("Random sample from the sorted book:", book_list[rnd:rnd+5])
 # 3. Number of words in the book
-print("Number of words in the book:", len(words))
+print("Number of words in the book:", len(book_words))
 # 4. The first 10 words of the book
-print("The first 10 words from the book:", words[0:10])
+print("The first 10 words from the book:", book_words[0:10])
 
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
 # - Print the number of unique words it finds
+g = raw_input("Enter your name : ")
+book_set = set(book_words)
 
 
 # %%
