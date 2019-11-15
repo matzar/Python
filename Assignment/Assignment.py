@@ -65,13 +65,16 @@ print("The first 10 words from the book:", book_words[0:10])
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
 # - Print the number of unique words it finds
-g = raw_input("Enter your name : ")
-book_set = set(book_words)
-
 
 # %%
-# Put your answer: code and comment here
+# Answer 2
+# Set stores values only once, so we're going to convert the list containing
+# all the words in the book into a set, hence getting all the unique words
+# but first we need to get rid of all the puncuation signs so we don't 
+# count, e.g., "Francisco?" and "Francisco" as two unique words
+book_unique = set(book_words)
 
+print(book_unique)
 # %% [markdown]
 # ## 3) Build a Dictionary of the words used in the book [3]
 # - Build a Python dictionary (`dict`) in which the keys are the unique words in the book and the values are dictionary objects with fields `length` for word length and `freq` for frequency, e.g.:
