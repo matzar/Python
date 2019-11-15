@@ -210,18 +210,13 @@ sins[1][99]
 # num_of_chapter = book_words.count('Chapter')
 Chapters = list()
 
-# Chapters = (word for word in book_words
-#     if "Chapter" in word)
-
-for word_index in range(len(book_words)-1):
+# This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
+# but gives us a list of chapters with corresponding numbers
+for word_index in range(len(book_words) - 1):
     current_word = book_words[word_index]
-    next_word = book_words[word_index+1]
+    next_word = book_words[word_index + 1]
     if "Chapter" in current_word:
         Chapters.append(current_word + " " + next_word)
-
-# while i < len(book_words):
-#     if "Chapter" in book_words[i]
-#     Chap.append(book_words[i] + book_words[i + 1])
 
 
 for i in Chapters:
@@ -230,37 +225,11 @@ for i in Chapters:
 # Do not load the contents after the first occurence of 'Chapter' (it's just the table of contents)
 # Start the content loading from the second occurence of 'Chapter'
 
-
-
-# for i in range(rows):
-#     for j in range(points):
-#         sins[i,j]=i*np.sin(j*(i+1)/20)
-
-# for s in sins:
-#     plt.plot(s)
-# plt.show()
-
-
-# chapter_list = [i for j in data for i in re.split(r'Chapter',j)]
-# sentences = [i for j in data for i in j.split('Chapter')]
-# display(sentences)
-
-# display(chapter_list)
 # %%
 
-testt = book_words[:10]
 
 new_bloke_in_town = [[2],[2, 3]]
 display(new_bloke_in_town[1][1])
-
-
-
-num_of_chapter = book_words.count('Chapter')
-
-# print(num_of_chapter)
-# for word in book_words[:10]:
-#     if "The" in word:
-        
 
 
 # %% [markdown]
