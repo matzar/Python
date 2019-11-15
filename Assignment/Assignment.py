@@ -174,19 +174,24 @@ for word in seen_before:
 # `. - \ /`
 
 # generator to find words with 14 letters and more
-wordLenghtGenerator = (word for word in book_no_punc if len(word) >= 14)
+# wordLenghtGenerator = (word for word in book_no_punc if len(word) >= 14)
 # put these words into a list and get rid of the words containing . - \ /
-fourteen_plus_letter_words = list()
+# fourteen_plus_letter_words = list()
 
-test = "asd."
-# if not (test.find('.')):
-if '.' not in test:
-    print(test)
+forforfor = (word for word in book_no_punc if len(word) >= 14 for i in word if '.' or '-' or '\\' or '/' not in word)
 
-for word in wordLenghtGenerator:
-    # signs = '.-\/'
-    if word.find('.'):
-        print(word)
+for i in forforfor:
+    print(i)
+
+# test = "asd."
+# # if not (test.find('.')):
+# if '.' not in test:
+#     print(test)
+
+# for word in wordLenghtGenerator:
+#     # signs = '.-\/'
+#     if word.find('.'):
+#         print(word)
 
 # %%
 # Put your answer: code and comment here
@@ -201,8 +206,11 @@ for word in wordLenghtGenerator:
 
 # %%
 # Answer 8
-chapter_list = [word.split('Chapter') for word in book_words]
+# chapter_list = [i for j in data for i in re.split(r'Chapter',j)]
+sentences = [i for j in data for i in j.split('Chapter')]
+display(sentences)
 
+# display(chapter_list)
 # %%
 
 testt = book_words[:10]
@@ -214,9 +222,9 @@ display(new_bloke_in_town[1][1])
 
 num_of_chapter = book_words.count('Chapter')
 
-print(num_of_chapter)
-for word in book_words[:10]:
-    if "The" in word:
+# print(num_of_chapter)
+# for word in book_words[:10]:
+#     if "The" in word:
         
 
 
