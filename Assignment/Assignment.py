@@ -76,13 +76,10 @@ print("The first 10 words from the book:", book_words[0:10])
 import string
 
 book_unique = list()
-# # remove all punctuation signs from book_words
-# for word in book_words:
-#     book_unique.append(word.translate(string.punctuation))
+# create new list, from book_list, with no punctuation, called book_unique
+for word in book_words:
+    book_unique.append(word.strip(punctuation))
 
-test = "asd?"
-test = test.translate(str.maketrans('', '', string.punctuation)))
-print(test)
 # convert book_unique list into a set to obtain the unique values
 book_unique = set(book_unique)
 print(book_unique)
