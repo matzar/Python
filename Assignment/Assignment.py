@@ -74,8 +74,6 @@ print("Number of words in the book:", len(book_words))
 # 4. The first 10 words of the book
 print("The first 10 words from the book:", book_words[0:10])
 
-display(book_words)
-
 # %% [markdown]
 # ## 2) Now create a set containing all the unique words in the book [3]
 # - Print the number of unique words it finds
@@ -95,6 +93,7 @@ for word in book_words:
 # convert book_unique list into a set to obtain the unique values
 book_unique = set(book_no_punc)
 print(book_unique)
+
 # %% [markdown]
 # ## 3) Build a Dictionary of the words used in the book [3]
 # - Build a Python dictionary (`dict`) in which the keys are the unique words in the book and the values are dictionary objects with fields `length` for word length and `freq` for frequency, e.g.:
@@ -103,24 +102,21 @@ print(book_unique)
 # 
 
 # %%
-# Answer 3
-# usnig namedtuple 
-# from collections import namedtuple
-
+# Answer 3 
 book_dict = dict()
-# create a dictionary of words with words as the key and a tuple with its
-# length and frequency
+
+# !!! WARNING !!! - long execution! Only use if you need the whole dictionary in the memory, otherwise
+# use the generator version instead
+
+# create a dictionary of words with words as the key and a tuple with its length and frequency
 for word in book_no_punc:
     book_dict.update({word: (len(word), book_no_punc.count(word))})
-
-# gen_book_dict = (book_no_punc for word in book_no_punc )
-print(book_dict)
+# print(book_dict)
 
 # %%
-# generator version of the same dictionary into the memory
-# !!! WARNING !!! - long execution!
+# generator version of the same dictionary
 gen_book_dic = (book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc)
-print(gen_book_dic)
+# print(gen_book_dic)
 
 # %% [markdown]
 # ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
@@ -170,7 +166,7 @@ for word in wordLenghtGenerator:
 for word in seen_before:
     print(word)
 
-display(seen_before)
+# display(seen_before)
 
 # %% [markdown]
 # ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
