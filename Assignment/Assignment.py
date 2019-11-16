@@ -235,9 +235,9 @@ for i in range(len(book_words)-1):
             chapter_content_holder.append(book_words[j])
             j+=1
         # Use the list containing the chapter name and number and the list with its content
-        # to create a 2d table of chapters and their content
+        # to create a 2d table of chapters and their content.
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
-        # flush temporary holders
+        # Clear temporary holder lists to prepare them for the next chapters
         chapter_content_holder.clear()
         chapter_desc_holder.clear()
         chapter_tag_holder.clear()
@@ -248,20 +248,23 @@ for i in range(len(book_words)-1):
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
 
 # %%
-# Put your answer: code and comment here
+# Answer 9
+# This question was handeled differently and there was no need for removal of the first entry
 
 # %% [markdown]
 # ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
 
 # %%
-# Put your answer: code and comment here
+# This step was already done in the answer to Question 8
 
 # %% [markdown]
 # ## 11) Print only the titles from each chapter [6]
 # - Clue: The title of each chapter is written in UPPER CASE and is the first thing in each chapter. Therefore, printing words until you find one that is not upper case will print the title.
 
 # %%
-# Put your answer: code and comment here
+# Answer 11
+for i in table_of_contents:
+    print(i)
 
 # %% [markdown]
 # ## 12) Measure the length of each chapter and plot the values on a bar chart [9]
