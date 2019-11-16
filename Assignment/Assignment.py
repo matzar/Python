@@ -404,8 +404,7 @@ plt.show()
 # %% [markdown]
 # ## 15) Now think of some further analysis you could do based on the text of this book [19]
 # 
-# It should use other data sources you find online and tell an additional story around the data. 
-# Suggested data and sources include:
+# It should use other data sources you find online and tell an additional story around the data. Suggested data and sources include:
 # 
 # - Travel and accommodation sites
 # - User reviews of the book
@@ -414,23 +413,16 @@ plt.show()
 # - Travel times and distances
 # - Pictures of places in the book
 # 
-# Your analysis might consider how Phileas Fogg would travel if he had to make the same journey today - 
-# what would it cost, where might he stay, what would be happening in the places he would visit? 
-# How would you aquire the data you need? Can you connect to data online using REST? 
-# Do you need to perform scraping with something like ScraPy? 
-# What other packages would you need and what would you use them for?
+# Your analysis might consider how Phileas Fogg would travel if he had to make the same journey today - what would it cost, where might he stay, what would be happening in the places he would visit? How would you aquire the data you need? Can you connect to data online using REST? Do you need to perform scraping with something like ScraPy? What other packages would you need and what would you use them for?
 # 
-# Write in English (not Python) about your idea including data sources, 
-# Python packages used, presentation and visualisation methods, 
-# and potential problems you can forsee. 
+# Write in English (not Python) about your idea including data sources, Python packages used, presentation and visualisation methods, and potential problems you can forsee. 
 # 
-# Add some example of code that perform some of the tasks required for your full analysis. 
-# You do not have to implement the whole idea, just some illustrative parts. 
+# Add some example of code that perform some of the tasks required for your full analysis. You do not have to implement the whole idea, just some illustrative parts. 
 # 
 # Use as many cells below as you need - both code and markdown to explain your ideas. This part is worth 19 of the marks overall.
 # 
 
-# %% [markdown]
+# %%
 # An attempt to improve the cities mentioned in the book was made. To my best knowledge a succesful one but 
 # the analysis could be further improved by plotting only the cities Phileas Fogg visited.
 # A full journey with connections plotted between the cities could be made as well. 
@@ -442,7 +434,7 @@ plt.show()
 # Google Maps would be a great help with this. We can get the travel calcualtion, time and locations.
 # Google on its official github account has google maps python intergration tools (https://github.com/googlemaps/google-maps-services-python)
 # and it features an example usage of finding a route between two geopoints:
-#%%
+
 # import googlemaps
 # from datetime import datetime
 
@@ -461,7 +453,6 @@ plt.show()
 #                                      mode="transit",
 #                                      departure_time=now)
 
-# %% [markdown]
 # Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
 # pictures of the area, reviews and more.
 
@@ -488,6 +479,3 @@ plt.show()
 # book's popularity charts would give us any results? Are people more inclined to read '80 days' in some particualr time?
 # Like winter, when there's very little sun and prospect of travel are miniscule? All the unexpected things we can get from data
 # make it so much more exciting!
-
-
-
