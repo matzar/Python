@@ -47,6 +47,8 @@
 # %%
 import random
 import string
+from nltk.book import *
+# nltk.download()
 
 # read the book into a string, use 'r' to prevent reading of special characters in the file name
 # and replace new line ('\n') characters with a white space
@@ -402,7 +404,8 @@ plt.show()
 # %% [markdown]
 # ## 15) Now think of some further analysis you could do based on the text of this book [19]
 # 
-# It should use other data sources you find online and tell an additional story around the data. Suggested data and sources include:
+# It should use other data sources you find online and tell an additional story around the data. 
+# Suggested data and sources include:
 # 
 # - Travel and accommodation sites
 # - User reviews of the book
@@ -411,11 +414,18 @@ plt.show()
 # - Travel times and distances
 # - Pictures of places in the book
 # 
-# Your analysis might consider how Phileas Fogg would travel if he had to make the same journey today - what would it cost, where might he stay, what would be happening in the places he would visit? How would you aquire the data you need? Can you connect to data online using REST? Do you need to perform scraping with something like ScraPy? What other packages would you need and what would you use them for?
+# Your analysis might consider how Phileas Fogg would travel if he had to make the same journey today - 
+# what would it cost, where might he stay, what would be happening in the places he would visit? 
+# How would you aquire the data you need? Can you connect to data online using REST? 
+# Do you need to perform scraping with something like ScraPy? 
+# What other packages would you need and what would you use them for?
 # 
-# Write in English (not Python) about your idea including data sources, Python packages used, presentation and visualisation methods, and potential problems you can forsee. 
+# Write in English (not Python) about your idea including data sources, 
+# Python packages used, presentation and visualisation methods, 
+# and potential problems you can forsee. 
 # 
-# Add some example of code that perform some of the tasks required for your full analysis. You do not have to implement the whole idea, just some illustrative parts. 
+# Add some example of code that perform some of the tasks required for your full analysis. 
+# You do not have to implement the whole idea, just some illustrative parts. 
 # 
 # Use as many cells below as you need - both code and markdown to explain your ideas. This part is worth 19 of the marks overall.
 # 
@@ -429,7 +439,7 @@ plt.show()
 # maybe even show up-to-date tain and airplane schedules, as if Phileas was traveling right now and today; 
 # Google Maps would be a great help in this. We can get the travel calcualtion, time and locations.
 # Google on its official github account has google maps python intergration tools (https://github.com/googlemaps/google-maps-services-python)
-# and it features an example usage:
+# and it features an example usage of finding a route using Google maps:
 #%%
 # import googlemaps
 # from datetime import datetime
