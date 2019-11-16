@@ -239,7 +239,8 @@ for i in range(len(book_words)-1):
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
 
 # create a list of chapters
-chapter_list = [table_of_contents[i][1] for i in range(len(table_of_contents))]
+chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
+display(chapter_list)
 # %% [markdown]
 # ## 9) Remove the first entry from the chapter list [6]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
