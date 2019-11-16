@@ -47,12 +47,7 @@
 # %%
 import random
 import string
-# import re
-# import numpy as np
-# from matplotlib import pyplot as plt
-# %matplotlib inline
 
-# Answer 1
 # read the book into a string, use 'r' to prevent reading of special characters in the file name
 # and replace new line ('\n') characters with a white space
 data = open(r"aroundTW80Days.txt", "r").read().replace('\n',' ')
@@ -82,7 +77,6 @@ print("The first 10 words from the book:", book_words[0:10])
 # - Print the number of unique words it finds
 
 # %%
-# Answer 2
 # Set stores values only once, so we're going to convert the list containing
 # all the words in the book into a set, hence getting all the unique words
 # but first we need to get rid of all the punctuation signs so we don't 
@@ -105,7 +99,6 @@ print(book_unique)
 # 
 
 # %%
-# Answer 3 
 book_dict = dict()
 
 # !!! WARNING !!! - long execution! Only use if you need the whole dictionary in the memory, otherwise
@@ -126,7 +119,6 @@ gen_book_dic = (book_dict.update({word: (len(word), book_no_punc.count(word))}) 
 # - Print the word and the number of times it appeared in the book
 
 # %%
-# Answer 4
 # We're using the book_no_punc list because we don't want to count
 # "Francisco?" and "Francisco" twice and get two unique keys and values
 print(max(book_no_punc, key=lambda x: book_no_punc[1]))
@@ -139,7 +131,6 @@ print(max(book_no_punc, key=lambda x: book_no_punc[1]))
 # - Call the function to create a generator but do not iterate over it at this stage
 
 # %%
-# Answer 5
 # generator expression which yields a tuple of a word and its length
 wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
 
@@ -150,8 +141,6 @@ wordLenghtGenerator = ((word, len(word)) for word in book_no_punc)
 # - Extra points if each word is selected only once
     
 # %%
-# Answer 6
-
 # generator expression which yields a tuple of a word of length 9 and its length, which is 9
 wordLenghtGenerator = ((word, len(word)) for word in book_no_punc if len(word) == 9)
 
@@ -177,7 +166,6 @@ for word in seen_before:
 # `. - \ /`
 
 # %%
-# Answer 7
 # generator to find words with 14 letters or more but without these special characaters `. - \ /` in them
 fourteeen_letter = (word for word in book_no_punc if len(word) >= 14
     for c in word 
@@ -260,7 +248,6 @@ chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
 
 # %%
-# Answer 9
 # This question was handeled differently and there was no need for removal of the first entry
 
 # %% [markdown]
@@ -275,7 +262,6 @@ table_of_contents
 # - Clue: The title of each chapter is written in UPPER CASE and is the first thing in each chapter. Therefore, printing words until you find one that is not upper case will print the title.
 
 # %%
-# Answer 11
 for i in range(len(table_of_contents)):
     print(table_of_contents[i][1])
 
@@ -286,8 +272,15 @@ for i in range(len(table_of_contents)):
 # - Give the chart appropriate title and axis labels
 # - Use whatever plotting library you like. Matplotlib is fine.
 
+#%%
+# import re
+# import numpy as np
+# from matplotlib import pyplot as plt
+# %matplotlib inline
+
+
+
 # %%
-# Answer 12
 # print chapters
 for i in range(len(table_of_contents)):
     print(table_of_contents[i][0])
