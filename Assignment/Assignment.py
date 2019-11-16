@@ -209,12 +209,26 @@ Chapters = [[0 for i in range(cols)] for j in range(rows)]
 # This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
 # but gives us a list of chapters with corresponding numbers
 
+chapter_tag = list()
+chapter_desc = list()
+chapter_content = list()
+chapters = list()
+
 for i in range(len(book_words) - 1):
     current_word = book_words[i]
     next_word = book_words[i + 1]
+
     if "Chapter" in current_word:
         # get the 'Chapter' word and its roman numberal
         Chapters.append(book_words[i] + " " + book_words[i+1])
+        # get description
+        j = i+2
+        while book_words[j].isupper():
+            chapter_desc.append(book_words[j])
+            j+=1
+    
+    if "Chapter" in book_words[i-1]:
+        continue
 
 
 for chapter in Chapters:
