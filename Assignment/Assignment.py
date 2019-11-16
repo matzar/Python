@@ -212,7 +212,7 @@ for i in range(len(book_words)-1):
     # Keep iterating until you encounter word "Chapter".
     # This means many things:
     if "Chapter" in book_words[i]:
-        # Clear temporary holder lists to prepare them for the next chapters
+        # Flush temporary holder lists to prepare them for the next chapters
         chapter_tag_holder = list()
         chapter_desc_holder = list()
         chapter_content_holder = list()
@@ -259,8 +259,8 @@ for i in range(len(book_words)-1):
 
 # %%
 # Answer 11
-for i in table_of_contents:
-    print(i)
+for i in range(len(table_of_contents)):
+    print(table_of_contents[i][1])
 
 # %% [markdown]
 # ## 12) Measure the length of each chapter and plot the values on a bar chart [9]
