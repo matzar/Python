@@ -311,8 +311,10 @@ city_names = list(set(places.cities))
 # Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
 city_names.remove('Most')
 
-# The data is further improved by going meticuously through all odd entires
-# in the list of the city names; to my best knowledge, these are:
+# The data is further improved by removal of the odd entires.
+# This was done by finding the plotted cities in the context of the book.
+# Visual exploration of the produced map was also helpful.
+# Many iteration were performed and to my best knowledge, Phileas Fogg did not visit:
 city_names.remove('Stuart')
 city_names.remove('Of')
 city_names.remove('Temple')
@@ -331,6 +333,7 @@ city_names.remove('San Pablo')
 city_names.remove('Saint Joseph')
 city_names.remove('Fairbanks')
 city_names.remove('Enfield')
+city_names.remove('Athens')
 
 #%%
 # folium library is used to plot the cities on the map
