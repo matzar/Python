@@ -314,30 +314,53 @@ cities_raw = cities_file.split(';')
 # indexing: | 0               | 1            | 2         | 3             | 4               | 5
 # indexing: | 6 ...
 
+
 cities = list()
+i = 0
+while i < len(cities_raw):
+    # if the city is in the book add it to the list
+    if(not data.find(cities_raw[i+2])): 
+        # append city's name    
+        cities.append(cities_raw[i+2])
+        # append city's latitude
+        cities.append(cities_raw[i+3])
+        # append city's longtitude
+        cities.append(cities_raw[i+4])
+    # jump to the next city
+    i+=6
+
+# print(cities)
 
 # # convert book_words list into a set for a qucker object look up
 # # this will also make sure that we add the city for plotting only once
 book_set = set(book_words)
 
-# if any('Victoria' in data)
+# s = ['Imperial','Come','San Pablo','Queenstown','Young','Lincoln','Forster','Formosa']
+
+# create a list 
+
+# if any(x in book_set for x in cities):
+#     print("Atari!")
 
 # # if the city is in the book append city's name, latitude and longtituge
 # if book_words.find(cities_raw[i+1]) 
 
 # create a list of city's name, latitude and longtitude
-i = 0
-while i < len(cities_raw):
-    # append city's name    
-    cities.append(cities_raw[i+2])
-    # append city's latitude
-    cities.append(cities_raw[i+3])
-    # append city's longtitude
-    cities.append(cities_raw[i+4])
-    # jump to the next city
-    i =+ 6
+# i = 0
+# while i < len(cities_raw):
+#     # if the city is in the book add it to the list
+#     city = cities_raw[i+2]
+#     if any(city in data):
+#         # append city's name    
+#         cities.append(cities_raw[i+2])
+#         # append city's latitude
+#         cities.append(cities_raw[i+3])
+#         # append city's longtitude
+#         cities.append(cities_raw[i+4])
+#     # jump to the next city
+#     i+=6
 
-print(cities)
+# print(cities)
 
 # print(book_words.find('Victoria'))
 test = set()
