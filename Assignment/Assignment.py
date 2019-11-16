@@ -370,51 +370,24 @@ import folium
 from geopy.geocoders import Nominatim
 
 #%%
-# location = geolocator.geocode(city_names[0])
-# print(location.address)
-# Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York, ...
-# print((location.latitude, location.longitude))
-# (40.7410861, -73.9896297241625)
-# print(location.raw)
-# {'place_id': '9167009604', 'type': 'attraction', ...}
-
 # create folium map
 m = folium.Map(
     location=[0, 0],
     zoom_start=2.0,
     tiles='Stamen Terrain'
 )
-tooltip = 'Click me!'
+tooltip = 'Click for City\'s Name!'
 
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
-
+# create a map of cities from the book
 for city in city_names:
     location = geolocator.geocode(city)
     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
-# for city in city_names:
-    
-# folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
-
-# folium.Marker(
-#     location=[45.3288, -121.6625],
-#     popup='Mt. Hood Meadows',
-#     icon=folium.Icon(icon='cloud')
-# ).add_to(m)
-
-# folium.Marker(
-#     location=[45.3311, -121.7113],
-#     popup='Timberline Lodge',
-#     icon=folium.Icon(color='green')
-# ).add_to(m)
-
-# folium.Marker(
-#     location=[45.3300, -121.6823],
-#     popup='Some Other Location',
-#     icon=folium.Icon(color='red', icon='info-sign')
-# ).add_to(m)
-
-# m.save('test.html')
+m.save('80daysCities.html')
+#%%
+# Map of the cities visited by Phileas Fogg
+m
 
 # %% [markdown]
 # ## 14) NLTK Sentiment Analysis [9]
