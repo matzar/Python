@@ -93,7 +93,7 @@ book_no_punc = list()
 for word in book_words:
     book_no_punc.append(word.strip(string.punctuation))
 
-# convert book_unique list into a set to obtain the unique values
+# convert book_no_punc list into a set to obtain the unique values
 book_unique = set(book_no_punc)
 print(book_unique)
 
@@ -198,7 +198,7 @@ for i in fourteeen_letter:
 #  
 
 # %%
-# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12 and 14
+# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12, 13 and 14
 
 # these lists will become our 2D tables of:
 # this will contain 'Chapter N' and its 'Description'
@@ -304,7 +304,7 @@ for i in range(len(table_of_contents)):
 #%%
 # Answer 13
 cities_file = open(r"cities.txt", "r").read().replace('\n',';')
-cities = cities_file.split(';')
+cities_raw = cities_file.split(';')
 
 #%%
 display(cities)
@@ -317,16 +317,32 @@ import folium
 # indexing: | 0               | 1            | 2         | 3             | 4               | 5
 # indexing: | 6 ...
 
+cities = list()
 
-m = folium.Map(
-    location=[0, 0],
-    zoom_start=2.0,
-    tiles='Stamen Terrain'
-)
+# # convert book_words list into a set for a qucker object look up
+# # this will also make sure that we add the city for plotting only once
+# book_set = set(book_words)
 
-tooltip = 'Click me!'
+if any('Victoria' in data):
 
-folium.Marker([cities[3], cities[4]], popup=cities[3], tooltip=tooltip).add_to(m)
+# i = 0
+# while i < len(cities_raw):
+#     # append city name
+#     if book_words.find(cities_raw[i+1]) 
+#     cities.append(cities_raw[i+1])
+    # append city's
+
+print(book_words.find('Victoria'))
+test = set()
+
+# create folium map
+# m = folium.Map(
+#     location=[cities[3], cities[4]],
+#     zoom_start=2.0,
+#     tiles='Stamen Terrain'
+# )
+# tooltip = 'Click me!'
+# folium.Marker([cities[3], cities[4]], popup=cities[2], tooltip=tooltip).add_to(m)
 # folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
 
 # folium.Marker(
@@ -347,7 +363,6 @@ folium.Marker([cities[3], cities[4]], popup=cities[3], tooltip=tooltip).add_to(m
 #     icon=folium.Icon(color='red', icon='info-sign')
 # ).add_to(m)
 
-m
 m.save('test.html')
 
 # %% [markdown]
