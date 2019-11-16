@@ -380,7 +380,19 @@ m
 # ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
 
 # %%
-# Put your answer: code and comment here
+# source: https://www.nltk.org/_modules/nltk/sentiment/vader.html
+
+Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for
+Sentiment Analysis of Social Media Text. Eighth International Conference on
+Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
+
+#%%
+import math
+import re
+import string
+from itertools import product
+import nltk.data
+from .util import pairwise
 
 # %% [markdown]
 # ## 15) Now think of some further analysis you could do based on the text of this book [19]
