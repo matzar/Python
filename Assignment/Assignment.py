@@ -213,19 +213,22 @@ chapter_tag = list()
 chapter_desc = list()
 chapter_content = list()
 chapters = list()
+table_of_contents = list()
 
-for i in range(len(book_words) - 1):
-    current_word = book_words[i]
-    next_word = book_words[i + 1]
+for i in range(len(book_words)-1):
+    # current_word = book_words[i]
+    # next_word = book_words[i+1]
 
-    if "Chapter" in current_word:
+    if "Chapter" in book_words[i]:
         # get the 'Chapter' word and its roman numberal
-        Chapters.append(book_words[i] + " " + book_words[i+1])
+        chapter_tag.append(book_words[i] + " " + book_words[i+1])
         # get description
         j = i+2
         while book_words[j].isupper():
             chapter_desc.append(book_words[j])
             j+=1
+        # append table of contents
+        table_of_contents.append([chapter_tag, chapter_desc])
         # get chapter content
         while book_words[j] != "Chapter":
             chapter_content.append(book_words[j])
@@ -237,8 +240,6 @@ for i in range(len(book_words) - 1):
     #     while book_words[j].isupper():
     #         chapter_desc.append(book_words[j])
     #         j+=1
-
-
 
 for chapter in Chapters:
     print(chapter)
