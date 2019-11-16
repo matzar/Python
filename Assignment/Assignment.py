@@ -299,11 +299,20 @@ for i in range(len(table_of_contents)):
 # - Look at its contents to work out how to use it. The locations are given as latitude, longitude, altitude (you won't need that last one!)
 # - You should then write code that searches the book for all the cities in `cities.txt`. Any that it finds should be plotted on the map
 # - Here is a useful list of words that appear in the book, but are NOT to be plotted:
-# 
 # `['Victoria','San','Imperial','Come','San Pablo','Queenstown','Young','Lincoln','Forster','Formosa']`
 
-# %%
-# Put your answer: code and comment here
+#%%
+# Answer 13
+cities_file = open(r"cities.txt", "r").read().replace('\n',';')
+
+#%%
+cities = cities_file.split(';')
+display(cities)
+
+# list of cities
+# layout:   | sequence number | country name | city name | latitude | longtitude | altitude
+# indexing: | 0               | 1            | 3         | 4        | 5          | 6
+# indexing: | 7 ...
 
 # %% [markdown]
 # ## 14) NLTK Sentiment Analysis [9]
