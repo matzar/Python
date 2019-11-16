@@ -316,14 +316,32 @@ cities_raw = cities_file.split(';')
 
 # list of all the cities in the world with their latitude and longtitude
 cities = list()
+city_names = set()
 i = 0
 while i < len(cities_raw):
     # append city's name, latitude and longtitude
     cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
+    # There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
+    # Since there is only one place in the entire book where the sentence starts from "Most",
+    # and its in the publisher notes; the original text was changed to "most".
+    # This saves us a lot of coding and imroves performance.
+    # if cities_raw[i+2] != "Most": # Most is a city name but it doesn't appear as such in the book
+    #     city_names.add(cities_raw[i+2])
     i+=6
 
 #%%
 
+# city_gen = (city for city in city_names for word in data if word == city)
+# display(city_names)
+
+from geotext import GeoText
+places = GeoText(data)
+city_names = places.cities
+print(city_names)
+
+# print(places.country_mentions)
+# for c in city_gen:
+    # print(c)
 # cities_gen = (city for city in book_word 
 # if len(word) >= 14    
 #         if '-' not in word 
