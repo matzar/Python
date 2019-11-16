@@ -238,7 +238,8 @@ for i in range(len(book_words)-1):
         # to create a 2d table of chapters and their content.
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
 
-
+# create a list of chapters
+chapter_list = [table_of_contents[i][1] for i in range(len(table_of_contents))]
 # %% [markdown]
 # ## 9) Remove the first entry from the chapter list [6]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
@@ -270,7 +271,10 @@ for i in range(len(table_of_contents)):
 # - Use whatever plotting library you like. Matplotlib is fine.
 
 # %%
-# Put your answer: code and comment here
+# Answer 12
+# print chapters
+for i in range(len(table_of_contents)):
+    print(table_of_contents[i][0])
 
 # %% [markdown]
 # ## 13) Plot Locations Mentioned in the Book on a Map [9]
