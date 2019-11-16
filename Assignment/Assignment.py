@@ -240,7 +240,7 @@ for i in range(len(book_words)-1):
 
 # create a list of chapters
 chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
-display(chapter_list)
+# display(chapter_list)
 # %% [markdown]
 # ## 9) Remove the first entry from the chapter list [6]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
@@ -253,7 +253,31 @@ display(chapter_list)
 # ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
 
 # %%
-# This step was already done in the answer to Question 8
+# This step was already done in the answer to Question 8 but it could also be done like this:
+toc = list()
+
+for i in range(len(book_words)-1):
+    # Keep iterating until you encounter word "CHAPTER".
+    if "CHAPTER" in book_words[i]:
+        # prepare for getting the next words after chapter and its number
+        j = i+2
+        while(book_words[j].isupper()):
+            # Flush temporary holder lists to prepare them for the next chapters
+            chapter_tag_holder = list()
+            chapter_desc_holder = list()
+            # First, the next word is the chapter's number, so we save both in a list.
+            chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
+            # We keep interating until there are no capital letters left.
+            while book_words[j] != "CHAPTER":
+                # Save the chapter's description in a list.
+                chapter_desc_holder.append(book_words[j])
+                j+=1            
+
+            # Use the previous list containing the chapter's name and number, like 'Chapter I',
+            # and the new list that has its description to create a 2d list of chapters and their descriptions
+            toc.append([chapter_tag_holder, chapter_desc_holder])
+
+print(toc)
 
 # %% [markdown]
 # ## 11) Print only the titles from each chapter [6]
