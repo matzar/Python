@@ -311,28 +311,42 @@ city_names = list(set(places.cities))
 # Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
 city_names.remove('Most')
 
-# The data is further improved by removal of the odd entires.
-# This was done by finding the plotted cities in the context of the book.
+# The data is further improved by removal of the entires that are not a city in the context of the book.
 # Visual exploration of the produced map was also helpful.
-# Many iteration were performed and to my best knowledge, Phileas Fogg did not visit:
+# Many iterations were performed and to my best knowledge, Phileas Fogg did not visit:
+# name
 city_names.remove('Stuart')
+# just a word
 city_names.remove('Of')
+# just a word
 city_names.remove('Temple')
+# continent
 city_names.remove('Asia')
+# just a word
 city_names.remove('Auburn')
+# just a word
 city_names.remove('Mission')
+# just a word
 city_names.remove('Independence')
+# just a word
 city_names.remove('Imperial')
+# name
 city_names.remove('Wilson')
+# just a word
 city_names.remove('Deal')
+# just a word
 city_names.remove('Bay')
+# just a word
 city_names.remove('Union')
+# just a word
 city_names.remove('Cedar')
+# indian tribe
 city_names.remove('Sioux')
-city_names.remove('San Pablo')
-city_names.remove('Saint Joseph')
+# name
 city_names.remove('Fairbanks')
+# rifle
 city_names.remove('Enfield')
+# nickname
 city_names.remove('Athens')
 
 #%%
