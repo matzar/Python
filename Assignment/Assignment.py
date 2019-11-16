@@ -354,7 +354,7 @@ for city in city_names:
 
 m.save('80daysCities.html')
 #%%
-# Map of the cities visited by Phileas Fogg (Takes a while to load)
+# Map of the cities visited by Phileas Fogg (Takes a minute to load)
 m
 
 # %% [markdown]
