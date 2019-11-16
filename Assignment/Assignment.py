@@ -374,7 +374,7 @@ geolocator = Nominatim(user_agent="phileas_fogg_journey")
 
 # m.save('80daysCities.html')
 #%%
-# Map of the cities visited by Phileas Fogg (Takes a minute to load)
+# Map of the cities visited by Phileas Fogg (Might take a minute to load)
 m
 
 # %% [markdown]
@@ -434,12 +434,14 @@ plt.show()
 # An attempt to improve the cities mentioned in the book was made. To my best knowledge a succesful one but 
 # the analysis could be further improved by plotting only the cities Phileas Fogg visited.
 # A full journey with connections plotted between the cities could be made as well. 
-# The connections could show the amount of time the journey took; This could be done interactively with a mouse hover
+# The connections could show the amount of time the journey took; this could be done interactively with a mouse hover
 # over the link showing the journey's time. We could also show the time it would take today to travel that link and
-# maybe even show up-to-date tain and airplane schedules, as if Phileas was traveling right now and today; 
-# Google Maps would be a great help in this. We can get the travel calcualtion, time and locations.
+# show up-to-date train and airplane schedules. This could be a fun tool to play with while reading the book, to see
+# how much time it would take Phileas to travel not only today, but right now.
+#  
+# Google Maps would be a great help with this. We can get the travel calcualtion, time and locations.
 # Google on its official github account has google maps python intergration tools (https://github.com/googlemaps/google-maps-services-python)
-# and it features an example usage of finding a route using Google maps:
+# and it features an example usage of finding a route between two geopoints:
 #%%
 # import googlemaps
 # from datetime import datetime
@@ -458,7 +460,12 @@ plt.show()
 #                                      "Parramatta, NSW",
 #                                      mode="transit",
 #                                      departure_time=now)
-#%% [markdown]
+
+# %% [markdown]
+# Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
+# pictures of the area, reviews and more.
+# In terms of image processing, if it was an ilustrated version of 'Around the World in 80 Days'
+# 
 
 
 
