@@ -214,21 +214,28 @@ chapters_and_content = list()
 # here we create our 2d tables
 # we're iterating through all the words in the book using 'book_words' list
 for i in range(len(book_words)-1):
+    # Keep iterating until you encounter word "Chapter".
+    # This means many things:
     if "Chapter" in book_words[i]:
-        # get the 'Chapter' word and its roman numberal
+        # First, the next word is the chapter's number, so we save both in a list.
         chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
-        # get description
+        # Second, the next words are all in capitals and are the chapter's description.
         j = i+2
+        # We keep interating until there are no capital letters left.
         while book_words[j].isupper():
+            # Save the chapter's description in a list.
             chapter_desc_holder.append(book_words[j])
             j+=1
-        # append table of contents
+        # Use the previous list containing the chapter's name and number, like 'Chapter I',
+        # and the new list that has its description to create a 2d list of chapters and their descriptions
         table_of_contents.append([chapter_tag_holder, chapter_desc_holder])
-        # get chapter content
+        # Thirdly, if we keep going until we encounter the next word 'Chapter', 
+        # we can get the entire chapter into a list!
         while book_words[j] != "Chapter" and j != len(book_words)-1:
             chapter_content_holder.append(book_words[j])
             j+=1
-        # append chapter content
+        # Use the list containing the chapter name and number and the list with its content
+        # to create a 2d table of chapters and their content
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
         # flush temporary holders
         chapter_content_holder.clear()
