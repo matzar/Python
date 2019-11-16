@@ -304,8 +304,8 @@ for i in range(len(table_of_contents)):
 
 #%%
 # Answer 13
-cities_file = open(r"cities.txt", "r").read().replace('\n',';')
-cities_raw = cities_file.split(';')
+# cities_file = open(r"cities.txt", "r").read().replace('\n',';')
+# cities_raw = cities_file.split(';')
 
 #%%
 
@@ -315,12 +315,12 @@ cities_raw = cities_file.split(';')
 # indexing: | 6 ...
 
 # list of all the cities in the world with their latitude and longtitude
-cities = list()
-i = 0
-while i < len(cities_raw):
-    # append city's name, latitude and longtitude
-    cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
-    i+=6
+# cities = list()
+# i = 0
+# while i < len(cities_raw):
+#     # append city's name, latitude and longtitude
+#     cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
+#     i+=6
 
 #%%
 from geotext import GeoText
@@ -328,12 +328,22 @@ from geotext import GeoText
 #%%
 # using geotext library to find all cities in the book
 places = GeoText(data)
+city_names = list()
+city_names = places.cities
+
+def RemoveCity(city):
+    while city in city_names: 
+        city_names.remove(city)
 # There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
 # Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
-places.cities.remove('Most')
+RemoveCity('Most')
 # To prevent double entires, the list of cities that appear in the book, is converted to a set.
-city_names = set()
-city_names = places.cities
+# Another manually spotted errors:
+RemoveCity('Stuart')
+RemoveCity('Of')
+RemoveCity('Temple')
+RemoveCity('Asia')
+# city_names = set(city_names)
 # # Get 
 # city_map = list()
 # print(city_names)
@@ -345,7 +355,7 @@ from geopy.geocoders import Nominatim
 
 #%%
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
-location = geolocator.geocode("London")
+location = geolocator.geocode(city_names[0])
 # print(location.address)
 # Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York, ...
 print((location.latitude, location.longitude))
@@ -354,13 +364,17 @@ print((location.latitude, location.longitude))
 # {'place_id': '9167009604', 'type': 'attraction', ...}
 
 # create folium map
-# m = folium.Map(
-#     location=[cities[3], cities[4]],
-#     zoom_start=2.0,
-#     tiles='Stamen Terrain'
-# )
-# tooltip = 'Click me!'
-# folium.Marker([cities[3], cities[4]], popup=cities[2], tooltip=tooltip).add_to(m)
+m = folium.Map(
+    location=[0, 0],
+    zoom_start=2.0,
+    tiles='Stamen Terrain'
+)
+tooltip = 'Click me!'
+
+for city in city_names:
+    geolocator = Nominatim(user_agent="phileas_fogg_journey")
+    location = geolocator.geocode(city)
+    folium.Marker(location.latitude, location.longitude, popup=city, tooltip=tooltip).add_to(m)
 # folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
 
 # folium.Marker(
