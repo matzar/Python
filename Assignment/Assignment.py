@@ -325,6 +325,7 @@ while i < len(cities_raw):
 #%%
 from geotext import GeoText
 
+#%%
 # using geotext library to find all cities in the book
 places = GeoText(data)
 # There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
@@ -333,13 +334,24 @@ places.cities.remove('Most')
 # To prevent double entires, the list of cities that appear in the book, is converted to a set.
 city_names = set()
 city_names = places.cities
-
-city_map = list()
-print(city_names)
+# # Get 
+# city_map = list()
+# print(city_names)
 
 
 #%%
 import folium
+from geopy.geocoders import Nominatim
+
+#%%
+geolocator = Nominatim(user_agent="phileas_fogg_journey")
+location = geolocator.geocode("London")
+# print(location.address)
+# Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York, ...
+print((location.latitude, location.longitude))
+# (40.7410861, -73.9896297241625)
+# print(location.raw)
+# {'place_id': '9167009604', 'type': 'attraction', ...}
 
 # create folium map
 # m = folium.Map(
