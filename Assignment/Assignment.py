@@ -200,11 +200,6 @@ for i in fourteeen_letter:
 # %%
 # This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12
 
-# holders for temporary data
-chapter_tag_holder = list()
-chapter_desc_holder = list()
-chapter_content_holder = list()
-
 # these lists will become our 2D tables of:
 # this will contain 'Chapter N' and its 'Description'
 table_of_contents = list()
@@ -217,6 +212,11 @@ for i in range(len(book_words)-1):
     # Keep iterating until you encounter word "Chapter".
     # This means many things:
     if "Chapter" in book_words[i]:
+        # Clear temporary holder lists to prepare them for the next chapters
+        chapter_tag_holder = list()
+        chapter_desc_holder = list()
+        chapter_content_holder = list()
+
         # First, the next word is the chapter's number, so we save both in a list.
         chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
         # Second, the next words are all in capitals and are the chapter's description.
@@ -237,10 +237,6 @@ for i in range(len(book_words)-1):
         # Use the list containing the chapter name and number and the list with its content
         # to create a 2d table of chapters and their content.
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
-        # Clear temporary holder lists to prepare them for the next chapters
-        chapter_content_holder.clear()
-        chapter_desc_holder.clear()
-        chapter_tag_holder.clear()
 
 
 # %% [markdown]
