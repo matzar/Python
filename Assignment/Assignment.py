@@ -345,17 +345,31 @@ city_names.remove('Of')
 city_names.remove('Temple')
 # Continent
 city_names.remove('Asia')
-
+# Just a junction
+city_names.remove('Auburn')
+# Just a word, not a place
+city_names.remove('Mission')
+# Just a word, not a place
+city_names.remove('Independence')
+# Colour
+city_names.remove('Imperial')
+# Name
+city_names.remove('Wilson')
+# Word, not a place
+city_names.remove('Deal')
+# Not a place in the book
+city_names.remove('Bay')
+# Not a place
+city_names.remove('Union')
 #%%
 import folium
 from geopy.geocoders import Nominatim
 
 #%%
-geolocator = Nominatim(user_agent="phileas_fogg_journey")
-location = geolocator.geocode(city_names[0])
+# location = geolocator.geocode(city_names[0])
 # print(location.address)
 # Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York, ...
-print((location.latitude, location.longitude))
+# print((location.latitude, location.longitude))
 # (40.7410861, -73.9896297241625)
 # print(location.raw)
 # {'place_id': '9167009604', 'type': 'attraction', ...}
@@ -368,8 +382,10 @@ m = folium.Map(
 )
 tooltip = 'Click me!'
 
-location = geolocator.geocode(city_names[0])
-folium.Marker(location.latitude, location.longitude, popup=city_names[0], tooltip=tooltip).add_to(m)
+city = city_names[0]
+# geolocator = Nominatim(user_agent="phileas_fogg_journey")
+location = geolocator.geocode(city)
+folium.Marker(location.latitude, location.longitude, popup=city, tooltip=tooltip).add_to(m)
 
 # for city in city_names:
     
