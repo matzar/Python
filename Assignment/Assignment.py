@@ -465,7 +465,7 @@ plt.show()
 # Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
 # pictures of the area, reviews and more.
 
-# Using Scrapy, we could scrap google restaurant reviews at the locations Phileas visited, and add these to our interactive map.
+# Using Scrapy, we could scrap google restaurant reviews and hotels, at the locations Phileas visited, and add these to our interactive map.
 # It could be used to create a companion app for anyone who would like to travel the world like Phileas did; when they would be
 # in the same location as Phileas was, it could send them a notification with the book's chapter relative to their current location.
 # Getting the users location could also be done with google maps API.
@@ -478,7 +478,16 @@ plt.show()
 # in the pictures and plot 'an emotinal' journey that heroes of the book went through. This could combined with
 # VADER sentiment analysis to see how these two compare.
 
+# Futher analysis could involve scrapping the book's reviews from the web and see how they've changed over time.
+# Have they improved, got worse? We could also look at the selling data, plot them over time, and see if there was any
+# anomalies in the books popularity. Maybe they were related to some other events, like a premier of a movie adaptation?
 
+# We could also scrap the web in search of 'Around the world in 80 days' themed events, like novel readings etc.
+# This would also be a very good popularity indicator of a book that was published almost 150 years ago and is still
+# very well known. It would be intersting to try to analyse this phenomena. Maybe scrapping the news and comparing the
+# book's popularity charts would give us any results? Are people more inclined to read '80 days' in some particualr time?
+# Like winter, when there's very little sun and prospect of travel are miniscule? All the unexpected things we can get from data
+# make it so much more exciting!
 
 
 
