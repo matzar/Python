@@ -318,18 +318,22 @@ cities_raw = cities_file.split(';')
 cities = list()
 i = 0
 while i < len(cities_raw):
-    # if the city is in the book add it to the list
-    # if(not data.find(cities_raw[i+2])): 
-    # append city's name    
-    cities.append(cities_raw[i+2])
-    # append city's latitude
-    cities.append(cities_raw[i+3])
-    # append city's longtitude
-    cities.append(cities_raw[i+4])
-    # jump to the next city
+    # append city's name, latitude and longtitude
+    cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
     i+=6
+    # # append city's latitude
+    # cities.append(cities_raw[i+3])
+    # # append city's longtitude
+    # cities.append(cities_raw[i+4])
+    # # jump to the next city
 
 
+# cities_gen = (city for city in book_word 
+# if len(word) >= 14    
+#         if '-' not in word 
+#         if '.' not in word
+#         if '\\' not in word
+#         if '/' not in word)
 
 # # convert book_words list into a set for a qucker object look up
 # # this will also make sure that we add the city for plotting only once
