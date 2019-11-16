@@ -253,7 +253,8 @@ while i < len(book_words):
 
 # create a list of chapters
 chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
-display(chapter_list)
+# 
+# display(chapter_list)
 # %% [markdown]
 # ## 9) Remove the first entry from the chapter list [6]
 # The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
@@ -307,10 +308,6 @@ cities_file = open(r"cities.txt", "r").read().replace('\n',';')
 cities_raw = cities_file.split(';')
 
 #%%
-display(cities)
-
-#%%
-import folium
 
 # list of cities
 # layout:   | sequence number | country name | city name | latitude (NS) | longtitude (EW) | altitude
@@ -321,19 +318,32 @@ cities = list()
 
 # # convert book_words list into a set for a qucker object look up
 # # this will also make sure that we add the city for plotting only once
-# book_set = set(book_words)
+book_set = set(book_words)
 
-if any('Victoria' in data):
+# if any('Victoria' in data)
 
-# i = 0
-# while i < len(cities_raw):
-#     # append city name
-#     if book_words.find(cities_raw[i+1]) 
-#     cities.append(cities_raw[i+1])
-    # append city's
+# # if the city is in the book append city's name, latitude and longtituge
+# if book_words.find(cities_raw[i+1]) 
 
-print(book_words.find('Victoria'))
+# create a list of city's name, latitude and longtitude
+i = 0
+while i < len(cities_raw):
+    # append city's name    
+    cities.append(cities_raw[i+2])
+    # append city's latitude
+    cities.append(cities_raw[i+3])
+    # append city's longtitude
+    cities.append(cities_raw[i+4])
+    # jump to the next city
+    i =+ 6
+
+print(cities)
+
+# print(book_words.find('Victoria'))
 test = set()
+
+#%%
+import folium
 
 # create folium map
 # m = folium.Map(
@@ -363,7 +373,7 @@ test = set()
 #     icon=folium.Icon(color='red', icon='info-sign')
 # ).add_to(m)
 
-m.save('test.html')
+# m.save('test.html')
 
 # %% [markdown]
 # ## 14) NLTK Sentiment Analysis [9]
