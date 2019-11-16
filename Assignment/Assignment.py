@@ -226,7 +226,7 @@ while i < len(book_words):
 
         # The next word is the chapter's number, so we save both in a list.
         chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
-        # Second, the next words are all in capitals and are the chapter's description.
+        # The next words are all in capitals and are the chapter's description.
         j = i+2
         # We keep interating until there are no capital letters left.
         while book_words[j].isupper():
@@ -236,7 +236,7 @@ while i < len(book_words):
         # Use the previous list containing the chapter's name and number, like 'Chapter I',
         # and the new list that has its description to create a 2d list of chapters and their descriptions
         table_of_contents.append([chapter_tag_holder, chapter_desc_holder])
-        # Thirdly, if we keep going until we encounter the next word 'Chapter', 
+        # If we keep going until we encounter the next word 'Chapter', 
         # we can get the entire chapter into a list!
         while book_words[j] != "Chapter" and j != len(book_words)-1:
             chapter_content_holder.append(book_words[j])
