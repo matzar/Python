@@ -226,9 +226,18 @@ for i in range(len(book_words) - 1):
         while book_words[j].isupper():
             chapter_desc.append(book_words[j])
             j+=1
-    
-    if "Chapter" in book_words[i-1]:
-        continue
+        # get chapter content
+        while book_words[j] != "Chapter":
+            chapter_content.append(book_words[j])
+            j+=1
+
+    # if "Chapter" in book_words[i-1]:
+    #     # get description
+    #     j = i+1
+    #     while book_words[j].isupper():
+    #         chapter_desc.append(book_words[j])
+    #         j+=1
+
 
 
 for chapter in Chapters:
