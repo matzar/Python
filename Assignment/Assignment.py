@@ -47,8 +47,6 @@
 # %%
 import random
 import string
-from nltk.book import *
-# nltk.download()
 
 # read the book into a string, use 'r' to prevent reading of special characters in the file name
 # and replace new line ('\n') characters with a white space
@@ -188,7 +186,7 @@ for i in fourteeen_letter:
 #  
 
 # %%
-# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12 and 14
+# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11 and 12
 
 # these lists will become our 2D tables of:
 # this will contain 'Chapter N' and its 'Description'
@@ -212,7 +210,7 @@ while i < len(book_words):
         # Flush temporary holder lists to prepare them for the next chapters
         chapter_tag_holder = list()
         chapter_desc_holder = list()
-        chapter_content_holder = list()
+        chapter_content_holder = str()
 
         # The next word is the chapter's number, so we save both in a list.
         chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
@@ -229,7 +227,7 @@ while i < len(book_words):
         # If we keep going until we encounter the next word 'Chapter', 
         # we can get the entire chapter into a list!
         while book_words[j] != "Chapter" and j != len(book_words)-1:
-            chapter_content_holder.append(book_words[j])
+            chapter_content_holder + str(book_words[j])
             j+=1
         # Use the list containing the chapter name and number and the list with its content
         # to create a 2d table of chapters and their content.
@@ -386,13 +384,15 @@ m
 import nltk
 import matplotlib
 import matplotlib.pyplot as plt
-nltk.download('vader_lexicon')
+# nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()
-
+#%%
 # Analyse Chapter I
-chapter_1 = str(chapters_and_content[0][1])
-score = analyser.polarity_scores(chapter_1)
+# chapter_1 = str(chapters_and_content[0][1])
+chapter_1 = nltk.tokenize.sent_tokenize(data)
+# print(chapter_1)
+score = analyser.polarity_scores(data)
 print(score)
 
 # Plot the analysis
