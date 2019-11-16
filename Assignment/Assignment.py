@@ -316,25 +316,27 @@ cities_raw = cities_file.split(';')
 
 # list of all the cities in the world with their latitude and longtitude
 cities = list()
-city_names = set()
 i = 0
 while i < len(cities_raw):
     # append city's name, latitude and longtitude
     cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
-    # There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
-    # Since there is only one place in the entire book where the sentence starts from "Most",
-    # and its in the publisher notes; the original text was changed to "most".
-    # This saves us a lot of coding and imroves performance.
-    # if cities_raw[i+2] != "Most": # Most is a city name but it doesn't appear as such in the book
-    #     city_names.add(cities_raw[i+2])
     i+=6
 
 #%%
 from geotext import GeoText
 
+# using geotext library to find all cities in the book
 places = GeoText(data)
+# There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
+# Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
+places.cities.remove('Most')
+# To prevent double entires, the list of cities that appear in the book, is converted to a set.
+city_names = set()
 city_names = places.cities
+
+city_map = list()
 print(city_names)
+
 
 #%%
 import folium
