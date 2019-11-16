@@ -206,19 +206,25 @@ table_of_contents = list()
 # this will contain 'Chapter N' and its 'Content'
 chapters_and_content = list()
 
-# here we create our 2d tables
-# we're iterating through all the words in the book using 'book_words' list
+# Here we create our 2d tables.
+# We're iterating through all the words in the book using 'book_words' list.
+# We will look for the first occurence of "Chapter" with regards to spelling.
+# When we encounter this words this means:
+# - The next object is chapter's number.
+# - Next are the uppercase letters so they're the chapter's description.
+# - Next is the chapter's description, which will end with the next occurence of the word "Chapter".
+# - This ends our iteration; we change the iterators value to point to the current place in the loop
+#   and proceed to load the next chapter because it's already waiting in the cue!
 i = 0
 while i < len(book_words):
-    # Keep iterating until you encounter word "Chapter".
-    # This means many things:
+    # Here we will get the chapter's: name, number, description and content.
     if "Chapter" in book_words[i]:
         # Flush temporary holder lists to prepare them for the next chapters
         chapter_tag_holder = list()
         chapter_desc_holder = list()
         chapter_content_holder = list()
 
-        # First, the next word is the chapter's number, so we save both in a list.
+        # The next word is the chapter's number, so we save both in a list.
         chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
         # Second, the next words are all in capitals and are the chapter's description.
         j = i+2
@@ -238,8 +244,9 @@ while i < len(book_words):
         # Use the list containing the chapter name and number and the list with its content
         # to create a 2d table of chapters and their content.
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
+        # We finished loading the chapter's content because the current word is "Chapter" and next
+        # is the next chapter and we want to do all the steps for it again
         # Continue iterating from where 'j' is pointing to.
-        current_word = book_words[j]
         i=j
     else:
         i+=1
