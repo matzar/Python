@@ -310,8 +310,8 @@ cities = cities_file.split(';')
 display(cities)
 
 # list of cities
-# layout:   | sequence number | country name | city name | latitude | longtitude | altitude
-# indexing: | 0               | 1            | 3         | 4        | 5          | 6
+# layout:   | sequence number | country name | city name | latitude (NS) | longtitude (EW) | altitude
+# indexing: | 0               | 1            | 3         | 4             | 5               | 6
 # indexing: | 7 ...
 
 # %% [markdown]
