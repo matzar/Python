@@ -198,25 +198,21 @@ for i in fourteeen_letter:
 #  
 
 # %%
-# Answer 8
+# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12
 
-# num_of_chapter = book_words.count('Chapter')
-rows, cols = (0, 0)
-Chapters = [[0 for i in range(cols)] for j in range(rows)] 
-# print(arr[0][0])
-
-# print(Chapters)
-# This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
-# but gives us a list of chapters with corresponding numbers
-
+# holders for temporary data
 chapter_tag_holder = list()
 chapter_desc_holder = list()
 chapter_content_holder = list()
 
+# these lists will become our 2D tables of:
+# this will contain 'Chapter N' and its 'Description'
 table_of_contents = list()
+# this will contain 'Chapter N' and its 'Content'
 chapters_and_content = list()
 
-
+# here we create our 2d tables
+# we're iterating through all the words in the book using 'book_words' list
 for i in range(len(book_words)-1):
     if "Chapter" in book_words[i]:
         # get the 'Chapter' word and its roman numberal
@@ -238,32 +234,6 @@ for i in range(len(book_words)-1):
         chapter_content_holder.clear()
         chapter_desc_holder.clear()
         chapter_tag_holder.clear()
-
-
-# i = 0
-# while i < (len(Chapters)):
-#     Chapters.append("bruh")
-#     #print(Chapters[i][0])
-#     i += 1
-
-
-# # make a 2D for Chapters and their contents
-# chapters_2d = np.reshape(Chapters, Chapters)
-
-# # for i in Chapters:
-
-# a = np.array([1, 2, 3])
- 
-# newArray = np.append (a, [10, 11, 12])
- 
-# print(newArray)
-
-
-
-# Do not load the contents after the first occurence of 'Chapter' (it's just the table of contents)
-# Start the content loading from the second occurence of 'Chapter'
-
-# %%
 
 
 # %% [markdown]
