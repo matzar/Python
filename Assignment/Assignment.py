@@ -316,29 +316,29 @@ city_names.remove('Most')
 # Many iterations were performed and to my best knowledge, Phileas Fogg did not visit:
 # name
 city_names.remove('Stuart')
-# just a word
+# word
 city_names.remove('Of')
-# just a word
+# word
 city_names.remove('Temple')
 # continent
 city_names.remove('Asia')
-# just a word
+# word
 city_names.remove('Auburn')
-# just a word
+# word
 city_names.remove('Mission')
-# just a word
+# word
 city_names.remove('Independence')
-# just a word
+# word
 city_names.remove('Imperial')
 # name
 city_names.remove('Wilson')
-# just a word
+# word
 city_names.remove('Deal')
-# just a word
+# word
 city_names.remove('Bay')
-# just a word
+# word
 city_names.remove('Union')
-# just a word
+# word
 city_names.remove('Cedar')
 # indian tribe
 city_names.remove('Sioux')
