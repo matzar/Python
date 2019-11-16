@@ -365,11 +365,12 @@ tooltip = 'Click for City\'s Name!'
 
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
 # create a map of cities from the book
-for city in city_names:
-    location = geolocator.geocode(city)
-    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
+# TODO uncomment after debegging 
+# for city in city_names:
+#     location = geolocator.geocode(city)
+#     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
-m.save('80daysCities.html')
+# m.save('80daysCities.html')
 #%%
 # Map of the cities visited by Phileas Fogg (Takes a minute to load)
 m
@@ -388,7 +389,7 @@ def sentiment_analyzer_scores(sentence):
     score = analyser.polarity_scores(sentence)
     print("{:-<40} {}".format(sentence, str(score)))
 
-sentiment_analyzer_scores()
+sentiment_analyzer_scores(chapters_and_content[0][1])
 
 
 # %% [markdown]
@@ -412,35 +413,35 @@ sentiment_analyzer_scores()
 # Use as many cells below as you need - both code and markdown to explain your ideas. This part is worth 19 of the marks overall.
 # 
 
-# %%
-An attempt to improve the cities mentioned in the book was made. To my best knowledge a succesful one but 
-the analysis could be further improved by plotting only the cities Phileas Fogg visited.
-A full journey with connections plotted between the cities could be made as well. 
-The connections could show the amount of time the journey took; This could be done interactively with a mouse hover
-over the link showing the journey's time. We could also show the time it would take today to travel that link and
-maybe even show up-to-date tain and airplane schedules, as if Phileas was traveling right now and today; 
-Google Maps would be a great help in this. We can get the travel calcualtion, time and locations.
-Google on its official github account has google maps python intergration tools (https://github.com/googlemaps/google-maps-services-python)
-and it features an example usage:
+# %% [markdown]
+# An attempt to improve the cities mentioned in the book was made. To my best knowledge a succesful one but 
+# the analysis could be further improved by plotting only the cities Phileas Fogg visited.
+# A full journey with connections plotted between the cities could be made as well. 
+# The connections could show the amount of time the journey took; This could be done interactively with a mouse hover
+# over the link showing the journey's time. We could also show the time it would take today to travel that link and
+# maybe even show up-to-date tain and airplane schedules, as if Phileas was traveling right now and today; 
+# Google Maps would be a great help in this. We can get the travel calcualtion, time and locations.
+# Google on its official github account has google maps python intergration tools (https://github.com/googlemaps/google-maps-services-python)
+# and it features an example usage:
 #%%
-import googlemaps
-from datetime import datetime
+# import googlemaps
+# from datetime import datetime
 
-gmaps = googlemaps.Client(key='Add Your Key here')
+# gmaps = googlemaps.Client(key='Add Your Key here')
 
-# Geocoding an address
-geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
+# # Geocoding an address
+# geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
 
-# Look up an address with reverse geocoding
-reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
+# # Look up an address with reverse geocoding
+# reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
 
-# Request directions via public transit
-now = datetime.now()
-directions_result = gmaps.directions("Sydney Town Hall",
-                                     "Parramatta, NSW",
-                                     mode="transit",
-                                     departure_time=now)
-#%%
+# # Request directions via public transit
+# now = datetime.now()
+# directions_result = gmaps.directions("Sydney Town Hall",
+#                                      "Parramatta, NSW",
+#                                      mode="transit",
+#                                      departure_time=now)
+#%% [markdown]
 
 
 
