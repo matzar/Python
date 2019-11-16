@@ -464,9 +464,19 @@ plt.show()
 # %% [markdown]
 # Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
 # pictures of the area, reviews and more.
-# In terms of image processing, if it was an ilustrated version of 'Around the World in 80 Days'
-# 
 
+# Using Scrapy, we could scrap google restaurant reviews at the locations Phileas visited, and add these to our interactive map.
+# It could be used to create a companion app for anyone who would like to travel the world like Phileas did; when they would be
+# in the same location as Phileas was, it could send them a notification with the book's chapter relative to their current location.
+# Getting the users location could also be done with google maps API.
+# To show information about the place they're already are and the book's chapter we'd have to prepare the data, a bit like
+# we did in question 12 of this assignment but a lot more thoroughly to ensure that all the places have a proper context and
+# Phileas was actually travelling through them.
+
+# In terms of image processing, if it was an ilustrated version of 'Around the World in 80 Days', we could use
+# 'face_recognition' library (source: https://github.com/ageitgey/face_recognition) to analyse peoples' emotions
+# in the pictures and plot 'an emotinal' journey that heroes of the book went through. This could combined with
+# VADER sentiment analysis to see how these two compare.
 
 
 
