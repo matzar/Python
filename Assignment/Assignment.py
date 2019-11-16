@@ -214,6 +214,7 @@ chapter_desc = list()
 chapter_content = list()
 chapters = list()
 table_of_contents = list()
+chapters_and_content = list()
 
 for i in range(len(book_words)-1):
     # current_word = book_words[i]
@@ -233,6 +234,8 @@ for i in range(len(book_words)-1):
         while book_words[j] != "Chapter":
             chapter_content.append(book_words[j])
             j+=1
+        # append chapter content
+        chapters_and_content.append([chapter_tag, chapter_content])
 
     # if "Chapter" in book_words[i-1]:
     #     # get description
