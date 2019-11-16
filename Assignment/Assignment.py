@@ -305,36 +305,18 @@ for i in range(len(table_of_contents)):
 # Answer 13
 cities_file = open(r"cities.txt", "r").read().replace('\n',';')
 cities = cities_file.split(';')
+
+#%%
 display(cities)
 
 #%%
+import folium
 
 # list of cities
 # layout:   | sequence number | country name | city name | latitude (NS) | longtitude (EW) | altitude
-# indexing: | 0               | 1            | 3         | 4             | 5               | 6
-# indexing: | 7 ...
+# indexing: | 0               | 1            | 2         | 3             | 4               | 5
+# indexing: | 6 ...
 
-# import libraries
-import folium
-import pandas as pd
- 
-# Make a data frame with dots to show on the map
-# data = pd.DataFrame({
-# 'lat':[-58, 2, 145, 30.32, -4.03, -73.57, 36.82, -38.5],
-# 'lon':[-34, 49, -38, 59.93, 5.33, 45.52, -1.29, -12.97],
-# 'name':['Buenos Aires', 'Paris', 'melbourne', 'St Petersbourg', 'Abidjan', 'Montreal', 'Nairobi', 'Salvador']
-# })
-# data
- 
-# # Make an empty map
-# m = folium.Map(location=[20, 0], tiles="Mapbox Bright", zoom_start=2)
- 
-# # I can add marker one by one on the map
-# for i in range(0,len(data)):
-#     folium.Marker([data.iloc[i]['lon'], data.iloc[i]['lat']], popup=data.iloc[i]['name']).add_to(m)
- 
-# # Save it as html
-# m.save('312_markers_on_folium_map1.html')
 
 m = folium.Map(
     location=[0, 0],
@@ -344,26 +326,26 @@ m = folium.Map(
 
 tooltip = 'Click me!'
 
-folium.Marker([45.3288, -121.6625], popup='<i>Mt. Hood Meadows</i>', tooltip=tooltip).add_to(m)
-folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
+folium.Marker([cities[3], cities[4]], popup=cities[3], tooltip=tooltip).add_to(m)
+# folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
 
-folium.Marker(
-    location=[45.3288, -121.6625],
-    popup='Mt. Hood Meadows',
-    icon=folium.Icon(icon='cloud')
-).add_to(m)
+# folium.Marker(
+#     location=[45.3288, -121.6625],
+#     popup='Mt. Hood Meadows',
+#     icon=folium.Icon(icon='cloud')
+# ).add_to(m)
 
-folium.Marker(
-    location=[45.3311, -121.7113],
-    popup='Timberline Lodge',
-    icon=folium.Icon(color='green')
-).add_to(m)
+# folium.Marker(
+#     location=[45.3311, -121.7113],
+#     popup='Timberline Lodge',
+#     icon=folium.Icon(color='green')
+# ).add_to(m)
 
-folium.Marker(
-    location=[45.3300, -121.6823],
-    popup='Some Other Location',
-    icon=folium.Icon(color='red', icon='info-sign')
-).add_to(m)
+# folium.Marker(
+#     location=[45.3300, -121.6823],
+#     popup='Some Other Location',
+#     icon=folium.Icon(color='red', icon='info-sign')
+# ).add_to(m)
 
 m
 m.save('test.html')
