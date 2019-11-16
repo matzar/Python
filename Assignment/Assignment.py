@@ -254,6 +254,7 @@ display(chapter_list)
 
 # %%
 # This step was already done in the answer to Question 8
+table_of_contents
 
 # %% [markdown]
 # ## 11) Print only the titles from each chapter [6]
