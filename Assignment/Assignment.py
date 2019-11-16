@@ -330,24 +330,23 @@ from geotext import GeoText
 places = GeoText(data)
 city_names = list()
 city_names = places.cities
+# remove duplicates by converting city_names list to a set
+city_name = set(city_names)
 
-def RemoveCity(city):
-    while city in city_names: 
-        city_names.remove(city)
+# Cleaning the data - removing odd entries.
 # There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
 # Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
-RemoveCity('Most')
+city_names.remove('Most')
 # To prevent double entires, the list of cities that appear in the book, is converted to a set.
 # Another manually spotted errors:
-RemoveCity('Stuart')
-RemoveCity('Of')
-RemoveCity('Temple')
-RemoveCity('Asia')
-# city_names = set(city_names)
-# # Get 
-# city_map = list()
-# print(city_names)
-
+# Name
+city_names.remove('Stuart')
+# Preposition
+city_names.remove('Of')
+# Noun
+city_names.remove('Temple')
+# Continent
+city_names.remove('Asia')
 
 #%%
 import folium
