@@ -209,43 +209,36 @@ Chapters = [[0 for i in range(cols)] for j in range(rows)]
 # This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
 # but gives us a list of chapters with corresponding numbers
 
-chapter_tag = list()
-chapter_desc = list()
-chapter_content = list()
-chapters = list()
+chapter_tag_holder = list()
+chapter_desc_holder = list()
+chapter_content_holder = list()
+
 table_of_contents = list()
 chapters_and_content = list()
 
-for i in range(len(book_words)-1):
-    # current_word = book_words[i]
-    # next_word = book_words[i+1]
 
+for i in range(len(book_words)-1):
     if "Chapter" in book_words[i]:
         # get the 'Chapter' word and its roman numberal
-        chapter_tag.append(book_words[i] + " " + book_words[i+1])
+        chapter_tag_holder.append(book_words[i] + " " + book_words[i+1])
         # get description
         j = i+2
         while book_words[j].isupper():
-            chapter_desc.append(book_words[j])
+            chapter_desc_holder.append(book_words[j])
             j+=1
         # append table of contents
-        table_of_contents.append([chapter_tag, chapter_desc])
+        table_of_contents.append([chapter_tag_holder, chapter_desc_holder])
         # get chapter content
         while book_words[j] != "Chapter":
-            chapter_content.append(book_words[j])
+            chapter_content_holder.append(book_words[j])
             j+=1
         # append chapter content
-        chapters_and_content.append([chapter_tag, chapter_content])
+        chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
+        # flush temporary holders
+        chapter_content_holder.clear()
+        chapter_desc_holder.clear()
+        chapter_tag_holder.clear()
 
-    # if "Chapter" in book_words[i-1]:
-    #     # get description
-    #     j = i+1
-    #     while book_words[j].isupper():
-    #         chapter_desc.append(book_words[j])
-    #         j+=1
-
-for chapter in Chapters:
-    print(chapter)
 
 # i = 0
 # while i < (len(Chapters)):
@@ -271,10 +264,6 @@ for chapter in Chapters:
 # Start the content loading from the second occurence of 'Chapter'
 
 # %%
-
-
-new_bloke_in_town = [[2],[2, 3]]
-display(new_bloke_in_town[1][1])
 
 
 # %% [markdown]
