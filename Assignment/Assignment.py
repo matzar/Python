@@ -381,16 +381,23 @@ m
 # ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
 
 # %%
-# vader code source: https://medium.com/analytics-vidhya/simplifying-social-media-sentiment-analysis-using-vader-in-python-f9e6ec6fc52f
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import nltk
+import matplotlib
+import matplotlib.pyplot as plt
+nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()
 
-def sentiment_analyzer_scores(sentence):
-    score = analyser.polarity_scores(sentence)
-    print("{:-<40} {}".format(sentence, str(score)))
+# Analyse Chapter I
+chapter_1 = str(chapters_and_content[0][1])
+score = analyser.polarity_scores(chapter_1)
+print(score)
 
-sentiment_analyzer_scores(chapters_and_content[0][1])
-
+# Plot the analysis
+scores = [analyser.polarity_scores(sent)['compound'] for sent in chapter_1]
+fig = plt.figure(figsize=(12,12))
+plt.plot(scores)
+plt.show()
 
 # %% [markdown]
 # ## 15) Now think of some further analysis you could do based on the text of this book [19]
