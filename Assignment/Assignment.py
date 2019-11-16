@@ -328,17 +328,15 @@ from geotext import GeoText
 #%%
 # using geotext library to find all cities in the book
 places = GeoText(data)
-city_names = list()
-city_names = places.cities
 # remove duplicates by converting city_names list to a set
-city_name = set(city_names)
+city_names = list(set(places.cities))
 
 # Cleaning the data - removing odd entries.
-# There is one city in Czech Repubic called "Most" which means "bridge" in Czech but here is read as a city.
+# There is one city in Czech Repubic called "Most", which is a determiner in English 
+# but to GeoText, it looks like a name of a city.
 # Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
 city_names.remove('Most')
-# To prevent double entires, the list of cities that appear in the book, is converted to a set.
-# Another manually spotted errors:
+# Other odd entries were manually removed as well:
 # Name
 city_names.remove('Stuart')
 # Preposition
@@ -370,10 +368,11 @@ m = folium.Map(
 )
 tooltip = 'Click me!'
 
-for city in city_names:
-    geolocator = Nominatim(user_agent="phileas_fogg_journey")
-    location = geolocator.geocode(city)
-    folium.Marker(location.latitude, location.longitude, popup=city, tooltip=tooltip).add_to(m)
+location = geolocator.geocode(city_names[0])
+folium.Marker(location.latitude, location.longitude, popup=city_names[0], tooltip=tooltip).add_to(m)
+
+# for city in city_names:
+    
 # folium.Marker([45.3311, -121.7113], popup='<b>Timberline Lodge</b>', tooltip=tooltip).add_to(m)
 
 # folium.Marker(
