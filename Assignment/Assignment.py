@@ -382,9 +382,8 @@ m = folium.Map(
 )
 tooltip = 'Click me!'
 
-city = city_names[0]
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
-location = geolocator.geocode(city)
+location = geolocator.geocode(city_names[0])
 folium.Marker(location=[location.latitude, location.longitude], popup=city_names[0], tooltip=tooltip).add_to(m)
 
 # for city in city_names:
