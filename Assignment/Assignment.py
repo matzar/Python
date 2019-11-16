@@ -303,28 +303,9 @@ for i in range(len(table_of_contents)):
 # `['Victoria','San','Imperial','Come','San Pablo','Queenstown','Young','Lincoln','Forster','Formosa']`
 
 #%%
-# Answer 13
-# cities_file = open(r"cities.txt", "r").read().replace('\n',';')
-# cities_raw = cities_file.split(';')
-
-#%%
-
-# list of cities
-# layout:   | sequence number | country name | city name | latitude (NS) | longtitude (EW) | altitude
-# indexing: | 0               | 1            | 2         | 3             | 4               | 5
-# indexing: | 6 ...
-
-# list of all the cities in the world with their latitude and longtitude
-# cities = list()
-# i = 0
-# while i < len(cities_raw):
-#     # append city's name, latitude and longtitude
-#     cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
-#     i+=6
-
-#%%
+# goetext was used to find all city names in the book.
+# The library is not ideal and finds a lot of odd entires.
 from geotext import GeoText
-
 #%%
 # using geotext library to find all cities in the book
 places = GeoText(data)
@@ -336,39 +317,33 @@ city_names = list(set(places.cities))
 # but to GeoText, it looks like a name of a city.
 # Because Phileas Fogg did not visit Most in Czech Republic, this entry is manually removed.
 city_names.remove('Most')
-# Other odd entries were manually removed as well:
-# Name
-city_names.remove('Stuart')
-# Preposition
-city_names.remove('Of')
-# Noun
-city_names.remove('Temple')
-# Continent
-city_names.remove('Asia')
-# Just a junction
-city_names.remove('Auburn')
-# Just a word, not a place
-city_names.remove('Mission')
-# Just a word, not a place
-city_names.remove('Independence')
-# Colour
-city_names.remove('Imperial')
-# Name
-city_names.remove('Wilson')
-# Word, not a place
-city_names.remove('Deal')
-# Not a place in the book
-city_names.remove('Bay')
-# Not a place
-city_names.remove('Union')
-# Not a place
-city_names.remove('Cedar')
-# Not a place
-city_names.remove('Sioux')
-#%%
-import folium
-from geopy.geocoders import Nominatim
 
+# The data is further improved by going meticuously through all odd entires
+# in the list of the city names; to my best knowledge, these are:
+city_names.remove('Stuart')
+city_names.remove('Of')
+city_names.remove('Temple')
+city_names.remove('Asia')
+city_names.remove('Auburn')
+city_names.remove('Mission')
+city_names.remove('Independence')
+city_names.remove('Imperial')
+city_names.remove('Wilson')
+city_names.remove('Deal')
+city_names.remove('Bay')
+city_names.remove('Union')
+city_names.remove('Cedar')
+city_names.remove('Sioux')
+city_names.remove('San Pablo')
+city_names.remove('Saint Joseph')
+city_names.remove('Fairbanks')
+city_names.remove('Enfield')
+
+#%%
+# folium library is used to plot the cities on the map
+import folium
+# geopy library is used to find the city's coordinates based on its name
+from geopy.geocoders import Nominatim
 #%%
 # create folium map
 m = folium.Map(
@@ -386,7 +361,7 @@ for city in city_names:
 
 m.save('80daysCities.html')
 #%%
-# Map of the cities visited by Phileas Fogg
+# Map of the cities visited by Phileas Fogg (Takes a whole to load)
 m
 
 # %% [markdown]
@@ -419,6 +394,7 @@ m
 # 
 
 # %%
+
 
 
 
