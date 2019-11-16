@@ -112,8 +112,8 @@ book_dict = dict()
 # use the generator version instead
 
 # create a dictionary of words with words as the key and a tuple with its length and frequency
-for word in book_no_punc:
-    book_dict.update({word: (len(word), book_no_punc.count(word))})
+# for word in book_no_punc:
+#     book_dict.update({word: (len(word), book_no_punc.count(word))})
 # print(book_dict)
 
 # %%
@@ -216,11 +216,15 @@ for word_index in range(len(book_words) - 1):
         Chapters.append(current_word + " " + next_word)
         i += 1
 
-i = 0
-while i < (len(Chapters)):
-    Chapters.append("bruh")
-    #print(Chapters[i][0])
-    i += 1
+
+for chapter in Chapters:
+    print(chapter)
+
+# i = 0
+# while i < (len(Chapters)):
+#     Chapters.append("bruh")
+#     #print(Chapters[i][0])
+#     i += 1
 
 
 # # make a 2D for Chapters and their contents
