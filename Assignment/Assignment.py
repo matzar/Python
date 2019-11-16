@@ -208,13 +208,13 @@ Chapters = [[0 for i in range(cols)] for j in range(rows)]
 # print(Chapters)
 # This automatically drops the first occurance of 'CHAPTER', because it's all in capitals,
 # but gives us a list of chapters with corresponding numbers
-i = 0
-for word_index in range(len(book_words) - 1):
-    current_word = book_words[word_index]
-    next_word = book_words[word_index + 1]
+
+for i in range(len(book_words) - 1):
+    current_word = book_words[i]
+    next_word = book_words[i + 1]
     if "Chapter" in current_word:
-        Chapters.append(current_word + " " + next_word)
-        i += 1
+        # get the 'Chapter' word and its roman numberal
+        Chapters.append(book_words[i] + " " + book_words[i+1])
 
 
 for chapter in Chapters:
