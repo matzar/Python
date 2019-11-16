@@ -198,7 +198,7 @@ for i in fourteeen_letter:
 #  
 
 # %%
-# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12
+# This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11, 12 and 14
 
 # these lists will become our 2D tables of:
 # this will contain 'Chapter N' and its 'Description'
