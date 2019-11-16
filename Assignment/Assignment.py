@@ -361,6 +361,10 @@ city_names.remove('Deal')
 city_names.remove('Bay')
 # Not a place
 city_names.remove('Union')
+# Not a place
+city_names.remove('Cedar')
+# Not a place
+city_names.remove('Sioux')
 #%%
 import folium
 from geopy.geocoders import Nominatim
@@ -383,8 +387,10 @@ m = folium.Map(
 tooltip = 'Click me!'
 
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
-location = geolocator.geocode(city_names[0])
-folium.Marker(location=[location.latitude, location.longitude], popup=city_names[0], tooltip=tooltip).add_to(m)
+
+for city in city_names:
+    location = geolocator.geocode(city)
+    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
 # for city in city_names:
     
