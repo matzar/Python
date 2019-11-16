@@ -229,7 +229,7 @@ for i in range(len(book_words)-1):
         # append table of contents
         table_of_contents.append([chapter_tag_holder, chapter_desc_holder])
         # get chapter content
-        while book_words[j] != "Chapter":
+        while book_words[j] != "Chapter" and j != len(book_words)-1:
             chapter_content_holder.append(book_words[j])
             j+=1
         # append chapter content
