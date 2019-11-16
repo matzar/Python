@@ -208,7 +208,8 @@ chapters_and_content = list()
 
 # here we create our 2d tables
 # we're iterating through all the words in the book using 'book_words' list
-for i in range(len(book_words)-1):
+i = 0
+while i < len(book_words):
     # Keep iterating until you encounter word "Chapter".
     # This means many things:
     if "Chapter" in book_words[i]:
@@ -237,6 +238,11 @@ for i in range(len(book_words)-1):
         # Use the list containing the chapter name and number and the list with its content
         # to create a 2d table of chapters and their content.
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
+        # Continue iterating from where 'j' is pointing to.
+        current_word = book_words[j]
+        i=j
+    else:
+        i+=1
 
 # create a list of chapters
 chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
