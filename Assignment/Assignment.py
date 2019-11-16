@@ -321,12 +321,8 @@ while i < len(cities_raw):
     # append city's name, latitude and longtitude
     cities.append([cities_raw[i+2], cities_raw[i+3], cities_raw[i+4]])
     i+=6
-    # # append city's latitude
-    # cities.append(cities_raw[i+3])
-    # # append city's longtitude
-    # cities.append(cities_raw[i+4])
-    # # jump to the next city
 
+#%%
 
 # cities_gen = (city for city in book_word 
 # if len(word) >= 14    
