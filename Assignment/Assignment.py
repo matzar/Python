@@ -402,7 +402,7 @@ m
 # ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
 
 # %%
-import matplotlib.pyplot as plt
+# from nltk import book
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sia = SentimentIntensityAnalyzer()
 #%%
