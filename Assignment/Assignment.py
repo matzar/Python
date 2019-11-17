@@ -281,12 +281,14 @@ import numpy as np
 # increase the size of the plot
 figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
 # create a list of chapters' lengths
-chapter_length = [len(chapters_and_content[i][1].split()) for i in range(len(chapters_and_content))]
+chapter_length = [len(chapters_and_content[i][1].split()) for i in reversed(range(len(chapters_and_content)))]
+
+# remove puncuation from the chapter_list
 
 # prepare the bar chart for plotting
 y_pos = np.arange(len(chapter_list))
 plt.barh(y_pos, chapter_length, align='center', alpha=0.5)
-plt.yticks(y_pos, chapter_list)
+plt.yticks(y_pos, reversed(chapter_list))
 plt.ylabel('Chapter')
 plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
