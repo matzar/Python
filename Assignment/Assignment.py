@@ -372,10 +372,11 @@ m = folium.Map(
 tooltip = 'Click for City\'s Name!'
 
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
+# TODO uncomment 
 # create a map of cities from the book
-for city in city_names:
-    location = geolocator.geocode(city)
-    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
+# for city in city_names:
+#     location = geolocator.geocode(city)
+#     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
 # Plot the map of all the cities mentioned in the book (Might take a minute to load)
 m
@@ -407,7 +408,7 @@ print(score)
 scores = [analyser.polarity_scores(sent)['compound'] for sent in chapter_1]
 fig = plt.figure(figsize=(12,12))
 plt.plot(scores)
-plt.show()
+# plt.show()
 
 # %% [markdown]
 # ## 15) Now think of some further analysis you could do based on the text of this book [19]
