@@ -228,8 +228,13 @@ while i < len(book_words):
         # If we keep going until we encounter the next word 'Chapter', 
         # we can get the entire chapter into a string!
         while book_words[j] != "Chapter" and j != len(book_words)-1:
-            chapter_content_holder += " " + str(book_words[j])
-            j+=1
+            # Make sure the last chapter is counted properly
+            if book_words[j] != '***':
+                current_word = book_words[j]
+                chapter_content_holder += " " + str(book_words[j])
+                j+=1
+            else:
+                break
         # Use the list containing the chapter name and number and the list with its content
         # to create a 2d table of chapters and their content.
         chapters_and_content.append([chapter_tag_holder, chapter_content_holder])
@@ -278,12 +283,11 @@ import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 import numpy as np
 #%%
+# TODO
 # increase the size of the plot
 figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
 # create a list of chapters' lengths
 chapter_length = [len(chapters_and_content[i][1].split()) for i in reversed(range(len(chapters_and_content)))]
-
-# remove puncuation from the chapter_list
 
 # prepare the bar chart for plotting
 y_pos = np.arange(len(chapter_list))
