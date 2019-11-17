@@ -204,7 +204,7 @@ chapters_and_content = list()
 # - This ends our iteration; we change the iterators value to point to the current place in the loop
 #   and proceed to load the next chapter because it's already waiting in the cue!
 # - In the book, after the string - '***' - are publisher notes, so we're not loading them, because
-# they're not part of the last chapter.
+# they're not part of the last chapter and they would disrupt its word count.
 i = 0
 while i < len(book_words):
     # Here we will get the chapter's: name, number, description and content.
