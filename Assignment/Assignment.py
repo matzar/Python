@@ -373,16 +373,15 @@ tooltip = 'Click for City\'s Name!'
 
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
 # create a map of cities from the book
-# TODO uncomment after debegging 
-# for city in city_names:
-#     location = geolocator.geocode(city)
-#     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
+for city in city_names:
+    location = geolocator.geocode(city)
+    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
-# m.save('80daysCities.html')
-#%%
-# Map of the cities visited by Phileas Fogg (Might take a minute to load)
+# Plot the map of all the cities mentioned in the book (Might take a minute to load)
 m
 
+# Uncomment to save the map in html and get a better view
+# m.save('80daysCities.html')
 # %% [markdown]
 # ## 14) NLTK Sentiment Analysis [9]
 # 
