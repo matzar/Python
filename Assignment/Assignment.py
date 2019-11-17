@@ -274,26 +274,24 @@ for i in range(len(table_of_contents)):
 # - Use whatever plotting library you like. Matplotlib is fine.
 
 #%%
-import matplotlib.pyplot as plt; plt.rcdefaults()
-import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
+import numpy as np
 #%%
+# increase the size of the plot
+figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
 # create a list of chapters' lengths
 chapter_length = [len(chapters_and_content[i][1].split()) for i in range(len(chapters_and_content))]
 
+# prepare the bar chart for plotting
 y_pos = np.arange(len(chapter_list))
 plt.barh(y_pos, chapter_length, align='center', alpha=0.5)
 plt.yticks(y_pos, chapter_list)
 plt.ylabel('Chapter')
 plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
-
+# plot the bar chart
 plt.show()
-
-# %%
-# print chapters
-for i in range(len(table_of_contents)):
-    print(table_of_contents[i][0])
 
 # %% [markdown]
 # ## 13) Plot Locations Mentioned in the Book on a Map [9]
