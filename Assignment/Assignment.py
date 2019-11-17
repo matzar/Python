@@ -277,15 +277,16 @@ for i in range(len(table_of_contents)):
 import matplotlib.pyplot as plt; plt.rcdefaults()
 import numpy as np
 import matplotlib.pyplot as plt
-
+#%%
 # create a list of chapters' lengths
 chapter_length = [len(chapters_and_content[i][1].split()) for i in range(len(chapters_and_content))]
 
 y_pos = np.arange(len(chapter_list))
-plt.bar(y_pos, chapter_length, align='center', alpha=0.5)
-plt.xticks(y_pos, chapter_list)
-plt.ylabel('Usage')
-plt.title('The length of each chapter')
+plt.barh(y_pos, chapter_length, align='center', alpha=0.5)
+plt.yticks(y_pos, chapter_list)
+plt.ylabel('Chapter')
+plt.xlabel('Number of words')
+plt.title('Word count in each chapter')
 
 plt.show()
 
