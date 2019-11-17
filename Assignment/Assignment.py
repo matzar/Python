@@ -203,6 +203,8 @@ chapters_and_content = list()
 # - Next is the chapter's description, which will end with the next occurence of the word "Chapter".
 # - This ends our iteration; we change the iterators value to point to the current place in the loop
 #   and proceed to load the next chapter because it's already waiting in the cue!
+# - In the book, after the string - '***' - are publisher notes, so we're not loading them, because
+# they're not part of the last chapter.
 i = 0
 while i < len(book_words):
     # Here we will get the chapter's: name, number, description and content.
@@ -228,7 +230,7 @@ while i < len(book_words):
         # If we keep going until we encounter the next word 'Chapter', 
         # we can get the entire chapter into a string!
         while book_words[j] != "Chapter" and j != len(book_words)-1:
-            # Make sure the last chapter is counted properly
+            # Make sure we don't go beyond the last chapter
             if book_words[j] != '***':
                 current_word = book_words[j]
                 chapter_content_holder += " " + str(book_words[j])
