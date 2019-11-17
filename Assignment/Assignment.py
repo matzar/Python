@@ -402,36 +402,48 @@ m
 # ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
 
 # %%
-import nltk
+# from nltk import book
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-analyser = SentimentIntensityAnalyzer()
+sia = SentimentIntensityAnalyzer()
 #%%
-# Analyse Chapter I
-# chapter_1 = chapters_and_content[0][1]
-# print(type(chapter_1))
-# # chapter_1_tok = nltk.tokenize.sent_tokenize(chapter_1)
-# # print(chapter_1)
-# score = analyser.polarity_scores(chapter_1)
-# print(score)
-
-# # Plot the analysis
-# scores = [analyser.polarity_scores(sent)['compound'] for sent in chapter_1]
-# fig = plt.figure(figsize=(12,12))
-# plt.plot(scores)
-# plt.show()
-# for i in chapters_and_content:
-#     current = i
-#     chap += i[1]
-
 chap_gen = (i[1] for i in chapters_and_content)
 # All chapters
 all_chaps = str()
 for i in chap_gen:
-    all_chaps = all_chaps + " " + i
+    # all_chaps = all_chaps + " " + i
 
-text2_sentences = nltk.sent_tokenize(all_chaps)
-# score = analyser.polarity_scores(' '.join(text2_sentences[:100]))
-# print(score)
+# chapters_tok = nltk.sent_tokenize(all_chaps)
+sentiment_dict = sia.polarity_scores(all_chaps)
+
+print("Overall sentiment dictionary is : ", sentiment_dict) 
+print("sentence was rated as ", sentiment_dict['neg']*100, "% Negative") 
+print("sentence was rated as ", sentiment_dict['neu']*100, "% Neutral") 
+print("sentence was rated as ", sentiment_dict['pos']*100, "% Positive")
+
+  
+# x axis values 
+x = [1,2,3,4,5,6] 
+# corresponding y axis values 
+y = [2,4,1,5,2,6] 
+  
+# plotting the points  
+plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3, 
+         marker='o', markerfacecolor='blue', markersize=12) 
+  
+# setting x and y axis range 
+# plt.ylim(1,8) 
+# plt.xlim(1,8) 
+  
+# naming the x axis 
+plt.xlabel('x - axis') 
+# naming the y axis 
+plt.ylabel('y - axis') 
+  
+# giving a title to my graph 
+plt.title('Some cool customizations!') 
+  
+# function to show the plot 
+plt.show()
 
 
 # %% [markdown]
