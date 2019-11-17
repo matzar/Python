@@ -417,13 +417,9 @@ sia = SentimentIntensityAnalyzer()
 # print("sentence was rated as ", sentiment_dict['neu']*100, "% Neutral") 
 # print("sentence was rated as ", sentiment_dict['pos']*100, "% Positive")
 
-# Get all chapters from a generator
-chap_gen = (i[1] for i in chapters_and_content)
-# Get positive sentiment from all chapters 
-pos_sent = list()
-for i in chap_gen:
-    temp_sent_dict = sia.polarity_scores(i)
-    pos_sent.append(temp_sent_dict['pos'])
+# Get positive sentiment score from all the chapters 
+pos_sent_scores = [sia.polarity_scores(i[1])['pos'] for i in chapters_and_content]
+
 
 # sentiment_dict = sia.polarity_scores(all_chaps)
   
