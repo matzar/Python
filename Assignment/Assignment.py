@@ -289,21 +289,22 @@ import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 import numpy as np
 #%%
-# TODO
 # increase the size of the plot
 figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
-# create a list of chapters' lengths
+# create a list of chapters' lengths in reveresed order; remember to reverse the order of chapters as well!
 chapter_length = [len(chapters_and_content[i][1].split()) for i in reversed(range(len(chapters_and_content)))]
 
 # prepare the bar chart for plotting
 y_pos = np.arange(len(chapter_list))
 plt.barh(y_pos, chapter_length, align='center', alpha=0.5)
+# set the tick locations and lables of y-axis in reversed order
 plt.yticks(y_pos, reversed(chapter_list))
 plt.ylabel('Chapter')
 plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
 # plot the bar chart
-plt.show()
+# TODO uncomment
+# plt.show()
 
 # %% [markdown]
 # ## 13) Plot Locations Mentioned in the Book on a Map [9]
@@ -402,25 +403,36 @@ m
 
 # %%
 import nltk
-import matplotlib
-import matplotlib.pyplot as plt
-
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()
 #%%
 # Analyse Chapter I
-chapter_1 = chapters_and_content[0][1]
-print(type(chapter_1))
-# chapter_1_tok = nltk.tokenize.sent_tokenize(chapter_1)
-# print(chapter_1)
-score = analyser.polarity_scores(chapter_1)
-print(score)
+# chapter_1 = chapters_and_content[0][1]
+# print(type(chapter_1))
+# # chapter_1_tok = nltk.tokenize.sent_tokenize(chapter_1)
+# # print(chapter_1)
+# score = analyser.polarity_scores(chapter_1)
+# print(score)
 
-# Plot the analysis
-scores = [analyser.polarity_scores(sent)['compound'] for sent in chapter_1]
-fig = plt.figure(figsize=(12,12))
-plt.plot(scores)
+# # Plot the analysis
+# scores = [analyser.polarity_scores(sent)['compound'] for sent in chapter_1]
+# fig = plt.figure(figsize=(12,12))
+# plt.plot(scores)
 # plt.show()
+# for i in chapters_and_content:
+#     current = i
+#     chap += i[1]
+
+chap_gen = (i[1] for i in chapters_and_content)
+# All chapters
+all_chaps = str()
+for i in chap_gen:
+    all_chaps = all_chaps + " " + i
+
+text2_sentences = nltk.sent_tokenize(all_chaps)
+# score = analyser.polarity_scores(' '.join(text2_sentences[:100]))
+# print(score)
+
 
 # %% [markdown]
 # ## 15) Now think of some further analysis you could do based on the text of this book [19]
