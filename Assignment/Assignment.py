@@ -196,15 +196,19 @@ chapters_and_content = list()
 
 # Here we create our 2d tables.
 # We're iterating through all the words in the book using 'book_words' list.
-# We will look for the first occurence of "Chapter" with regards to spelling.
-# When we encounter this words this means:
+# We will look for the first occurence of - 'Chapter'. Because the table of contents is written
+# in all capitals, the word - 'CHAPTER' - will be omitted as well as the chapters' description and 
+# initial publisher notes - which we don't really need. Each chapter starts with the same 
+# chapter description, as in the table of contents, so we will be able to get it differently.
+# When we encounter the word 'Chapter' this means:
 # - The next object is chapter's number.
 # - Next are the uppercase letters so they're the chapter's description.
-# - Next is the chapter's description, which will end with the next occurence of the word "Chapter".
+# - Next is the chapter's description, which will end with the next occurence of the word "Chapter";
+# the exception is the last chapter, which ends with - '***' - and next are the publisher's notes. 
+# We make sure to take this into consideration and not count the publisher's notes as the chapter's content,
+# which would break the whole idea and would discupt the last chapter's word count.
 # - This ends our iteration; we change the iterators value to point to the current place in the loop
 #   and proceed to load the next chapter because it's already waiting in the cue!
-# - In the book, after the string - '***' - are publisher notes, so we're not loading them, because
-# they're not part of the last chapter and they would disrupt its word count.
 i = 0
 while i < len(book_words):
     # Here we will get the chapter's: name, number, description and content.
