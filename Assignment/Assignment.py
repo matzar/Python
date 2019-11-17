@@ -406,44 +406,50 @@ m
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sia = SentimentIntensityAnalyzer()
 #%%
+# all_chaps = str()
+# for i in chap_gen:
+#     all_chaps = all_chaps + " " + i
+
+# sentiment_dict = sia.polarity_scores(all_chaps)
+
+# print("Overall sentiment dictionary is : ", sentiment_dict) 
+# print("sentence was rated as ", sentiment_dict['neg']*100, "% Negative") 
+# print("sentence was rated as ", sentiment_dict['neu']*100, "% Neutral") 
+# print("sentence was rated as ", sentiment_dict['pos']*100, "% Positive")
+
+# Get all chapters from a generator
 chap_gen = (i[1] for i in chapters_and_content)
-# All chapters
-all_chaps = str()
+# Get positive sentiment from all chapters 
+pos_sent = list()
 for i in chap_gen:
-    # all_chaps = all_chaps + " " + i
+    temp_sent_dict = sia.polarity_scores(i)
+    pos_sent.append(temp_sent_dict['pos'])
 
-# chapters_tok = nltk.sent_tokenize(all_chaps)
-sentiment_dict = sia.polarity_scores(all_chaps)
-
-print("Overall sentiment dictionary is : ", sentiment_dict) 
-print("sentence was rated as ", sentiment_dict['neg']*100, "% Negative") 
-print("sentence was rated as ", sentiment_dict['neu']*100, "% Neutral") 
-print("sentence was rated as ", sentiment_dict['pos']*100, "% Positive")
-
+# sentiment_dict = sia.polarity_scores(all_chaps)
   
-# x axis values 
-x = [1,2,3,4,5,6] 
-# corresponding y axis values 
-y = [2,4,1,5,2,6] 
+# # x axis values 
+# x = [1,2,3,4,5,6] 
+# # corresponding y axis values 
+# y = [2,4,1,5,2,6] 
   
-# plotting the points  
-plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3, 
-         marker='o', markerfacecolor='blue', markersize=12) 
+# # plotting the points  
+# plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3, 
+#          marker='o', markerfacecolor='blue', markersize=12) 
   
-# setting x and y axis range 
-# plt.ylim(1,8) 
-# plt.xlim(1,8) 
+# # setting x and y axis range 
+# # plt.ylim(1,8) 
+# # plt.xlim(1,8) 
   
-# naming the x axis 
-plt.xlabel('x - axis') 
-# naming the y axis 
-plt.ylabel('y - axis') 
+# # naming the x axis 
+# plt.xlabel('x - axis') 
+# # naming the y axis 
+# plt.ylabel('y - axis') 
   
-# giving a title to my graph 
-plt.title('Some cool customizations!') 
+# # giving a title to my graph 
+# plt.title('Some cool customizations!') 
   
-# function to show the plot 
-plt.show()
+# # function to show the plot 
+# plt.show()
 
 
 # %% [markdown]
