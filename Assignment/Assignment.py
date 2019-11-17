@@ -402,35 +402,22 @@ m
 # ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
 
 # %%
-# from nltk import book
+import matplotlib.pyplot as plt
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sia = SentimentIntensityAnalyzer()
 #%%
-# all_chaps = str()
-# for i in chap_gen:
-#     all_chaps = all_chaps + " " + i
-
-# sentiment_dict = sia.polarity_scores(all_chaps)
-
-# print("Overall sentiment dictionary is : ", sentiment_dict) 
-# print("sentence was rated as ", sentiment_dict['neg']*100, "% Negative") 
-# print("sentence was rated as ", sentiment_dict['neu']*100, "% Neutral") 
-# print("sentence was rated as ", sentiment_dict['pos']*100, "% Positive")
-
 # Get positive sentiment score from all the chapters 
 pos_sent_scores = [sia.polarity_scores(i[1])['pos'] for i in chapters_and_content]
-
-
-# sentiment_dict = sia.polarity_scores(all_chaps)
   
+
 # # x axis values 
 # x = [1,2,3,4,5,6] 
 # # corresponding y axis values 
 # y = [2,4,1,5,2,6] 
   
 # # plotting the points  
-# plt.plot(x, y, color='green', linestyle='dashed', linewidth = 3, 
-#          marker='o', markerfacecolor='blue', markersize=12) 
+plt.plot(list(range(len(pos_sent_scores))), pos_sent_scores, color='green', linestyle='dashed', linewidth = 3, 
+         marker='o', markerfacecolor='blue', markersize=12) 
   
 # # setting x and y axis range 
 # # plt.ylim(1,8) 
@@ -445,7 +432,7 @@ pos_sent_scores = [sia.polarity_scores(i[1])['pos'] for i in chapters_and_conten
 # plt.title('Some cool customizations!') 
   
 # # function to show the plot 
-# plt.show()
+plt.show()
 
 
 # %% [markdown]
