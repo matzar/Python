@@ -279,15 +279,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #%%
-# print(len(chapters_and_content[0][1].split()))
-
-
-# objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')
 objects = list()
-for i in range(len(table_of_contents)):
-    objects.append(table_of_contents[i][0])
+performace = list()
+for i in range(len(chapters_and_content)):
+    objects.append(chapters_and_content[i][0])
+    performace.append(len(chapters_and_content[i][1].split()))
 
-display(objects)
 # y_pos = np.arange(len(objects))
 # performance = [10,8,6,4,2,1]
 
