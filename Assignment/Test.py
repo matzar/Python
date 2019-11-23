@@ -106,19 +106,9 @@ print('Unique words found:', len(book_unique))
 # 
 
 # %%
-# %%
-# !!! WARNING !!! - long execution! Only use if you need the whole dictionary in the memory, otherwise
-# use the generator version instead
-
-# create a dictionary of words with words as the key and a tuple with its length and frequency
-# for word in book_no_punc:
-#     book_dict.update({word: (len(word), book_no_punc.count(word))})
-# print(book_dict)
-
-# %%
-# list comprehension
 book_dict = dict()
-gen_book_dic = [book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc]
+# Create a dictionary of words with words as the key, and a tuple with its length and frequency as the value using list comprehension
+[book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc]
 print(book_dict)
 
 # %% [markdown]
