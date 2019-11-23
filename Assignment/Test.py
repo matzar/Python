@@ -166,28 +166,33 @@ findInBookWordOfLength(book_words, 9)
 # For this a new function generator will be writeen.
 
 # overloading the function to not produce duplicates and to find not count words with 'apostophe s'
-def findInBookWordOfLength(book, word_length, prevent_double):
+def findInBookWordOfLength(book, word_length, prevent_double=None):
     seen_before = []
     for word in book:
         if len(word) == word_length:
-            yield (word, len(word)) 
+            if word not in seen_before:
+                s_index = len(word)-2
+                if s_index >= 0:
+                    if word[s_index] != '\'':
+                        seen_before.append(word)
+                        yield (word, len(word)) 
 
-book_no_punc = [word.strip(string.punctuation) for word in book_words]
+book_no_punc = [word.strip(string.punctuation).lower() for word in book_words]
 
 # printing words of lenght 9 using the generator expression
-# nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
+nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
 # printing words of lenght 9 only once using the generator expression
 # seen_before = list()
 
 # nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
-for word in nine_worders:
-    s_index = word[1]-2
-    if word not in seen_before and word[0][s_index] != '\'':
-        seen_before.append(word)
+# for word in nine_worders:
+#     s_index = word[1]-2
+#     if word not in seen_before and word[0][s_index] != '\'':
+#         seen_before.append(word)
 
-for word in seen_before:
+for word in nine_worders:
     print(word)
 
 # display(seen_before)
