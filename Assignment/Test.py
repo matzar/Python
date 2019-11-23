@@ -167,7 +167,7 @@ findInBookWordOfLength(book_words, 9)
 # For this a new function generator will be writeen.
 
 # overloading the function to not produce duplicates and to find not count words with 'apostophe s'
-# arguemnts:               list, word length, booleon to prevent duplicates (not implemented)
+# arguemnts:               list, word length, booleon to prevent duplicates
 def findInBookWordOfLength(book, word_length, prevent_double=None):
     seen_before = []
     for word in book:
@@ -180,25 +180,15 @@ def findInBookWordOfLength(book, word_length, prevent_double=None):
                             seen_before.append(word)
                             yield (word, len(word)) 
 
+# remove puncuation and convert to lower case
 book_no_punc = [word.strip(string.punctuation).lower() for word in book_words]
 
-# printing words of lenght 9 using the generator expression
-nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
+# Use a comprehension over the generator function to yield words with 9 letters
+nine_worders = [word for word in findInBookWordOfLength(book_words, 9, True)]
 
-# printing words of lenght 9 only once using the generator expression
-# seen_before = list()
-
-# nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
-
-# for word in nine_worders:
-#     s_index = word[1]-2
-#     if word not in seen_before and word[0][s_index] != '\'':
-#         seen_before.append(word)
-
+# printing words of lenght 9
 for word in nine_worders:
     print(word)
-
-# display(seen_before)
 
 # %% [markdown]
 #    ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
@@ -206,8 +196,10 @@ for word in nine_worders:
 #    `. - \ /`
 
 # %%
-# generator to find words with 14 letters or more but without these special characaters `. - \ /` in them
-fourteeen_letter = (word for word in book_no_punc if len(word) >= 14
+# Generator to find words with 14 letters or more but without these special characaters `. - \ /` in them.
+# Using previously produced list with no punctuation 'book_no_punc', prevent strings like: 
+# 'Passepartout?' and Passepartout! from being counted as 14 letter words
+fourteeen_letter = (word for word in book_words if len(word) >= 14
         if '-' not in word 
         if '.' not in word
         if '\\' not in word
