@@ -163,6 +163,7 @@ findInBookWordOfLength(book_words, 9)
 # To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words',
 # make them all lower case, so, e.g., words like: 'Gutenberg' and 'GUTENBERG' don't get counted twice,
 # and we will also make sure to not count word with 'apostophe s', which would also make them falsly 9 letter words.
+# We will also get rid of double hyphened words, from Phileas Fogg's telegrams, like: 'some--the'
 # For this a new function generator will be writeen.
 
 # overloading the function to not produce duplicates and to find not count words with 'apostophe s'
@@ -174,8 +175,9 @@ def findInBookWordOfLength(book, word_length, prevent_double=None):
                 s_index = len(word)-2
                 if s_index >= 0:
                     if word[s_index] != '\'':
-                        seen_before.append(word)
-                        yield (word, len(word)) 
+                        if '--' not in word:
+                            seen_before.append(word)
+                            yield (word, len(word)) 
 
 book_no_punc = [word.strip(string.punctuation).lower() for word in book_words]
 
