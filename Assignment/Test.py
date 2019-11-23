@@ -136,7 +136,16 @@ book_words_dict = dict()
 
 # %%
 # generator expression which yields a tuple of a word and its length
-# arguments:               list, word length
+# arguments:                   list
+def findInBookWordOfLengthNine(book):
+    for word in book:
+        if len(word) == 9:
+            yield (word, len(word)) 
+
+findInBookWordOfLengthNine(book_words)
+
+# The function could also accept the looking length of the word
+# arguments:                   list
 def findInBookWordOfLength(book, word_length):
     for word in book:
         if len(word) == word_length:
@@ -152,9 +161,16 @@ findInBookWordOfLength(book_words, 9)
 
 # %%
 # To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words',
-# make them all lower case, so, e.g., words like: 'Gutenberg' and 'GUTENBERG' don't get counted twice.
-# save the new word list in 'book_no_punc' and use comprehension over it.
-# Finally, we will remove word with 'apostophe s' since these are not 9 word letters.
+# make them all lower case, so, e.g., words like: 'Gutenberg' and 'GUTENBERG' don't get counted twice,
+# and we will also make sure to not count word with 'apostophe s', which would also make them falsly 9 letter words.
+# For this a new function generator will be writeen.
+
+# def findInBookWordOfLengthNine(book):
+#     for word in book:
+#         if len(word) == 9:
+#             yield (word, len(word)) 
+
+findInBookWordOfLengthNine(book_words)
 
 book_no_punc = [word.strip(string.punctuation) for word in book_words]
 
@@ -163,6 +179,8 @@ nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
 # printing words of lenght 9 only once using the generator expression
 seen_before = list()
+
+nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
 for word in nine_worders:
     if word not in seen_before and word[0][7] != '\'':
