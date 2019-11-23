@@ -106,7 +106,8 @@ print("Actual number of unique words:", len(unique_words))
 # %%
 book_words_dict = dict()
 # Warning - long execution!
-[book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+# TODO uncomment
+# [book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
 
 # %% [markdown]
 #    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
@@ -135,9 +136,10 @@ book_words_dict = dict()
 
 # %%
 # generator expression which yields a tuple of a word and its length
-def findWordOfLength(word_length):
-    wordLenghtGenerator = ((word, len(word)) for word in book_words if len(word) == word_length)
-    yield wordLenghtGenerator
+def findInBookWordOfLength(book, word_length):
+    for word in book:
+        if len(word) == word_length:
+            yield (word, len(word)) 
 
 # %% [markdown]
 #    ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
@@ -151,18 +153,18 @@ def findWordOfLength(word_length):
 # and use comprehension over it.
 
 book_no_punc = [word.strip(string.punctuation) for word in book_words]
+
 # comprehension over a generator expression which yields a tuple of a word of length 9 and its length, which is 9
-wordLenghtGenerator = [findWordOfLength(9)]
+# wordLenghtGenerator = [findWordOfLengthInBook(9, book_no_punc)]
 # wordLenghtGenerator = [(word, len(word)) for word in book_no_punc if len(word) == 9]
 
 # printing words of lenght 9 using the generator expression
-for word in wordLenghtGenerator:
-    print(word)
+nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
 # printing words of lenght 9 only once using the generator expression
 seen_before = list()
 
-for word in wordLenghtGenerator:
+for word in nine_worders:
     if word not in seen_before:
         seen_before.append(word)
 
