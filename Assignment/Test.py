@@ -142,6 +142,8 @@ def findInBookWordOfLength(book, word_length):
         if len(word) == word_length:
             yield (word, len(word)) 
 
+findInBookWordOfLength(book_words, 9)
+
 # %% [markdown]
 #    ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
 # 
@@ -149,9 +151,10 @@ def findInBookWordOfLength(book, word_length):
 #    - Extra points if each word is selected only once
 
 # %%
-# To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words' and
-# save the new word list in 'book_no_punc'; we will also rework the previous generator to use 'book_no_punc'
-# and use comprehension over it.
+# To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words',
+# make them all lower case, so, e.g., words like: 'Gutenberg' and 'GUTENBERG' don't get counted twice.
+# save the new word list in 'book_no_punc' and use comprehension over it.
+# Finally, we will remove word with 'apostophe s' since these are not 9 word letters.
 
 book_no_punc = [word.strip(string.punctuation) for word in book_words]
 
@@ -162,7 +165,7 @@ nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 seen_before = list()
 
 for word in nine_worders:
-    if word not in seen_before:
+    if word not in seen_before and word[0][7] != '\'':
         seen_before.append(word)
 
 for word in seen_before:
