@@ -103,11 +103,16 @@ print("Actual number of unique words:", len(unique_words))
 # 
 #    `{'the': {'length': 3, 'freq': 4303}}`
 # 
-
 # %%
 book_words_dict = dict()
 # Warning - long execution!
 [book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+
+# %% [markdown]
+#    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
+#    - Print the word and the number of times it appeared in the book
+
+# %%
 # The most common word is 'the'
 most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
 print('The most common word:', most_common_word[0], "Count:", most_common_word[1][1])
@@ -117,26 +122,9 @@ print("The:", book_words_dict['The'])
 print("the:", book_words_dict['the'])
 # 'THE', 'The' and 'the' were counted as seperate words. It still means that 'the' is the most common word but,
 # its count is inncorrect. Let's fix this:
-# most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
-print('The most common word:', most_common_word[0], "Count:", int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1]))
+most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
+print('The most common word:', most_common_word[0], "Count:", most_common_word_count)
 
-# %% [markdown]
-#    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
-#    - Print the word and the number of times it appeared in the book
-
-# %%
-# We can use book_no_punc list because we don't want to count
-# "Francisco?" and "Francisco" twice and get two unique key values for it
-# most_common_word_book_no_punc = max(book_no_punc, key=lambda x: book_no_punc[1])
-# print('Most commonly used word from book_no_punc:', most_common_word_book_no_punc)
-# or book_words
-# most_common_word_book_words = max(book_words, key=lambda x: book_words[1])
-# print('Most commonly used word from book_words:', most_common_word_book_words)
-# # using the created dictionary to print the most commonly used word and its count
-# most_common_word_count =  book_dict['The'][1]
-# print(f"Most commonly used word: {most_common_word_book_words}, Count: {most_common_word_count}")
-# print(max(book_dict.items(), key=lambda i : i[1][1]))
-# print('Most common word:', most_common_word[0], "Count:", most_common_word[1][1]])
 # %% [markdown]
 #    ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
 # 
