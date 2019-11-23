@@ -1,52 +1,53 @@
-# %%
-# Author: Mateusz Zaremba
-# Student ID: 2834634
-# Email: maz00027@students.stir.ac.uk
-    
-# This application was developed using Visual Studio Code debuggin tools.
+# To add a new cell, type '# %%'
+# To add a new markdown cell, type '# %% [markdown]'
 # %% [markdown]
-# # University of Stirling
-# 
-# # ITNPBD2, Representing and Manipulating Data
-# 
-# # Assignment 2019
-# 
-# # An analysis of the book, Around the World in 80 Days by Jules Verne
-# 
-# This notebook forms the assignment instructions and submission document of the assignment for ITNPBD2 in 2019. Read the instructions carefully and enter code into the cells as indicated.
-# 
-# You will need to download the text of the book from Canvas - it is in the same place as this file, and called aroundTW80Days.txt.
-# 
-# Rename this file to be xxxxxx_BD2 where xxxxxx is your student number, then type your code into the boxes provided. Each question is given in a markdown call, and there is an empty box beneath each one where you enter your answer. These boxes should contain 2 things:
-# 
-# - **The code that performs the required task**
-# - **Comments that explain your code**
-# 
-# Marks are given for both code (70%) and style and comments (30%). If you cannot get the code to work properly, you will still get some marks for correct comments. The marks available for each question are given in square brackets in each title.
+#    Author: Mateusz Zaremba
+#    Student ID: 2834634
+#    Email: maz00027@students.stir.ac.uk
+#    This application was developed using Visual Studio Code debuggin tools.
 # %% [markdown]
-# # Submission and Other Notes
+#  # University of Stirling
 # 
-# - Submit your notebook to canvas when it is complete
-# - Make sure the version you submit contains the results of running every cell. The output should be visible without the need to run the code again
+#  # ITNPBD2, Representing and Manipulating Data
 # 
-# ## Plagiarism
+#  # Assignment 2019
 # 
-# Plagiarism is presenting somebody else’s work as your own. Plagiarism is a form of academic misconduct and is taken very seriously by the University. Students found to have plagiarised work can have marks deducted and, in serious cases, even be expelled from the University. Do not submit any work that is not entirely your own. 
+#  # An analysis of the book, Around the World in 80 Days by Jules Verne
 # 
-# The University’s full guidance on academic misconduct can be found here:
+#  This notebook forms the assignment instructions and submission document of the assignment for ITNPBD2 in 2019. Read the instructions carefully and enter code into the cells as indicated.
 # 
-# http://stir.ac.uk/1x0
+#  You will need to download the text of the book from Canvas - it is in the same place as this file, and called aroundTW80Days.txt.
+# 
+#  Rename this file to be xxxxxx_BD2 where xxxxxx is your student number, then type your code into the boxes provided. Each question is given in a markdown call, and there is an empty box beneath each one where you enter your answer. These boxes should contain 2 things:
+# 
+#  - **The code that performs the required task**
+#  - **Comments that explain your code**
+# 
+#  Marks are given for both code (70%) and style and comments (30%). If you cannot get the code to work properly, you will still get some marks for correct comments. The marks available for each question are given in square brackets in each title.
+# %% [markdown]
+#  # Submission and Other Notes
+# 
+#  - Submit your notebook to canvas when it is complete
+#  - Make sure the version you submit contains the results of running every cell. The output should be visible without the need to run the code again
+# 
+#  ## Plagiarism
+# 
+#  Plagiarism is presenting somebody else’s work as your own. Plagiarism is a form of academic misconduct and is taken very seriously by the University. Students found to have plagiarised work can have marks deducted and, in serious cases, even be expelled from the University. Do not submit any work that is not entirely your own.
+# 
+#  The University’s full guidance on academic misconduct can be found here:
+# 
+#  http://stir.ac.uk/1x0
 # 
 # %% [markdown]
-# ## 1) Open the file `aroundTW80Days.txt` and read its contents into a string [3]
+#  ## 1) Open the file `aroundTW80Days.txt` and read its contents into a string [3]
 # 
 # 
-# - Print the number of characters (letters, etc) in the whole book
-# - Split the book into a Python list containing all the words of the book in order. At this stage, use string splitting, not a more fancy library like `nltk`. Call this variable `book_list`
-# - Print the number of words in the book
-# - Print the first 10 words of the book. It should look like this:
+#  - Print the number of characters (letters, etc) in the whole book
+#  - Split the book into a Python list containing all the words of the book in order. At this stage, use string splitting, not a more fancy library like `nltk`. Call this variable `book_list`
+#  - Print the number of words in the book
+#  - Print the first 10 words of the book. It should look like this:
 # 
-# `['The', 'Project', 'Gutenberg', 'EBook', 'of', 'Around', 'the', 'World', 'in', '80', 'Days,']`
+#  `['The', 'Project', 'Gutenberg', 'EBook', 'of', 'Around', 'the', 'World', 'in', '80', 'Days,']`
 
 # %%
 import random
@@ -61,19 +62,19 @@ data = open(r"aroundTW80Days.txt", "r").read().replace('\n',' ')
 book_words = data.split()
 
 # 1. Number of characters in the book
-print("Number of characters in the book:", len(data))
+print("Number of characters in the book:", len(data), '\n')
 # 2. Split the book into a sorted list
 book_list = sorted(list(book_words))
 rnd = random.randint(100, 109)
-print("Random sample from the sorted book:", book_list[rnd:rnd+5])
+print("Random sample from the sorted book:", book_list[rnd:rnd+5], '\n')
 # 3. Number of words in the book
-print("Number of words in the book:", len(book_words))
+print("Number of words in the book:", len(book_words), '\n')
 # 4. The first 10 words of the book
-print("The first 10 words from the book:", book_words[0:10])
+print("The first 10 words from the book:", '\n', book_words[0:10], '\n')
 
 # %% [markdown]
-# ## 2) Now create a set containing all the unique words in the book [3]
-# - Print the number of unique words it finds
+#  ## 2) Now create a set containing all the unique words in the book [3]
+#  - Print the number of unique words it finds
 
 # %%
 # a 'set' stores values only once, so we're going to convert the list containing
@@ -94,19 +95,21 @@ unique_words = set(unique_words)
 print("Actual number of unique words:", len(unique_words))
 
 # %% [markdown]
-# ## 3) Build a Dictionary of the words used in the book [3]
-# - Build a Python dictionary (`dict`) in which the keys are the unique words in the book and the values are dictionary objects with fields `length` for word length and `freq` for frequency, e.g.:
+#  ## 3) Build a Dictionary of the words used in the book [3]
+#  - Build a Python dictionary (`dict`) in which the keys are the unique words in the book and the values are dictionary objects with fields `length` for word length and `freq` for frequency, e.g.:
 # 
-# `{'the': {'length': 3, 'freq': 4303}}`
+#  `{'the': {'length': 3, 'freq': 4303}}`
 # 
+
 # %%
 book_words_dict = dict()
 # Warning - long execution!
 [book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+display(book_words_dict)
 
 # %% [markdown]
-# ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
-# - Print the word and the number of times it appeared in the book
+#  ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
+#  - Print the word and the number of times it appeared in the book
 
 # %%
 # The most common word is 'the'
@@ -122,11 +125,11 @@ most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] 
 print('The most common word:', most_common_word[0], "Count:", most_common_word_count)
 
 # %% [markdown]
-# ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
+#  ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
 # 
-# - The function should accept a single argument: the list of words in the book
-# - It should yield a tuple (word, word_len)
-# - Call the function to create a generator but do not iterate over it at this stage
+#  - The function should accept a single argument: the list of words in the book
+#  - It should yield a tuple (word, word_len)
+#  - Call the function to create a generator but do not iterate over it at this stage
 
 # %%
 # generator expression which yields a tuple of a word and its length
@@ -148,10 +151,10 @@ def findInBookWordOfLength(book, word_length=None):
 findInBookWordOfLength(book_words, 9)
 
 # %% [markdown]
-# ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
+#  ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
 # 
-# - Print all those words
-# - Extra points if each word is selected only once
+#  - Print all those words
+#  - Extra points if each word is selected only once
 
 # %%
 # To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words',
@@ -187,9 +190,9 @@ for word in nine_worders:
     print(word)
 
 # %% [markdown]
-# ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
+#  ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
 # 
-# `. - \ /`
+#  `. - \ /`
 
 # %%
 # Generator to find words with 14 letters or more but without these special characaters `. - \ /` in them.
@@ -203,12 +206,12 @@ for i in fourteeen_letter:
     print(i)
 
 # %% [markdown]
-# ## 8) Split the book into a list of chapters [6]
-#  
-#  - This should be a list of strings
-#  - Hint - split on the word 'Chapter'
-#  - Call the list `chapter_list`
-#  
+#  ## 8) Split the book into a list of chapters [6]
+# 
+#   - This should be a list of strings
+#   - Hint - split on the word 'Chapter'
+#   - Call the list `chapter_list`
+# 
 
 # %%
 # This section answers Question 8 but it will also prepare the data to answer questions: 9, 10, 11 and 12
@@ -278,12 +281,10 @@ while i < len(book_words):
 
 # create a list of chapters
 chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
-# 
-# display(chapter_list)
 
 # %% [markdown]
-# ## 9) Remove the first entry from the chapter list [6]
-# The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
+#  ## 9) Remove the first entry from the chapter list [6]
+#  The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
 
 # %%
 # If I wanted to remove the first entry from my chapter list I'd do it like this:
@@ -297,26 +298,26 @@ chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
 # - Chapter content
 
 # %% [markdown]
-# ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
+#  ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
 
 # %%
 # This step was already done in the answer to Question 8
-print(table_of_contents)
+display(table_of_contents)
 
 # %% [markdown]
-# ## 11) Print only the titles from each chapter [6]
-# - Clue: The title of each chapter is written in UPPER CASE and is the first thing in each chapter. Therefore, printing words until you find one that is not upper case will print the title.
+#  ## 11) Print only the titles from each chapter [6]
+#  - Clue: The title of each chapter is written in UPPER CASE and is the first thing in each chapter. Therefore, printing words until you find one that is not upper case will print the title.
 
 # %%
 for i in range(len(table_of_contents)):
     print(table_of_contents[i][0])
 
 # %% [markdown]
-# ## 12) Measure the length of each chapter and plot the values on a bar chart [9]
-# - Draw a horizontal bar chart so you can read the chapter numbers down the left side
-# - Set the headings to be `Chapter I` to `Chapter XXXVI` do this with code that extracts the chapter headings from the text, not by hand
-# - Give the chart appropriate title and axis labels
-# - Use whatever plotting library you like. Matplotlib is fine.
+#  ## 12) Measure the length of each chapter and plot the values on a bar chart [9]
+#  - Draw a horizontal bar chart so you can read the chapter numbers down the left side
+#  - Set the headings to be `Chapter I` to `Chapter XXXVI` do this with code that extracts the chapter headings from the text, not by hand
+#  - Give the chart appropriate title and axis labels
+#  - Use whatever plotting library you like. Matplotlib is fine.
 
 # %%
 import matplotlib.pyplot as plt
@@ -342,14 +343,14 @@ plt.title('Word count in each chapter')
 plt.show()
 
 # %% [markdown]
-# ## 13) Plot Locations Mentioned in the Book on a Map [9 
-#
-# - Using a plotting package of your choice, plot the locations of all the cities mentioned in the book
-# - You can use the file called `cities.txt` to look up city names and locations
-# - Look at its contents to work out how to use it. The locations are given as latitude, longitude, altitude (you won't need that last one!)
-# - You should then write code that searches the book for all the cities in `cities.txt`. Any that it finds should be plotted on the map
-# - Here is a useful list of words that appear in the book, but are NOT to be plotted:
-# `['Victoria','San','Imperial','Come','San Pablo','Queenstown','Young','Lincoln','Forster','Formosa']`
+#  ## 13) Plot Locations Mentioned in the Book on a Map [9
+# 
+#  - Using a plotting package of your choice, plot the locations of all the cities mentioned in the book
+#  - You can use the file called `cities.txt` to look up city names and locations
+#  - Look at its contents to work out how to use it. The locations are given as latitude, longitude, altitude (you won't need that last one!)
+#  - You should then write code that searches the book for all the cities in `cities.txt`. Any that it finds should be plotted on the map
+#  - Here is a useful list of words that appear in the book, but are NOT to be plotted:
+#  `['Victoria','San','Imperial','Come','San Pablo','Queenstown','Young','Lincoln','Forster','Formosa']`
 
 # %%
 # 'cities.txt' was not necessary. Instead, goetext library was used to find all the city names in the book.
@@ -434,13 +435,13 @@ for city in city_names:
 # if there's an error, please try running the cell again.
 m
 
-# Uncomment to save the map in html and get a better view
+# Uncomment to save the map in html
 # m.save('80daysCities.html')
 
 # %% [markdown]
-# ## 14) NLTK Sentiment Analysis [9]
+#  ## 14) NLTK Sentiment Analysis [9]
 # 
-# ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
+#  ## Use the VADER tool in the nltk library to analyse the sentiment of each chapter and plot the positive sentiment level over time on a chart
 
 # %%
 # from nltk import book
@@ -463,40 +464,40 @@ plt.plot(list(range(len(pos_sent_scores))), pos_sent_scores, color='green', line
 plt.show()
 
 # %% [markdown]
-# ## 15) Now think of some further analysis you could do based on the text of this book [19]
+#  ## 15) Now think of some further analysis you could do based on the text of this book [19]
 # 
-# It should use other data sources you find online and tell an additional story around the data. Suggested data and sources include:
+#  It should use other data sources you find online and tell an additional story around the data. Suggested data and sources include:
 # 
-# - Travel and accommodation sites
-# - User reviews of the book
-# - Book sales data about this and other related books
-# - News stories about places in the book
-# - Travel times and distances
-# - Pictures of places in the book
+#  - Travel and accommodation sites
+#  - User reviews of the book
+#  - Book sales data about this and other related books
+#  - News stories about places in the book
+#  - Travel times and distances
+#  - Pictures of places in the book
 # 
-# Your analysis might consider how Phileas Fogg would travel if he had to make the same journey today - what would it cost, where might he stay, what would be happening in the places he would visit? How would you aquire the data you need? Can you connect to data online using REST? Do you need to perform scraping with something like ScraPy? What other packages would you need and what would you use them for?
+#  Your analysis might consider how Phileas Fogg would travel if he had to make the same journey today - what would it cost, where might he stay, what would be happening in the places he would visit? How would you aquire the data you need? Can you connect to data online using REST? Do you need to perform scraping with something like ScraPy? What other packages would you need and what would you use them for?
 # 
-# Write in English (not Python) about your idea including data sources, Python packages used, presentation and visualisation methods, and potential problems you can forsee.
+#  Write in English (not Python) about your idea including data sources, Python packages used, presentation and visualisation methods, and potential problems you can forsee.
 # 
-# Add some example of code that perform some of the tasks required for your full analysis. You do not have to implement the whole idea, just some illustrative parts.
+#  Add some example of code that perform some of the tasks required for your full analysis. You do not have to implement the whole idea, just some illustrative parts.
 # 
-# Use as many cells below as you need - both code and markdown to explain your ideas. This part is worth 19 of the marks overall.
+#  Use as many cells below as you need - both code and markdown to explain your ideas. This part is worth 19 of the marks overall.
 # 
 
 # %%
 # The answer is given in the markdown cell below
 
 # %% [markdown]
-#   An attempt to improve the cities mentioned in the book was made. To my best knowledge a successful one but
-#   the analysis could be further improved by plotting only the cities Phileas Fogg visited.
-#   A full journey with connections plotted between the cities could be made as well.
-#   The connections could show the amount of time the journey took; this could be done interactively with a mouse hover
-#   over the link showing the journey's time. We could also show the time it would take today to travel that link and
-#   show up-to-date train and airplane schedules. This could be a fun tool to play with while reading the book, to see
-#   how much time it would take Phileas to travel not only today, but right now.
-#   Google Maps would be a great help with this. We can get the travel calculation, time and locations.
-#   Google on its official github account has google maps python integration tools (https://github.com/googlemaps/google-maps-services-python);
-#   it features an example usage of finding directions via a public transit:
+#    An attempt to improve the cities mentioned in the book was made. To my best knowledge a successful one but
+#    the analysis could be further improved by plotting only the cities Phileas Fogg visited.
+#    A full journey with connections plotted between the cities could be made as well.
+#    The connections could show the amount of time the journey took; this could be done interactively with a mouse hover
+#    over the link showing the journey's time. We could also show the time it would take today to travel that link and
+#    show up-to-date train and airplane schedules. This could be a fun tool to play with while reading the book, to see
+#    how much time it would take Phileas to travel not only today, but right now.
+#    Google Maps would be a great help with this. We can get the travel calculation, time and locations.
+#    Google on its official github account has google maps python integration tools (https://github.com/googlemaps/google-maps-services-python);
+#    it features an example usage of finding directions via a public transit:
 
 # %%
 import googlemaps
@@ -518,26 +519,25 @@ directions_result = gmaps.directions("Sydney Town Hall",
                                      departure_time=now)
 
 # %% [markdown]
-#   Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
-#   pictures of the area, reviews and more.
-#   Using Scrapy, we could scrap google restaurant reviews and hotels, at the locations Phileas visited, and add these to our interactive map.
-#   It could be used to create a companion app for anyone who would like to travel the world like Phileas did; when they would be
-#   in the same location as Phileas was, it could send them a notification with the book's chapter relative to their current location.
-#   Getting the users location could also be done with google maps API.
-#   To show information about the place they're at and the book's chapter we'd have to prepare the data, a bit like
-#   we did in question 12 of this assignment but a lot more thoroughly to ensure that all the places have a proper context and
-#   Phileas was actually travelling through them.
-#   In terms of image processing, if it was an illustrated version of 'Around the World in 80 Days', we could use
-#   'face_recognition' library (source: https://github.com/ageitgey/face_recognition) to analyse peoples' emotions
-#   in the pictures and plot 'an emotional' journey that heroes of the book went through. This could be combined with
-#   VADER sentiment analysis to see how these two compares.
-#   Further analysis could involve scrapping the book's reviews from the web and see how they've been changing over time.
-#   Have they improved, got worse? We could also look at the selling data, plot them over time, and see if there were any
-#   anomalies in the book's popularity; we might be able to check if they were related to some other events, e.g.,like a premier of a movie adaptation.
-#   We could also scrap the web in search of 'Around the world in 80 days' themed events, like novel readings etc.
-#   This would also be a very good popularity indicator of a book that was published almost 150 years ago and is still
-#   very well known. It would be interesting to try to analyse this phenomenon. Maybe scrapping the news and comparing the
-#   book's popularity charts would give us any results? Are people more inclined to read '80 days' in some particular time,
-#   like winter; when there's very little sun and a prospect of travel is miniscule? All the unexpected things we can get from data
-#   makes it so much more exciting!
-
+#    Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
+#    pictures of the area, reviews and more.
+#    Using Scrapy, we could scrap google restaurant reviews and hotels, at the locations Phileas visited, and add these to our interactive map.
+#    It could be used to create a companion app for anyone who would like to travel the world like Phileas did; when they would be
+#    in the same location as Phileas was, it could send them a notification with the book's chapter relative to their current location.
+#    Getting the users location could also be done with google maps API.
+#    To show information about the place they're at and the book's chapter we'd have to prepare the data, a bit like
+#    we did in question 12 of this assignment but a lot more thoroughly to ensure that all the places have a proper context and
+#    Phileas was actually travelling through them.
+#    In terms of image processing, if it was an illustrated version of 'Around the World in 80 Days', we could use
+#    'face_recognition' library (source: https://github.com/ageitgey/face_recognition) to analyse peoples' emotions
+#    in the pictures and plot 'an emotional' journey that heroes of the book went through. This could be combined with
+#    VADER sentiment analysis to see how these two compares.
+#    Further analysis could involve scrapping the book's reviews from the web and see how they've been changing over time.
+#    Have they improved, got worse? We could also look at the selling data, plot them over time, and see if there were any
+#    anomalies in the book's popularity; we might be able to check if they were related to some other events, e.g.,like a premier of a movie adaptation.
+#    We could also scrap the web in search of 'Around the world in 80 days' themed events, like novel readings etc.
+#    This would also be a very good popularity indicator of a book that was published almost 150 years ago and is still
+#    very well known. It would be interesting to try to analyse this phenomenon. Maybe scrapping the news and comparing the
+#    book's popularity charts would give us any results? Are people more inclined to read '80 days' in some particular time,
+#    like winter; when there's very little sun and a prospect of travel is miniscule? All the unexpected things we can get from data
+#    makes it so much more exciting!
