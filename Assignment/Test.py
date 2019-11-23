@@ -64,11 +64,6 @@ data = open(r"aroundTW80Days.txt", "r").read().replace('\n',' ')
 # Split the book into words
 book_words = data.split()
 
-# create new list, from book_list, with no punctuation, called book_no_punc
-book_no_punc = list()
-for word in book_words:
-    book_no_punc.append(word.strip(string.punctuation))
-
 # 1. Number of characters in the book
 print("Number of characters in the book:", len(data))
 # 2. Split the book into a sorted list
@@ -85,19 +80,35 @@ print("The first 10 words from the book:", book_words[0:10])
 #    - Print the number of unique words it finds
 
 # %%
-# Set stores values only once, so we're going to convert the list containing
-# all the words in the book into a set, hence getting all the unique words
-# but first we need to get rid of all the punctuation signs so we don't 
-# count, e.g., "Francisco?" and "Francisco" as two unique words
+# a set stores values only once, so we're going to convert the list containing
+# all the words in the book into a set, hence getting all the unique words.
+# I think the best option for finding the unique word is to use the 
+# count, e.g., "Francisco?" and "Francisco" as two unique words and
 
-book_no_punc = list()
-# create new list, from book_list, with no punctuation, called book_no_punc
-for word in book_words:
-    book_no_punc.append(word.strip(string.punctuation))
-
+# using book_no_punc list, to not count words like: "THE", "The", "the" as seperate words;
+# Question 3 shows that this can happen.
 # convert book_no_punc list into a set to obtain the unique values
-book_unique = set(book_no_punc)
-print('Unique words found:', len(book_unique))
+
+# Create a new list, from book_words, with no punctuation and convert all the words to lower case;
+# the new list will keep all 'apostrophe s' words, e.g., book's.
+# The reason for it is to prevent the words like: 'the', 'The', and 'THE' from being counted as seperate words,
+# and "Francisco?" and "Francisco" as two unique words,
+# which would distrupt the unique word count, as shown below:
+book_no_punc = list()
+# get rid of the puncuation at the end of the word, in the 'book_words' list and, 
+# convert all the words to lower case
+for word in book_words:
+    book_no_punc.append(word.strip(string.punctuation).lower())
+
+# Get unique words from book_words and display their count.
+book_words_unique = set(book_words)
+print('Unique words found using book_words:', len(book_words_unique))
+# print(book_words_unique)
+
+# Get unique words from book_no_punc and display their count.
+book_no_punc_unique = set(book_no_punc)
+print('Unique words found using book_no_punc:', len(book_no_punc_unique))
+print(book_no_punc_unique)
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
@@ -106,12 +117,24 @@ print('Unique words found:', len(book_unique))
 #    `{'the': {'length': 3, 'freq': 4303}}`
 # 
 
+
 # %%
-book_dict = dict()
+book_words_dict = dict()
+# If we use book_words, which contains raw split data, we will end up counting: 'THE', 'The' and 'the' as seperate words:
 # Warning - long execution!
-# Create a dictionary of words with words as the key, and a tuple with its length and frequency, as the value.
-[book_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
-# print(book_dict)
+[book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+print("THE:", book_words_dict['THE'])
+print("The:", book_words_dict['The'])
+print("the:", book_words_dict['the'])
+# But, let's print the most common word from book_words, and see how it compares to most common word from book_no_punc
+print('Most common word from book_words:', max(book_words_dict.items(), key=lambda i : i[1][1]))
+
+# %%
+# Using book_no_punc, for an accurate measurment of the most common word:
+book_no_punc_dict = dict()
+# Warning - long execution!
+[book_no_punc_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_words]
+print('Most common word from book_no_punc:', max(book_no_punc_dict.items(), key=lambda i : i[1][1]))
 
 # %% [markdown]
 #    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
@@ -120,16 +143,16 @@ book_dict = dict()
 # %%
 # We can use book_no_punc list because we don't want to count
 # "Francisco?" and "Francisco" twice and get two unique key values for it
-most_common_word_book_no_punc = max(book_no_punc, key=lambda x: book_words[1])
-print('Most commonly used word from book_no_punc:', most_common_word_book_no_punc)
+# most_common_word_book_no_punc = max(book_no_punc, key=lambda x: book_no_punc[1])
+# print('Most commonly used word from book_no_punc:', most_common_word_book_no_punc)
 # or book_words
-most_common_word_book_words = max(book_no_punc, key=lambda x: book_words[1])
-print('Most commonly used word from book_words:', most_common_word_book_words)
-# using the created dictionary to print the most commonly used word and its count
-most_common_word_tuple = book_dict['The']
-most_common_word_count =  most_common_word_tuple[1]
-print(f"Most commonly used word: {most_common_word_book_words}, Count: {most_common_word_count}")
-
+# most_common_word_book_words = max(book_words, key=lambda x: book_words[1])
+# print('Most commonly used word from book_words:', most_common_word_book_words)
+# # using the created dictionary to print the most commonly used word and its count
+# most_common_word_count =  book_dict['The'][1]
+# print(f"Most commonly used word: {most_common_word_book_words}, Count: {most_common_word_count}")
+# print(max(book_dict.items(), key=lambda i : i[1][1]))
+# print('Most common word:', most_common_word[0], "Count:", most_common_word[1][1]])
 # %% [markdown]
 #    ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
 # 
