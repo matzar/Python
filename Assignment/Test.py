@@ -170,8 +170,11 @@ def findInBookWordOfLength(book, word_length, prevent_duplicates=None):
     # a list to prevent duplicate yields
     seen_before = []
     for word in book:
+        # strip word's punctuation
+        word = word.strip(string.punctuation)
         # check if the word is of the desired length
         if len(word) == word_length:
+            word = word.lower()
             # check if it's a doulicate
             if word not in seen_before:
                 s_index = len(word)-2
@@ -180,13 +183,13 @@ def findInBookWordOfLength(book, word_length, prevent_duplicates=None):
                     # check is the words is an 'apostophe s' word
                     if word[s_index] != '\'':
                         # check is the word is from the telegram, i.e., if it has double hyphens
-                        if '--' not in word:
+                        if "'" not in word:
                             # if all of this check out, the word is a unique word of the desired length
                             seen_before.append(word)
                             yield (word, len(word)) 
 
 # remove puncuation and convert to lower case
-book_no_punc = [word.strip(string.punctuation).lower() for word in book_words]
+# book_no_punc = [word.strip(string.punctuation).lower() for word in book_words]
 
 # Use a comprehension over the generator function to yield words with 9 letters
 nine_worders = [word for word in findInBookWordOfLength(book_words, 9, True)]
