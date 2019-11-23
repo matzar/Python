@@ -136,6 +136,7 @@ book_words_dict = dict()
 
 # %%
 # generator expression which yields a tuple of a word and its length
+# arguments:               list, word length
 def findInBookWordOfLength(book, word_length):
     for word in book:
         if len(word) == word_length:
@@ -153,10 +154,6 @@ def findInBookWordOfLength(book, word_length):
 # and use comprehension over it.
 
 book_no_punc = [word.strip(string.punctuation) for word in book_words]
-
-# comprehension over a generator expression which yields a tuple of a word of length 9 and its length, which is 9
-# wordLenghtGenerator = [findWordOfLengthInBook(9, book_no_punc)]
-# wordLenghtGenerator = [(word, len(word)) for word in book_no_punc if len(word) == 9]
 
 # printing words of lenght 9 using the generator expression
 nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
