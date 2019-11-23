@@ -292,15 +292,22 @@ chapter_list = [table_of_contents[i][0] for i in range(len(table_of_contents))]
 #    The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
 
 # %%
-# This question was handeled differently and there was no need for removal of the first entry, as explained
-# in the previous question.
+# If I wanted to remove the first entry from my chapter list I'd do it like this:
+# chapter_list.remove(chapter_list[0])
+
+# but because I ended up not loading the table of contents, this step won't be necessary. 
+# I still managed to get all the inforamtion about the Chapter in the previous question:
+# - Chapter name
+# - Chapter number
+# - Chapter description
+# - Chapter content
 
 # %% [markdown]
 #    ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
 
 # %%
 # This step was already done in the answer to Question 8
-table_of_contents
+print(table_of_contents)
 
 # %% [markdown]
 #    ## 11) Print only the titles from each chapter [6]
@@ -308,7 +315,7 @@ table_of_contents
 
 # %%
 for i in range(len(table_of_contents)):
-    print(table_of_contents[i][1])
+    print(table_of_contents[i][0])
 
 # %% [markdown]
 #    ## 12) Measure the length of each chapter and plot the values on a bar chart [9]
