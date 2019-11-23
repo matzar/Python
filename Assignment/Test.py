@@ -115,8 +115,15 @@ book_no_punc_digit_lower_unique = set(book_no_punc_digit_lower)
 print('Unique words found using book_no_punc_digit_lower:', len(book_no_punc_digit_lower_unique))
 
 # Remove double hyphens from book_no_punc_digit_lower
-book_no_punc_digit_hyphen_lower [i.replace('-','') for i in l] 
+book_no_punc_digit_hyphen_lower = [word.replace('-','') for word in book_no_punc_digit_lower] 
+# Get unique words from book_no_punc_digit_lower and
 book_no_punc_digit_hyphen_lower_unique = set(book_no_punc_digit_hyphen_lower)
+# display their count.
+print('Unique words found using book_no_punc_digit_hyphen_lower:', len(book_no_punc_digit_hyphen_lower_unique))
+
+# %%
+# This all could have been done in one loop
+
 # %%
 # As we can see the unique word count kept decreasing until, the actual unique word count was revealed.
 # Although it is still not ideal because it contains strings, like '1.f.6'.
@@ -135,6 +142,9 @@ print('Unique words found in book_no_punc_lower:', book_no_punc_lower_unique)
 
 # %%
 print('Unique words found in book_no_digit_punc_unique:', book_no_punc_digit_lower_unique)
+
+# %%
+print('Unique words found using book_no_punc_digit_hyphen_lower:', book_no_punc_digit_hyphen_lower_unique)
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
