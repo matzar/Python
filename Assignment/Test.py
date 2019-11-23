@@ -83,64 +83,20 @@ print("The first 10 words from the book:", book_words[0:10])
 # a 'set' stores values only once, so we're going to convert the list containing
 # all the words in the book into a set, hence getting all the unique words.
 # I think the best option for finding the unique words would be to:
-# - Remove all the punctuation - to prevent counting of, e.g., "Francisco?" and "Francisco" as two unique words
-# - Convert all the words to lower case, to prevent words like: "THE", "The", "the" as being counted as unique and,
 # - Remove words which are digits, e.g., word '8' is in the 'book_words' but it's not a word per se
+# - Remove all the punctuation - to prevent counting of, e.g., "Francisco?" and "Francisco" as two unique words
+# - Convert all the words to lower case, to prevent words like: "THE", "The", "the" as being counted as unique
 # This would distrupt the unique word count, as shown below:
 
 # Get unique words from book_words and display their count.
 book_words_unique = set(book_words)
 print('Unique words found using book_words:', len(book_words_unique))
 
-# Remove puncuation at the end of the word (It will keep all 'apostrophe s' words, e.g., book's.):
-book_no_punc = [word.strip(string.punctuation) for word in book_words]    
-# Get unique words from book_no_punc but with no punctuation and
-book_no_punc_unique = set(book_no_punc)
-# display their count.
-print('Unique words found using book_no_punc:', len(book_no_punc_unique))
-
-# Convert the words to lower case:
-book_no_punc_lower = [word.strip(string.punctuation).lower() for word in book_no_punc]
-# Get unique words from book_no_punc_lower and
-book_no_punc_lower_unique = set(book_no_punc_lower)
-# display their count.
-print('Unique words found using book_no_punc_lower:', len(book_no_punc_lower_unique))
-
-# Remove digits from 'book_no_punc_lower'
-book_no_punc_digit_lower = [word for word in book_no_punc_lower if not word.isdigit()]
-# Get unique words from book_no_punc_digit_lower and
-book_no_punc_digit_lower_unique = set(book_no_punc_digit_lower)
-# display their count.
-print('Unique words found using book_no_punc_digit_lower:', len(book_no_punc_digit_lower_unique))
-
-# %%
-# This all could have been done in one line
+# Remove digits, punctuation and convert to lower case
 unique_words = [word.strip(string.punctuation).lower() for word in book_words if not word.isdigit()]
 unique_words = set(unique_words)
 print("Number of unique words:", len(unique_words))
 print("")
-
-# %%
-# As we can see the unique word count kept decreasing until, the actual unique word count was revealed.
-# This is still not ideal becuase we have words like, 'for--which' or '1.f.6' counted as unique words.
-
-# %%
-# This could be also seen if we print all of the unique lists
-
-# %%
-print('Unique words found in book_words:', book_words_unique)
-
-# %%
-print('Unique words found in book_no_punc:', book_no_punc_unique)
-
-# %%
-print('Unique words found in book_no_punc_lower:', book_no_punc_lower_unique)
-
-# %%
-print('Unique words found in book_no_digit_punc_unique:', book_no_punc_digit_lower_unique)
-
-# %%
-print("Unique words:", unique_words)
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
