@@ -54,7 +54,7 @@
 # %%
 import random
 import string
-import operator
+from operator import itemgetter
 
 # read the book into a string, use 'r' to prevent reading of special characters in the file name
 # and replace new line ('\n') characters with a white space
@@ -111,7 +111,7 @@ book_dict = dict()
 # Warning - long execution!
 # Create a dictionary of words with words as the key, and a tuple with its length and frequency, as the value.
 [book_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
-print(book_dict)
+# print(book_dict)
 
 # %% [markdown]
 #    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
@@ -120,12 +120,15 @@ print(book_dict)
 # %%
 # We can use book_no_punc list because we don't want to count
 # "Francisco?" and "Francisco" twice and get two unique key values for it
-print('Most commonly used word from book_no_punc:', max(book_no_punc, key=lambda x: book_no_punc[1]))
+most_common_word_book_no_punc = max(book_no_punc, key=lambda x: book_words[1])
+print('Most commonly used word from book_no_punc:', most_common_word_book_no_punc)
 # or book_words
-print('Most commonly used word from book_words:', max(book_no_punc, key=lambda x: book_words[1]))
-# or using the created dictionary it would look like this
-print('Most commonly used word from book_dict:', max(book_dict, key=lambda x: book_dict[1]))
-
+most_common_word_book_words = max(book_no_punc, key=lambda x: book_words[1])
+print('Most commonly used word from book_words:', most_common_word_book_words)
+# using the created dictionary to print the most commonly used word and its count
+most_common_word_tuple = book_dict['The']
+most_common_word_count =  most_common_word_tuple[1]
+print(f"Most commonly used word: {most_common_word_book_words}, Count: {most_common_word_count}")
 
 # %% [markdown]
 #    ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
