@@ -103,12 +103,10 @@ for word in book_words:
 # Get unique words from book_words and display their count.
 book_words_unique = set(book_words)
 print('Unique words found using book_words:', len(book_words_unique))
-# print(book_words_unique)
 
 # Get unique words from book_no_punc and display their count.
 book_no_punc_unique = set(book_no_punc)
 print('Unique words found using book_no_punc:', len(book_no_punc_unique))
-print(book_no_punc_unique)
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
@@ -122,7 +120,7 @@ print(book_no_punc_unique)
 book_words_dict = dict()
 # If we use book_words, which contains raw split data, we will end up counting: 'THE', 'The' and 'the' as seperate words:
 # Warning - long execution!
-[book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+[book_words_dict.update({word: (len(word), book_words.count(word.lower()))}) for word in book_words]
 print("THE:", book_words_dict['THE'])
 print("The:", book_words_dict['The'])
 print("the:", book_words_dict['the'])
