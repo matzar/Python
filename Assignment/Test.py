@@ -90,12 +90,12 @@ print("The first 10 words from the book:", book_words[0:10])
 
 # Get unique words from book_words and display their count.
 book_words_unique = set(book_words)
-print('Unique words found using book_words:', len(book_words_unique))
+print('Unique words found in \'book_words\':', len(book_words_unique))
 
 # Remove digits, punctuation and convert to lower case
 unique_words = [word.strip(string.punctuation).lower() for word in book_words if not word.isdigit()]
 unique_words = set(unique_words)
-print("Number of unique words:", len(unique_words))
+print("Actual number of unique words:", len(unique_words))
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
@@ -106,15 +106,19 @@ print("Number of unique words:", len(unique_words))
 
 # %%
 book_words_dict = dict()
-# If we use book_words, which contains raw split data, we will end up counting: 'THE', 'The' and 'the' as seperate words:
 # Warning - long execution!
 [book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
-# book_words_dict = [{word: (len(word), book_words.count(word))} for word in book_words]
+# The most common word is 'the'
+most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
+print('The most common word:', most_common_word[0], "Count:", most_common_word[1][1])
+# But let's see if we haven't missed anything:
 print("THE:", book_words_dict['THE'])
 print("The:", book_words_dict['The'])
 print("the:", book_words_dict['the'])
-# But, let's print the most common word from book_words, and see how it compares to most common word from book_no_punc
-print('Most common word from book_words:', max(book_words_dict.items(), key=lambda i : i[1][1]))
+# 'THE', 'The' and 'the' were counted as seperate words. It still means that 'the' is the most common word but,
+# its count is inncorrect. Let's fix this:
+# most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
+print('The most common word:', most_common_word[0], "Count:", int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1]))
 
 # %% [markdown]
 #    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
