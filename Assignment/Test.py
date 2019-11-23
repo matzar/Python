@@ -167,6 +167,7 @@ findInBookWordOfLength(book_words, 9)
 # For this a new function generator will be writeen.
 
 # overloading the function to not produce duplicates and to find not count words with 'apostophe s'
+# arguemnts:               list, word length, booleon to prevent duplicates (not implemented)
 def findInBookWordOfLength(book, word_length, prevent_double=None):
     seen_before = []
     for word in book:
