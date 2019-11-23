@@ -113,17 +113,18 @@ book_words_dict = dict()
 #    - Print the word and the number of times it appeared in the book
 
 # %%
-# The most common word is 'the'
-most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
-print('The most common word:', most_common_word[0], "Count:", most_common_word[1][1])
-# But let's see if we haven't missed anything:
-print("THE:", book_words_dict['THE'])
-print("The:", book_words_dict['The'])
-print("the:", book_words_dict['the'])
-# 'THE', 'The' and 'the' were counted as seperate words. It still means that 'the' is the most common word but,
-# its count is inncorrect. Let's fix this:
-most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
-print('The most common word:', most_common_word[0], "Count:", most_common_word_count)
+# TODO uncomment
+# # The most common word is 'the'
+# most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
+# print('The most common word:', most_common_word[0], "Count:", most_common_word[1][1])
+# # But let's see if we haven't missed anything:
+# print("THE:", book_words_dict['THE'])
+# print("The:", book_words_dict['The'])
+# print("the:", book_words_dict['the'])
+# # 'THE', 'The' and 'the' were counted as seperate words. It still means that 'the' is the most common word but,
+# # its count is inncorrect. Let's fix this:
+# most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
+# print('The most common word:', most_common_word[0], "Count:", most_common_word_count)
 
 # %% [markdown]
 #    ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
@@ -134,7 +135,9 @@ print('The most common word:', most_common_word[0], "Count:", most_common_word_c
 
 # %%
 # generator expression which yields a tuple of a word and its length
-wordLenghtGenerator = ((word, len(word)) for word in book_words)
+def findWordOfLength(word_length):
+    wordLenghtGenerator = ((word, len(word)) for word in book_words if len(word) == word_length)
+    yield wordLenghtGenerator
 
 # %% [markdown]
 #    ## 6) Use a comprehension over the generator you just made to list all the words with 9 letters [6]
@@ -144,10 +147,13 @@ wordLenghtGenerator = ((word, len(word)) for word in book_words)
 
 # %%
 # To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words' and
-# save the new word list in 'book_no_punc'; we will also rework the previous generator to use 'book_no_punc'.
+# save the new word list in 'book_no_punc'; we will also rework the previous generator to use 'book_no_punc'
+# and use comprehension over it.
+
 book_no_punc = [word.strip(string.punctuation) for word in book_words]
-# generator expression which yields a tuple of a word of length 9 and its length, which is 9
-wordLenghtGenerator = [(word, len(word)) for word in book_no_punc if len(word) == 9]
+# comprehension over a generator expression which yields a tuple of a word of length 9 and its length, which is 9
+wordLenghtGenerator = [findWordOfLength(9)]
+# wordLenghtGenerator = [(word, len(word)) for word in book_no_punc if len(word) == 9]
 
 # printing words of lenght 9 using the generator expression
 for word in wordLenghtGenerator:
@@ -398,6 +404,7 @@ tooltip = 'Click for City\'s Name!'
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
 
 # create a map of cities from the book
+# TODO uncomment
 # for city in city_names:
 #     location = geolocator.geocode(city)
 #     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
@@ -471,6 +478,7 @@ plt.show()
 #   it features an example usage of finding directions via a public transit:
 
 # %%
+# TODO uncomment
 # import googlemaps
 # from datetime import datetime
 
