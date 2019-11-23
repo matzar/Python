@@ -80,33 +80,46 @@ print("The first 10 words from the book:", book_words[0:10])
 #    - Print the number of unique words it finds
 
 # %%
-# a set stores values only once, so we're going to convert the list containing
+# a 'set' stores values only once, so we're going to convert the list containing
 # all the words in the book into a set, hence getting all the unique words.
-# I think the best option for finding the unique word is to use the 
-# count, e.g., "Francisco?" and "Francisco" as two unique words and
-
-# using book_no_punc list, to not count words like: "THE", "The", "the" as seperate words;
-# Question 3 shows that this can happen.
-# convert book_no_punc list into a set to obtain the unique values
-
-# Create a new list, from book_words, with no punctuation and convert all the words to lower case;
-# the new list will keep all 'apostrophe s' words, e.g., book's.
-# The reason for it is to prevent the words like: 'the', 'The', and 'THE' from being counted as seperate words,
-# and "Francisco?" and "Francisco" as two unique words,
+# I think the best option for finding the unique words would to to get rid of
+# all the punctuation - to prevent counting of, e.g., "Francisco?" and "Francisco" as two unique words and,
+# to convert all the words to lower case, to prevent words like: "THE", "The", "the" as being counted as unique,
 # which would distrupt the unique word count, as shown below:
-book_no_punc = list()
-# get rid of the puncuation at the end of the word, in the 'book_words' list and, 
-# convert all the words to lower case
-for word in book_words:
-    book_no_punc.append(word.strip(string.punctuation).lower())
 
 # Get unique words from book_words and display their count.
 book_words_unique = set(book_words)
 print('Unique words found using book_words:', len(book_words_unique))
 
-# Get unique words from book_no_punc and display their count.
+book_no_punc = list()
+# Remove puncuation at the end of the word (It will keep all 'apostrophe s' words, e.g., book's.):
+[book_no_punc.append(word.strip(string.punctuation)) for word in book_words]
+    
+# Get unique words from book_words but with no punctuation and display their count.
 book_no_punc_unique = set(book_no_punc)
 print('Unique words found using book_no_punc:', len(book_no_punc_unique))
+
+book_no_punc_lower = list()
+# Remove puncuation at the end of the word and convert the words to lower case:
+for word in book_words:
+    book_no_punc_lower.append(word.strip(string.punctuation).lower())
+# Get unique words from book_no_punc_lower and display their count.
+book_no_punc_lower_unique = set(book_no_punc_lower)
+print('Unique words found using book_no_punc_lower:', len(book_no_punc_lower_unique))
+# new_items = [item for item in items if not item.isdigit()]
+
+# %%
+# As we can see the unique word count kept decreasing until, the acutal unique word count was revealed.
+# Although it is still not ideal because it contains numbers
+
+# %%
+# This could be also seen if we print both of the unique lists
+
+# %%
+print('Unique words found in book_words:', book_words_unique)
+
+# %%
+print('Unique words found in book_no_punc:', book_no_punc_unique)
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
@@ -115,12 +128,11 @@ print('Unique words found using book_no_punc:', len(book_no_punc_unique))
 #    `{'the': {'length': 3, 'freq': 4303}}`
 # 
 
-
 # %%
 book_words_dict = dict()
 # If we use book_words, which contains raw split data, we will end up counting: 'THE', 'The' and 'the' as seperate words:
 # Warning - long execution!
-[book_words_dict.update({word: (len(word), book_words.count(word.lower()))}) for word in book_words]
+[book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
 print("THE:", book_words_dict['THE'])
 print("The:", book_words_dict['The'])
 print("the:", book_words_dict['the'])
