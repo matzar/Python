@@ -84,29 +84,33 @@ print("The first 10 words from the book:", book_words[0:10])
 # all the words in the book into a set, hence getting all the unique words.
 # I think the best option for finding the unique words would to to get rid of
 # all the punctuation - to prevent counting of, e.g., "Francisco?" and "Francisco" as two unique words and,
-# to convert all the words to lower case, to prevent words like: "THE", "The", "the" as being counted as unique,
+# to convert all the words to lower case, to prevent words like: "THE", "The", "the" as being counted as unique and,
+# words which are digits, e.g., word '8' is in the 'book_words' but it's not a word per se -
 # which would distrupt the unique word count, as shown below:
 
 # Get unique words from book_words and display their count.
 book_words_unique = set(book_words)
 print('Unique words found using book_words:', len(book_words_unique))
 
-book_no_punc = list()
 # Remove puncuation at the end of the word (It will keep all 'apostrophe s' words, e.g., book's.):
-[book_no_punc.append(word.strip(string.punctuation)) for word in book_words]
-    
-# Get unique words from book_words but with no punctuation and display their count.
+book_no_punc = [word.strip(string.punctuation) for word in book_words]    
+# Get unique words from book_no_punc but with no punctuation and
 book_no_punc_unique = set(book_no_punc)
+# display their count.
 print('Unique words found using book_no_punc:', len(book_no_punc_unique))
 
-book_no_punc_lower = list()
 # Remove puncuation at the end of the word and convert the words to lower case:
-for word in book_words:
-    book_no_punc_lower.append(word.strip(string.punctuation).lower())
-# Get unique words from book_no_punc_lower and display their count.
+book_no_punc_lower = [word.strip(string.punctuation).lower() for word in book_words]
+# Get unique words from book_no_punc_lower and
 book_no_punc_lower_unique = set(book_no_punc_lower)
+# display their count.
 print('Unique words found using book_no_punc_lower:', len(book_no_punc_lower_unique))
-# new_items = [item for item in items if not item.isdigit()]
+
+# Remove digits from 'book_no_punc_lower'
+book_no_punc_digit_lower = [word for word in book_no_punc_lower if not word.isdigit()]
+# Get unique words from book_no_punc_digit_lower and
+book_no_punc_digit_lower_unique = set(book_no_punc_digit_lower)
+print('Unique words found using book_no_punc_digit_lower:', len(book_no_punc_digit_lower_unique))
 
 # %%
 # As we can see the unique word count kept decreasing until, the acutal unique word count was revealed.
