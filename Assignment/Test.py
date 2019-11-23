@@ -137,16 +137,16 @@ book_words_dict = dict()
 # %%
 # generator expression which yields a tuple of a word and its length
 # arguments:                   list
-def findInBookWordOfLengthNine(book):
+def findInBookWordOfLength(book):
     for word in book:
         if len(word) == 9:
             yield (word, len(word)) 
 
-findInBookWordOfLengthNine(book_words)
+findInBookWordOfLength(book_words)
 
-# The function could also accept the looking length of the word
+# The function could be also overloaded to accept the looking length of the word
 # arguments:                   list
-def findInBookWordOfLength(book, word_length):
+def findInBookWordOfLength(book, word_length=None):
     for word in book:
         if len(word) == word_length:
             yield (word, len(word)) 
@@ -165,25 +165,26 @@ findInBookWordOfLength(book_words, 9)
 # and we will also make sure to not count word with 'apostophe s', which would also make them falsly 9 letter words.
 # For this a new function generator will be writeen.
 
-# def findInBookWordOfLengthNine(book):
-#     for word in book:
-#         if len(word) == 9:
-#             yield (word, len(word)) 
-
-findInBookWordOfLengthNine(book_words)
+# overloading the function to not produce duplicates and to find not count words with 'apostophe s'
+def findInBookWordOfLength(book, word_length, prevent_double):
+    seen_before = []
+    for word in book:
+        if len(word) == word_length:
+            yield (word, len(word)) 
 
 book_no_punc = [word.strip(string.punctuation) for word in book_words]
 
 # printing words of lenght 9 using the generator expression
-nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
+# nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
 # printing words of lenght 9 only once using the generator expression
-seen_before = list()
+# seen_before = list()
 
-nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
+# nine_worders = [word for word in findInBookWordOfLength(book_no_punc, 9)]
 
 for word in nine_worders:
-    if word not in seen_before and word[0][7] != '\'':
+    s_index = word[1]-2
+    if word not in seen_before and word[0][s_index] != '\'':
         seen_before.append(word)
 
 for word in seen_before:
