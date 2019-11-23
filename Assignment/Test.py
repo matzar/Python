@@ -106,29 +106,20 @@ print('Unique words found:', len(book_unique))
 # 
 
 # %%
-book_dict = dict()
 # %%
 # !!! WARNING !!! - long execution! Only use if you need the whole dictionary in the memory, otherwise
 # use the generator version instead
 
-# # create a dictionary of words with words as the key and a tuple with its length and frequency
+# create a dictionary of words with words as the key and a tuple with its length and frequency
 # for word in book_no_punc:
 #     book_dict.update({word: (len(word), book_no_punc.count(word))})
 # print(book_dict)
 
 # %%
-# !!! WARNING !!! - long execution! 
-# Please, only use if you need the whole dictionary in the memory, otherwise
-# please use the generator version instead.
-
-# create a dictionary of words with words as the key, and a tuple with its length and frequency as the value
-# for word in book_no_punc:
-#     book_dict.update({word: (len(word), book_no_punc.count(word))})
+# list comprehension
+book_dict = dict()
 gen_book_dic = [book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc]
 print(book_dict)
-# %%
-# generator expression
-gen_book_dic = (book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc)
 
 # %% [markdown]
 #    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
