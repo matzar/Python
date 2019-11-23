@@ -162,21 +162,26 @@ findInBookWordOfLength(book_words, 9)
 # %%
 # To not count a string with 9 characters, but with 9 letters, we will remove puncuation from 'book_words',
 # make them all lower case, so, e.g., words like: 'Gutenberg' and 'GUTENBERG' don't get counted twice,
-# and we will also make sure to not count word with 'apostophe s', which would also make them falsly 9 letter words.
+# and we will also make sure to not count word with apostophes, which would also make them falsly 9 letter words,
 # We will also get rid of double hyphened words, from Phileas Fogg's telegrams, like: 'some--the'
-# For this a new function generator will be writeen.
-
-# overloading the function to not produce duplicates and to find not count words with 'apostophe s'
+# For this a new function generator will be writeen:
 # arguemnts:               list, word length, booleon to prevent duplicates
-def findInBookWordOfLength(book, word_length, prevent_double=None):
+def findInBookWordOfLength(book, word_length, prevent_duplicates=None):
+    # a list to prevent duplicate yields
     seen_before = []
     for word in book:
+        # check if the word is of the desired length
         if len(word) == word_length:
+            # check if it's a doulicate
             if word not in seen_before:
                 s_index = len(word)-2
+                # check if it won't go beyond the boundry (1 letter words could)
                 if s_index >= 0:
+                    # check is the words is an 'apostophe s' word
                     if word[s_index] != '\'':
+                        # check is the word is from the telegram, i.e., if it has double hyphens
                         if '--' not in word:
+                            # if all of this check out, the word is a unique word of the desired length
                             seen_before.append(word)
                             yield (word, len(word)) 
 
@@ -197,9 +202,7 @@ for word in nine_worders:
 
 # %%
 # Generator to find words with 14 letters or more but without these special characaters `. - \ /` in them.
-# Using previously produced list with no punctuation 'book_no_punc', prevent strings like: 
-# 'Passepartout?' and Passepartout! from being counted as 14 letter words
-fourteeen_letter = (word for word in book_words if len(word) >= 14
+fourteeen_letter = (word for word in book_list if len(word) >= 14
         if '-' not in word 
         if '.' not in word
         if '\\' not in word
