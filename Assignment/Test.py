@@ -107,7 +107,8 @@ print('Unique words found:', len(book_unique))
 
 # %%
 book_dict = dict()
-# Create a dictionary of words with words as the key, and a tuple with its length and frequency as the value using list comprehension
+# Warning - long execution!
+# Create a dictionary of words with words as the key, and a tuple with its length and frequency, as the value.
 [book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc]
 print(book_dict)
 
@@ -116,9 +117,13 @@ print(book_dict)
 #    - Print the word and the number of times it appeared in the book
 
 # %%
-# We're using the book_no_punc list because we don't want to count
-# "Francisco?" and "Francisco" twice and get two unique keys and values
-print(max(book_no_punc, key=lambda x: book_no_punc[1]))
+# We can use book_no_punc list because we don't want to count
+# "Francisco?" and "Francisco" twice and get two unique key values for it
+print('Most commonly used word:', max(book_no_punc, key=lambda x: book_no_punc[1]))
+# but using the created dictionary it would look like this
+import opertor
+print('Most commonly used wird from the dictionary:', max(book_dict.items(), key=operator.itemgetter(1))[0])
+
 
 # %% [markdown]
 #    ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
