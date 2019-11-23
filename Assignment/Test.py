@@ -96,7 +96,7 @@ for word in book_words:
 
 # convert book_no_punc list into a set to obtain the unique values
 book_unique = set(book_no_punc)
-print(book_unique)
+print('Unique words found:', len(book_unique))
 
 # %% [markdown]
 #    ## 3) Build a Dictionary of the words used in the book [3]
@@ -107,20 +107,28 @@ print(book_unique)
 
 # %%
 book_dict = dict()
-
+# %%
 # !!! WARNING !!! - long execution! Only use if you need the whole dictionary in the memory, otherwise
 # use the generator version instead
 
-# create a dictionary of words with words as the key and a tuple with its length and frequency
+# # create a dictionary of words with words as the key and a tuple with its length and frequency
 # for word in book_no_punc:
 #     book_dict.update({word: (len(word), book_no_punc.count(word))})
 # print(book_dict)
 
-
 # %%
-# generator version of the same dictionary
+# !!! WARNING !!! - long execution! 
+# Please, only use if you need the whole dictionary in the memory, otherwise
+# please use the generator version instead.
+
+# create a dictionary of words with words as the key, and a tuple with its length and frequency as the value
+# for word in book_no_punc:
+#     book_dict.update({word: (len(word), book_no_punc.count(word))})
+gen_book_dic = [book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc]
+print(book_dict)
+# %%
+# generator expression
 gen_book_dic = (book_dict.update({word: (len(word), book_no_punc.count(word))}) for word in book_no_punc)
-# print(gen_book_dic)
 
 # %% [markdown]
 #    ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
@@ -401,9 +409,9 @@ tooltip = 'Click for City\'s Name!'
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
 
 # create a map of cities from the book
-for city in city_names:
-    location = geolocator.geocode(city)
-    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
+# for city in city_names:
+#     location = geolocator.geocode(city)
+#     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
 # Plot the map of all the cities mentioned in the book (Might take a minute to load);
 # if there's an error, please try running the cell again.
