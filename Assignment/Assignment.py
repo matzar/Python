@@ -328,15 +328,10 @@ list_of_chapters = list()
 
 for i in chapter_list:
     temp_chap = i.split()
-    list_of_chapters.append(["CHAPTER", temp_chap])
-    
-
-print(chapter_list)
-        
+    list_of_chapters.append(["CHAPTER" + " " + str(temp_chap[0]), temp_chap])
 
 # %%
 # Alternative answer
-# From now on, I will continue using the lists prepared with the alternative way, because
 # this step was already done in the anlternative answer to Question 8
 # TODO
 # display(table_of_contents)
@@ -346,6 +341,12 @@ print(chapter_list)
 #   - Clue: The title of each chapter is written in UPPER CASE and is the first thing in each chapter. Therefore, printing words until you find one that is not upper case will print the title.
 
 # %%
+# Answer:
+for i in list_of_chapters:
+    print(i[0])
+
+# %%
+# Alternative answer:
 for i in range(len(table_of_contents)):
     print(table_of_contents[i][0])
 
