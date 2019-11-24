@@ -304,16 +304,15 @@ while i < len(book_words):
 #   The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
 
 # %%
+# Answer:
 chapter_list.remove(chapter_list[0])
+print(chapter_list[0])
 
 # %%
-# Create a list of chapters.
+# Alternative answer: Create a list of chapters.
 chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents))]
 
-# If I wanted to remove the first entry from my chapter list I'd do it like this:
-# chapter_list_alt.remove(chapter_list_alt[0]) but,
-
-# because I ended up not loading the table of contents, this step won't be necessary. 
+# Because with an alternative way, I ended up not loading the table of contents, this step was not necessary. 
 # Luckily, I was able to get all the necessary information about the Chapter in the previous question:
 # - Chapter name
 # - Chapter number
@@ -322,6 +321,11 @@ chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents
 
 # %% [markdown]
 #   ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
+
+# %%
+# Answer:
+for i in chapter_list:
+    print i
 
 # %%
 # This step was already done in the answer to Question 8
