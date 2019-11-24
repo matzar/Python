@@ -383,7 +383,7 @@ plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
 # Plot the bar chart.
 # TODO
-# plt.show()
+plt.show()
 
 # %% [markdown]
 #   ## 13) Plot Locations Mentioned in the Book on a Map [9
