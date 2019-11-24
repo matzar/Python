@@ -326,17 +326,19 @@ chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents
 
 # %%
 # Answer:
-new_chapter_list = []
-new_chapter_list = chapter_list
+list_of_chapters = []
 for i in chapter_list:
+    temp_chap = "CHAPTER "
     for j in i:
-        temp_chap = "CHAPTER"
         if j.isupper():
-            temp_chap = temp_chap + j
-    new_chapter_list.append([temp_chap, i])
+            temp_chap = temp_chap + j + " "
+        if j.islower():
+            break
+    list_of_chapters.append([temp_chap, i])
         
 
 # %%
+# Alternative answer
 # This step was already done in the answer to Question 8
 # TODO
 # display(table_of_contents)
