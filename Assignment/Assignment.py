@@ -108,28 +108,25 @@ print("Actual number of unique words:", len(unique_words))
 # %%
 book_words_dict = dict()
 # Warning - long execution!
-# TODO
-# [book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
-# TODO
-# display(book_words_dict)
+[book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+display(book_words_dict)
 
 # %% [markdown]
 #   ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
 #   - Print the word and the number of times it appeared in the book
 
 # %%
-# TODO
-# # The most common word is 'the'.
-# # most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
-# print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word[1][1])
-# # But let's see if we haven't missed anything:
-# print("THE:", book_words_dict['THE'])
-# print("The:", book_words_dict['The'])
-# print("the:", book_words_dict['the'])
-# # 'THE', 'The' and 'the' were counted as separate words. It still means that 'the' is the most common word but,
-# # its count is incorrect. Let's fix this:
-# most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
-# print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word_count)
+# The most common word is 'the'.
+# most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
+print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word[1][1])
+# But let's see if we haven't missed anything:
+print("THE:", book_words_dict['THE'])
+print("The:", book_words_dict['The'])
+print("the:", book_words_dict['the'])
+# 'THE', 'The' and 'the' were counted as separate words. It still means that 'the' is the most common word but,
+# its count is incorrect. Let's fix this:
+most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
+print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word_count)
 
 # %% [markdown]
 #   ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
@@ -367,10 +364,14 @@ import numpy as np
 # Get chapter names:
 chapters_names = [i[0] for i in list_of_chapters]
 
-# From now on, I'll be also using alternatively prepared data from Question 8.
 # Increase the size of the plot.
 figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
-# Create a list of chapters' lengths in reversed order; remember to reverse the order of chapters as well!
+
+# From now on, I'll be also using alternatively prepared data from Question 8; especailly because a lot of care
+# had been put into making sure that all the chapters are of the proper length and don't count the book's introduction,
+# chapters description ect.
+
+# Create a list of chapters' lengths in reversed order; remember to reverse the order of chapters as well!]
 chapter_length = [len(chapters_and_content[i][1].split()) for i in reversed(range(len(chapters_and_content)))]
 
 # Prepare the bar chart for plotting.
@@ -382,7 +383,6 @@ plt.ylabel('Chapter')
 plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
 # Plot the bar chart.
-# TODO
 plt.show()
 
 # %% [markdown]
@@ -470,10 +470,9 @@ tooltip = 'Phileas Fogg Probably Visited:'
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
 
 # Populate the folium map with city names from the book and their geo-locations.
-# TODO
-# for city in city_names:
-#     location = geolocator.geocode(city)
-#     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
+for city in city_names:
+    location = geolocator.geocode(city)
+    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
 # Plot the map of all the cities mentioned in the book (Might take a minute to load);
 # if there's an error, please try running the cell again.
@@ -505,8 +504,7 @@ plt.plot(list(range(len(pos_sent_scores))), pos_sent_scores, color='green', line
          marker='o', markerfacecolor='blue', markersize=7) 
   
 # Call to show the plot.
-# TODO
-# plt.show()
+plt.show()
 
 # %% [markdown]
 #   ## 15) Now think of some further analysis you could do based on the text of this book [19]
@@ -545,24 +543,23 @@ plt.plot(list(range(len(pos_sent_scores))), pos_sent_scores, color='green', line
 #     it features an example usage of finding directions via a public transit:
 
 # %%
-# TODO
-# import googlemaps
-# from datetime import datetime
+import googlemaps
+from datetime import datetime
 
-# gmaps = googlemaps.Client(key='Add Your Key here')
+gmaps = googlemaps.Client(key='Add Your Key here')
 
-# # Geocoding an address
-# geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
+# Geocoding an address
+geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
 
-# # Look up an address with reverse geocoding
-# reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
+# Look up an address with reverse geocoding
+reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
 
-# # Request directions via public transit
-# now = datetime.now()
-# directions_result = gmaps.directions("Sydney Town Hall",
-#                                      "Parramatta, NSW",
-#                                      mode="transit",
-#                                      departure_time=now)
+# Request directions via public transit
+now = datetime.now()
+directions_result = gmaps.directions("Sydney Town Hall",
+                                     "Parramatta, NSW",
+                                     mode="transit",
+                                     departure_time=now)
 
 # %% [markdown]
 #     Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
