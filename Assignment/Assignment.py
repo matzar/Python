@@ -374,10 +374,10 @@ figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
 chapter_length = [len(chapters_and_content[i][1].split()) for i in reversed(range(len(chapters_and_content)))]
 
 # Prepare the bar chart for plotting.
-y_pos = np.arange(len(chapter_list_alt))
+y_pos = np.arange(len(chapters_names))
 plt.barh(y_pos, chapter_length, align='center', alpha=0.5)
 # Set the tick locations and labels of y-axis in reversed order.
-plt.yticks(y_pos, reversed(chapter_list_alt))
+plt.yticks(y_pos, reversed(chapters_names))
 plt.ylabel('Chapter')
 plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
