@@ -327,12 +327,11 @@ chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents
 list_of_chapters = list()
 
 for i in chapter_list:
-    temp_chap = ""
-    for j in i:
-        temp_chap = temp_chap + j
-    list_of_chapters.append(["CHAPTER", i])
+    temp_chap = i.split()
+    list_of_chapters.append(["CHAPTER", temp_chap])
+    
 
-print(list_of_chapters[0][0])
+print(chapter_list)
         
 
 # %%
