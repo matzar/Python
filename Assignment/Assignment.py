@@ -220,11 +220,11 @@ for i in fourteeen_letter:
     print(i)
 
 # %% [markdown]
-#   ## 8) Split the book into a list of chapters [6]
+# ## 8) Split the book into a list of chapters [6]
 # 
-#    - This should be a list of strings
-#    - Hint - split on the word 'Chapter'
-#    - Call the list `chapter_list`
+# - This should be a list of strings
+# - Hint - split on the word 'Chapter'
+# - Call the list `chapter_list`
 # 
 
 # %%
@@ -319,13 +319,22 @@ chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents
 # - Chapter description
 # - Chapter content
 
+# From now on, I will continue using the lists prepared with the alternative way.
+
 # %% [markdown]
 #   ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
 
 # %%
 # Answer:
+new_chapter_list = []
+new_chapter_list = chapter_list
 for i in chapter_list:
-    print i
+    for j in i:
+        temp_chap = "CHAPTER"
+        if j.isupper():
+            temp_chap = temp_chap + j
+    new_chapter_list.append([temp_chap, i])
+        
 
 # %%
 # This step was already done in the answer to Question 8
