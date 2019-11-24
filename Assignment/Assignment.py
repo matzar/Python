@@ -228,12 +228,12 @@ for i in fourteeen_letter:
 # 
 
 # %%
-# This could be done like this:
+# Answer:
 chapter_list = data.split("Chapter")
 
 # %%
-# or alternatively, we could answer Question 8 and, prepare the data for questions: 9, 10, 11 and 12,
-# like this:
+# Alternative answer:
+# we could answer Question 8 and, prepare the data for questions: 9, 10, 11 and 12, like this:
 
 # These lists will become our 2D tables of:
 # - Table of contents - it will consist of the Nth 'Chapter' and its 'Description'
@@ -319,27 +319,26 @@ chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents
 # - Chapter description
 # - Chapter content
 
-# From now on, I will continue using the lists prepared with the alternative way.
-
 # %% [markdown]
 #   ## 10) Now take each chapter and split it into a list of words, producing a list of lists - one for each chapter [6]
 
 # %%
 # Answer:
-list_of_chapters = []
+list_of_chapters = list()
+
 for i in chapter_list:
-    temp_chap = "CHAPTER "
+    temp_chap = ""
     for j in i:
-        if j.isupper():
-            temp_chap = temp_chap + j + " "
-        if j.islower():
-            break
-    list_of_chapters.append([temp_chap, i])
+        temp_chap = temp_chap + j
+    list_of_chapters.append(["CHAPTER", i])
+
+print(list_of_chapters)
         
 
 # %%
 # Alternative answer
-# This step was already done in the answer to Question 8
+# From now on, I will continue using the lists prepared with the alternative way, because
+# this step was already done in the anlternative answer to Question 8
 # TODO
 # display(table_of_contents)
 
