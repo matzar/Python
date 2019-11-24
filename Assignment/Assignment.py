@@ -332,7 +332,7 @@ for i in chapter_list:
         temp_chap = temp_chap + j
     list_of_chapters.append(["CHAPTER", i])
 
-print(list_of_chapters)
+print(list_of_chapters[0][0])
         
 
 # %%
