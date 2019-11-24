@@ -365,6 +365,9 @@ import numpy as np
 
 # %%
 # This answer uses the alternatively prepared lists from Question 8
+# Data preperation:
+chapters_names = [i[0] for i in list_of_chapters]
+
 # Increase the size of the plot.
 figure(num=None, figsize=(10, 8), dpi=80, facecolor='w', edgecolor='k')
 # Create a list of chapters' lengths in reversed order; remember to reverse the order of chapters as well!
