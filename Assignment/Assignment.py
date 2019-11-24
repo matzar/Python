@@ -108,25 +108,28 @@ print("Actual number of unique words:", len(unique_words))
 # %%
 book_words_dict = dict()
 # Warning - long execution!
-[book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
-display(book_words_dict)
+# TODO
+# [book_words_dict.update({word: (len(word), book_words.count(word))}) for word in book_words]
+# TODO
+# display(book_words_dict)
 
 # %% [markdown]
 #   ## 4) Use the dictionary that you created above to find the most commonly used word in the book [3]
 #   - Print the word and the number of times it appeared in the book
 
 # %%
-# The most common word is 'the'.
-most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
-print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word[1][1])
-# But let's see if we haven't missed anything:
-print("THE:", book_words_dict['THE'])
-print("The:", book_words_dict['The'])
-print("the:", book_words_dict['the'])
-# 'THE', 'The' and 'the' were counted as separate words. It still means that 'the' is the most common word but,
-# its count is incorrect. Let's fix this:
-most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
-print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word_count)
+# TODO
+# # The most common word is 'the'.
+# # most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
+# print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word[1][1])
+# # But let's see if we haven't missed anything:
+# print("THE:", book_words_dict['THE'])
+# print("The:", book_words_dict['The'])
+# print("the:", book_words_dict['the'])
+# # 'THE', 'The' and 'the' were counted as separate words. It still means that 'the' is the most common word but,
+# # its count is incorrect. Let's fix this:
+# most_common_word_count = int(most_common_word[1][1] + book_words_dict['THE'][1] + book_words_dict['The'][1])
+# print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word_count)
 
 # %% [markdown]
 #   ## 5) Write a generator function to produce each word and its length each time it yields a value [6]
@@ -197,7 +200,8 @@ def findInBookWordOfLength(book, word_length):
 nine_worders = [word for word in findInBookWordOfLength(book_words, 9)]
 
 # Display the words of length 9.
-display(nine_worders)
+# TODO
+# display(nine_worders)
 
 # %% [markdown]
 #   ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
@@ -228,8 +232,8 @@ for i in fourteeen_letter:
 chapter_list = data.split("Chapter")
 
 # %%
-# Alternative way to answer Question 8 and,
-# prepare the data for questions: 9, 10, 11 and 12
+# or alternatively, we could answer Question 8 and, prepare the data for questions: 9, 10, 11 and 12,
+# like this:
 
 # These lists will become our 2D tables of:
 # - Table of contents - it will consist of the Nth 'Chapter' and its 'Description'
@@ -300,11 +304,14 @@ while i < len(book_words):
 #   The first item in the chapter list is just the preface and chapter list. Copy that into a separate string variable and then remove it from the chapter list
 
 # %%
+chapter_list.remove(chapter_list[0])
+
+# %%
 # Create a list of chapters.
 chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents))]
 
 # If I wanted to remove the first entry from my chapter list I'd do it like this:
-# chapter_list.remove(chapter_list[0]) but,
+# chapter_list_alt.remove(chapter_list_alt[0]) but,
 
 # because I ended up not loading the table of contents, this step won't be necessary. 
 # Luckily, I was able to get all the necessary information about the Chapter in the previous question:
@@ -318,7 +325,8 @@ chapter_list_alt = [table_of_contents[i][0] for i in range(len(table_of_contents
 
 # %%
 # This step was already done in the answer to Question 8
-display(table_of_contents)
+# TODO
+# display(table_of_contents)
 
 # %% [markdown]
 #   ## 11) Print only the titles from each chapter [6]
@@ -356,7 +364,8 @@ plt.ylabel('Chapter')
 plt.xlabel('Number of words')
 plt.title('Word count in each chapter')
 # Plot the bar chart.
-plt.show()
+# TODO
+# plt.show()
 
 # %% [markdown]
 #   ## 13) Plot Locations Mentioned in the Book on a Map [9
@@ -443,9 +452,10 @@ tooltip = 'Phileas Fogg Probably Visited:'
 geolocator = Nominatim(user_agent="phileas_fogg_journey")
 
 # Populate the folium map with city names from the book and their geo-locations.
-for city in city_names:
-    location = geolocator.geocode(city)
-    folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
+# TODO
+# for city in city_names:
+#     location = geolocator.geocode(city)
+#     folium.Marker(location=[location.latitude, location.longitude], popup=city, tooltip=tooltip).add_to(m)
 
 # Plot the map of all the cities mentioned in the book (Might take a minute to load);
 # if there's an error, please try running the cell again.
@@ -477,7 +487,8 @@ plt.plot(list(range(len(pos_sent_scores))), pos_sent_scores, color='green', line
          marker='o', markerfacecolor='blue', markersize=7) 
   
 # Call to show the plot.
-plt.show()
+# TODO
+# plt.show()
 
 # %% [markdown]
 #   ## 15) Now think of some further analysis you could do based on the text of this book [19]
@@ -516,23 +527,24 @@ plt.show()
 #     it features an example usage of finding directions via a public transit:
 
 # %%
-import googlemaps
-from datetime import datetime
+# TODO
+# import googlemaps
+# from datetime import datetime
 
-gmaps = googlemaps.Client(key='Add Your Key here')
+# gmaps = googlemaps.Client(key='Add Your Key here')
 
-# Geocoding an address
-geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
+# # Geocoding an address
+# geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
 
-# Look up an address with reverse geocoding
-reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
+# # Look up an address with reverse geocoding
+# reverse_geocode_result = gmaps.reverse_geocode((40.714224, -73.961452))
 
-# Request directions via public transit
-now = datetime.now()
-directions_result = gmaps.directions("Sydney Town Hall",
-                                     "Parramatta, NSW",
-                                     mode="transit",
-                                     departure_time=now)
+# # Request directions via public transit
+# now = datetime.now()
+# directions_result = gmaps.directions("Sydney Town Hall",
+#                                      "Parramatta, NSW",
+#                                      mode="transit",
+#                                      departure_time=now)
 
 # %% [markdown]
 #     Given that it's a google maps tools we can get a lot more out of it: travel cost, weather conditions in the areas,
