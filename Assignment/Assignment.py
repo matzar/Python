@@ -117,7 +117,7 @@ display(book_words_dict)
 
 # %%
 # The most common word is 'the'.
-# most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
+most_common_word = max(book_words_dict.items(), key=lambda i : i[1][1])
 print("The most common word:", "\'",most_common_word[0],"\'", "Count:", most_common_word[1][1])
 # But let's see if we haven't missed anything:
 print("THE:", book_words_dict['THE'])
@@ -197,8 +197,7 @@ def findInBookWordOfLength(book, word_length):
 nine_worders = [word for word in findInBookWordOfLength(book_words, 9)]
 
 # Display the words of length 9.
-# TODO
-# display(nine_worders)
+display(nine_worders)
 
 # %% [markdown]
 #   ## 7) Now iterate over your original list of words, `book_list` and find all the words with more than 14 letters, which do not contain any of these characters: [6]
@@ -330,8 +329,7 @@ for i in chapter_list:
 # %%
 # Alternative answer
 # this step was already done in the anlternative answer to Question 8
-# TODO
-# display(table_of_contents)
+display(table_of_contents)
 
 # %% [markdown]
 #   ## 11) Print only the titles from each chapter [6]
